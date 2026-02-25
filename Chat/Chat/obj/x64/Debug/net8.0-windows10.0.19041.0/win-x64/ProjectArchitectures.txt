@@ -1,0 +1,1 @@
+C:\Users\vboxuser\Documents\GitHub\Chat-app\Chat\Chat\Chat.csproj;x64
