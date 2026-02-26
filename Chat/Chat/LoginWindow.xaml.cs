@@ -67,9 +67,9 @@ namespace Chat
                     {
                         WelcomeText.Text = response;
 
-                        string sessionId = response.Split(':')[1];
+                        string userId = response.Split(':')[1];
 
-                        var chatWin = new MainWindow(sessionId);
+                        var chatWin = new MainWindow(userId, client);
                         chatWin.Activate();
                         this.Close();
                     }

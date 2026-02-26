@@ -1,9 +1,13 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Driver;
+using MongoDB.Driver.Core.Servers;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Sockets;
+using System.Reflection;
 using System.Text;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ChatServer
 {
@@ -27,12 +31,84 @@ namespace ChatServer
             }
         }
 
-        private IMongoCollection<BsonDocument> GetUsersCollection(IMongoDatabase db)
+        /* =============================
+         *          COLLECTIONS
+         * =============================
+         */
+
+        private IMongoCollection<BsonDocument> GetUsersCollection()
         {
-            return db.GetCollection<BsonDocument>("users");
+            return database.GetCollection<BsonDocument>("users");
         }
 
-        public String Authenticate(string data)
+        private IMongoCollection<BsonDocument> GetRoomsCollection()
+        {
+            return database.GetCollection<BsonDocument>("Rooms");
+        }
+
+        private IMongoCollection<BsonDocument> GetMessagesCollection()
+        {
+            return database.GetCollection<BsonDocument>("Messages");
+        }
+
+        /* =============================
+         *          FUNCTIONS
+         * =============================
+         */
+
+        public async Task<List<BsonDocument>> GetUserRooms(string userId)
+        {
+            var roomsCollection = GetRoomsCollection();
+
+            var filter = Builders<BsonDocument>.Filter.AnyEq("Members", userId);
+
+            var rooms = await roomsCollection.Find(filter).ToListAsync();
+            return rooms;
+        }
+
+        public async Task StoreMessageAsync(string message, TcpClient client)
+        {
+            string senderId = ConnectionManager.GetUserId(client);
+
+            if (string.IsNullOrEmpty(senderId))
+            {
+                Debug.WriteLine("NULL sender");
+                return;
+            }
+
+            string roomName = "general";
+            string sender = "User321";
+
+            var roomsCollection = database.GetCollection<BsonDocument>("rooms");
+            var messagesCollection = database.GetCollection<BsonDocument>("messages");
+
+            var roomFilter = Builders<BsonDocument>.Filter.Eq("RoomName", roomName);
+            var room = await roomsCollection.Find(roomFilter).FirstOrDefaultAsync();
+
+            if (room == null)
+            {
+                Console.WriteLine($"Error: Room '{roomName}' not found.");
+                return;
+            }
+
+            Console.WriteLine($"Room: {roomName}");
+            Console.WriteLine($"Sender: {sender}");
+            Console.WriteLine($"Sender ID: {senderId}");
+            Console.WriteLine($"Message: {message}");
+
+            var messageDoc = new BsonDocument
+            {
+                { "RoomId", room["_id"].AsObjectId },
+                { "SenderId", new ObjectId(senderId) },
+                { "SenderName", sender },
+                { "Text", message },
+                { "Timestamp", DateTime.UtcNow }
+            };
+
+            await messagesCollection.InsertOneAsync(messageDoc);
+        }
+
+        public String Authenticate(string data, TcpClient client)
         {
             var credentials = data.Split('@');
             string username = credentials[0];
@@ -41,16 +117,18 @@ namespace ChatServer
             Console.WriteLine($"Username: {username}");
             Console.WriteLine($"Password: {password}");
 
-            var usersCollection = GetUsersCollection(database);
+            var usersCollection = GetUsersCollection();
 
             var filter = Builders<BsonDocument>.Filter.Eq("Username", username);
             var userDoc = usersCollection.Find(filter).FirstOrDefault();
 
             if (userDoc != null && userDoc["Password"] == password)
             {
-                string sessionId = Guid.NewGuid().ToString();
-                //ActiveSessions.Add(sessionId, username);
-                return $"AUTH_SUCCESS:{sessionId}";
+                string userId = userDoc["_id"].ToString();
+
+                ConnectionManager.AddUser(userId, client);
+
+                return $"AUTH_SUCCESS:{userId}";
             }
 
             return "AUTH_FAIL";
