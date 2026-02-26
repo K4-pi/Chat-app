@@ -287,7 +287,6 @@ namespace Chat.Chat_XamlTypeInfo
 
         private object Activate_0_XamlControlsResources() { return new global::Microsoft.UI.Xaml.Controls.XamlControlsResources(); }
         private object Activate_4_LoginWindow() { return new global::Chat.LoginWindow(); }
-        private object Activate_6_MainWindow() { return new global::Chat.MainWindow(); }
         private object Activate_7_TreeViewNode() { return new global::Microsoft.UI.Xaml.Controls.TreeViewNode(); }
         private void StaticInitializer_0_XamlControlsResources() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.XamlControlsResources).TypeHandle);
         private void StaticInitializer_4_LoginWindow() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Chat.LoginWindow).TypeHandle);
@@ -353,7 +352,6 @@ namespace Chat.Chat_XamlTypeInfo
 
             case 6:   //  Chat.MainWindow
                 userType = new global::Chat.Chat_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Window"));
-                userType.Activator = Activate_6_MainWindow;
                 userType.StaticInitializer = StaticInitializer_6_MainWindow;
                 userType.SetIsLocalType();
                 xamlType = userType;

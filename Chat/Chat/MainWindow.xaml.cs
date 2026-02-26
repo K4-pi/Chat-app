@@ -23,9 +23,10 @@ namespace Chat
     /// </summary>
     public sealed partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow(string sessionId)
         {
             InitializeComponent();
+            Title = $"Session: {sessionId}";
         }
     }
 }

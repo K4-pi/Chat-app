@@ -6,17 +6,19 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
 	<Grid VerticalAlignment="Center" HorizontalAlignment="Center" Width="300">
-		<StackPanel Spacing="15">
-			<TextBlock Text="Welcome" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center"/>
+		<StackPanel Spacing="18">
+			<TextBlock x:ConnectionId='2' x:Name="WelcomeText" Text="Welcome" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center"/>
 
-			<TextBox x:ConnectionId='2' x:Name="UsernameField" Header="Username" PlaceholderText="Enter username"/>
-			<PasswordBox x:ConnectionId='3' x:Name="PasswordField" Header="Password" PlaceholderText="Enter password"/>
+			<TextBox x:ConnectionId='3' x:Name="UsernameField" Header="Username" PlaceholderText="Enter username"/>
+			<PasswordBox x:ConnectionId='4' x:Name="PasswordField" Header="Password" PlaceholderText="Enter password"/>
 
-			<Button x:ConnectionId='4' x:Name="LoginButton" Content="Login"
+			<Button x:ConnectionId='5' x:Name="LoginButton" Content="Login"
                     HorizontalAlignment="Stretch"
                                              
                     Style="{StaticResource AccentButtonStyle}"/>
-		</StackPanel>
+
+            <TextBlock x:ConnectionId='6' x:Name="ErrorLoginText" Text="" FontSize="12" FontWeight="Normal" HorizontalAlignment="Center" Foreground="Red"/>
+        </StackPanel>
 	</Grid>
 </Window>
 

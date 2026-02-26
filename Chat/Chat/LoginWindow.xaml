@@ -6,8 +6,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
 	<Grid VerticalAlignment="Center" HorizontalAlignment="Center" Width="300">
-		<StackPanel Spacing="15">
-			<TextBlock Text="Welcome" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center"/>
+		<StackPanel Spacing="18">
+			<TextBlock x:Name="WelcomeText" Text="Welcome" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center"/>
 
 			<TextBox x:Name="UsernameField" Header="Username" PlaceholderText="Enter username"/>
 			<PasswordBox x:Name="PasswordField" Header="Password" PlaceholderText="Enter password"/>
@@ -16,6 +16,8 @@
                     HorizontalAlignment="Stretch"
                     Click="LoginButton_Click"
                     Style="{StaticResource AccentButtonStyle}"/>
-		</StackPanel>
+
+            <TextBlock x:Name="ErrorLoginText" Text="" FontSize="12" FontWeight="Normal" HorizontalAlignment="Center" Foreground="Red"/>
+        </StackPanel>
 	</Grid>
 </Window>
