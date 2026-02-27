@@ -78,12 +78,12 @@ namespace ChatServer
             {
                 string msgId = doc["_id"].AsObjectId.ToString();
                 string senderId = doc["SenderId"].AsObjectId.ToString();
-                //string senderName = doc.Contains("SenderName") ? doc["SenderName"].AsString : "Unknown";
+                string senderName = doc.Contains("SenderName") ? doc["SenderName"].AsString : "Unknown";
                 string text = doc["Text"].AsString;
 
                 //DateTime timestamp = doc["Timestamp"].ToUniversalTime();
 
-                await ConnectionManager.SendAsync($"MSG:{senderId}@{text}\n", client);
+                await ConnectionManager.SendAsync($"MSG:{senderName}@{text}", client);
             }
 
         }
@@ -111,8 +111,14 @@ namespace ChatServer
 
             if (room == null || !room.Contains("Members")) return;
 
+            var usersCollection = GetUsersCollection();
+            var usersFilter = Builders<BsonDocument>.Filter.Eq("_id", new ObjectId(senderId));
+            var user = await usersCollection.Find(usersFilter).FirstOrDefaultAsync();
+
+            string senderName = user.Contains("Username") ? user["Username"].AsString : "Unknown";
+
             var members = room["Members"].AsBsonArray;
-            string protocolMessage = $"MSG:{senderId}@{messageText}";
+            string protocolMessage = $"MSG:{senderName}@{messageText}";
             byte[] data = Encoding.UTF8.GetBytes(protocolMessage);
 
             foreach (var memberValue in members)
@@ -151,16 +157,24 @@ namespace ChatServer
             }
 
             var roomsCollection = GetRoomsCollection();
-            var messagesCollection = GetMessagesCollection();
 
             var roomFilter = Builders<BsonDocument>.Filter.Eq("_id", new ObjectId(roomId));
             var room = await roomsCollection.Find(roomFilter).FirstOrDefaultAsync();
 
             if (room == null)
             {
-                Console.WriteLine($"Error: Room '{roomId}' not found.");
+                Console.WriteLine($"Error: Room with id '{roomId}' not found");
                 return;
             }
+
+            var usersCollection = GetUsersCollection();
+
+            var userFilter = Builders<BsonDocument>.Filter.Eq("_id", new ObjectId(senderId));
+            var user = await usersCollection.Find(userFilter).FirstOrDefaultAsync();
+
+            string senderName = "Unknown";
+
+            if (user != null && user.Contains("Username")) senderName = user["Username"].AsString;
 
             Console.WriteLine($"RoomID: {roomId}");
             Console.WriteLine($"Sender ID: {senderId}");
@@ -170,11 +184,12 @@ namespace ChatServer
             {
                 { "RoomId", room["_id"].AsObjectId },
                 { "SenderId", new ObjectId(senderId) },
-                //{ "SenderName", sender },
+                { "SenderName", senderName },
                 { "Text", message },
                 { "Timestamp", DateTime.UtcNow }
             };
 
+            var messagesCollection = GetMessagesCollection();
             await messagesCollection.InsertOneAsync(messageDoc);
         }
 

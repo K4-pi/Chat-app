@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net.Sockets;
 using System.Text;
 
@@ -19,8 +20,7 @@ namespace ChatServer
                 while (true)
                 {
                     int bytesRead = await stream.ReadAsync(buffer);
-                    if (bytesRead == 0)
-                        break;
+                    if (bytesRead == 0) break;
 
                     string msg = Encoding.UTF8.GetString(buffer, 0, bytesRead).Trim();
                     Console.WriteLine($"\n{msg}");
@@ -78,6 +78,7 @@ namespace ChatServer
             finally
             {
                 client.Close();
+                ConnectionManager.RemoveUser(client);
             }
 
         }

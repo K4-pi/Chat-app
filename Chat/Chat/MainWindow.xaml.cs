@@ -61,7 +61,7 @@ namespace Chat
                     // "User@Hello World!"
                     string formated = s.Substring(4); // Remove "MSG:" prefix
 
-                    // "[69a0a4f759fb6ad9c0945263] [Hello World!]"
+                    // "[User] [Hello World!]"
                     string[] content = formated.Split('@', 2);
 
                     string user = content[0];
@@ -88,6 +88,8 @@ namespace Chat
 
                     this.DispatcherQueue.TryEnqueue(() =>
                     {
+                        RoomList.ItemsSource = null; // Prevents refreshing every time new message is added
+
                         userRooms.Clear();
                         Debug.WriteLine("Your rooms:");
 
@@ -99,6 +101,8 @@ namespace Chat
                             var newRoom = new ChatRoom { Id = tokens[0], Name = tokens[1] };
                             userRooms.Add(newRoom);
                         }
+
+                        RoomList.ItemsSource = userRooms;
                     });
                 }
             }            

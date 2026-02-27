@@ -11,7 +11,7 @@
   <Identity
     Name="f5f7443a-3258-478d-bcf1-fc15783ddccc"
     Publisher="CN=vboxuser"
-    Version="0.3.0.0" />
+    Version="0.5.1.0" />
 
   <mp:PhoneIdentity PhoneProductId="f5f7443a-3258-478d-bcf1-fc15783ddccc" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 

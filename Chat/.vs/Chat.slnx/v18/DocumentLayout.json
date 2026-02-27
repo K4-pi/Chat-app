@@ -7,12 +7,16 @@
       "RelativeMoniker": "D:0:0:{296CED49-A16E-D2C0-D06B-675E37B852EF}|Chat\\Chat.csproj|solutionrelative:chat\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{296CED49-A16E-D2C0-D06B-675E37B852EF}|Chat\\Chat.csproj|c:\\users\\vboxuser\\documents\\github\\chat-app\\chat\\chat\\loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{296CED49-A16E-D2C0-D06B-675E37B852EF}|Chat\\Chat.csproj|solutionrelative:chat\\loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{296CED49-A16E-D2C0-D06B-675E37B852EF}|Chat\\Chat.csproj|c:\\users\\vboxuser\\documents\\github\\chat-app\\chat\\chat\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{296CED49-A16E-D2C0-D06B-675E37B852EF}|Chat\\Chat.csproj|solutionrelative:chat\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{296CED49-A16E-D2C0-D06B-675E37B852EF}|Chat\\Chat.csproj|c:\\users\\vboxuser\\documents\\github\\chat-app\\chat\\chat\\tcpchatclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{296CED49-A16E-D2C0-D06B-675E37B852EF}|Chat\\Chat.csproj|solutionrelative:chat\\tcpchatclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{296CED49-A16E-D2C0-D06B-675E37B852EF}|Chat\\Chat.csproj|c:\\users\\vboxuser\\documents\\github\\chat-app\\chat\\chat\\loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{296CED49-A16E-D2C0-D06B-675E37B852EF}|Chat\\Chat.csproj|solutionrelative:chat\\loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{296CED49-A16E-D2C0-D06B-675E37B852EF}|Chat\\Chat.csproj|c:\\users\\vboxuser\\documents\\github\\chat-app\\chat\\chat\\message.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -21,10 +25,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{296CED49-A16E-D2C0-D06B-675E37B852EF}|Chat\\Chat.csproj|c:\\users\\vboxuser\\documents\\github\\chat-app\\chat\\chat\\chatroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{296CED49-A16E-D2C0-D06B-675E37B852EF}|Chat\\Chat.csproj|solutionrelative:chat\\chatroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{296CED49-A16E-D2C0-D06B-675E37B852EF}|Chat\\Chat.csproj|c:\\users\\vboxuser\\documents\\github\\chat-app\\chat\\chat\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{296CED49-A16E-D2C0-D06B-675E37B852EF}|Chat\\Chat.csproj|solutionrelative:chat\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{296CED49-A16E-D2C0-D06B-675E37B852EF}|Chat\\Chat.csproj|c:\\users\\vboxuser\\documents\\github\\chat-app\\chat\\chat\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -54,7 +54,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "ChatRoom.cs",
               "DocumentMoniker": "C:\\Users\\vboxuser\\Documents\\GitHub\\Chat-app\\Chat\\Chat\\ChatRoom.cs",
               "RelativeDocumentMoniker": "Chat\\ChatRoom.cs",
@@ -62,8 +62,7 @@
               "RelativeToolTip": "Chat\\ChatRoom.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-27T17:09:25.044Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-27T17:09:25.044Z"
             },
             {
               "$type": "Document",
@@ -79,7 +78,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Message.cs",
               "DocumentMoniker": "C:\\Users\\vboxuser\\Documents\\GitHub\\Chat-app\\Chat\\Chat\\Message.cs",
               "RelativeDocumentMoniker": "Chat\\Message.cs",
@@ -87,12 +86,11 @@
               "RelativeToolTip": "Chat\\Message.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-26T21:33:01.053Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-26T21:33:01.053Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\vboxuser\\Documents\\GitHub\\Chat-app\\Chat\\Chat\\MainWindow.xaml",
               "RelativeDocumentMoniker": "Chat\\MainWindow.xaml",
@@ -124,7 +122,7 @@
               "RelativeDocumentMoniker": "Chat\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\vboxuser\\Documents\\GitHub\\Chat-app\\Chat\\Chat\\MainWindow.xaml.cs",
               "RelativeToolTip": "Chat\\MainWindow.xaml.cs",
-              "ViewState": "AgIAACUAAAAAAAAAAAAAwDoAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAYwD0AAABNAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-26T16:25:35.993Z",
               "EditorCaption": ""
@@ -139,12 +137,11 @@
               "RelativeToolTip": "Chat\\LoginWindow.xaml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-02-26T16:24:25.717Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-26T16:24:25.717Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "LoginWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\vboxuser\\Documents\\GitHub\\Chat-app\\Chat\\Chat\\LoginWindow.xaml.cs",
               "RelativeDocumentMoniker": "Chat\\LoginWindow.xaml.cs",
@@ -152,8 +149,7 @@
               "RelativeToolTip": "Chat\\LoginWindow.xaml.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAAgwCoAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-26T16:23:03.763Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-26T16:23:03.763Z"
             },
             {
               "$type": "Document",

@@ -19,9 +19,9 @@ namespace ChatServer
             _onlineUsers[userId] = client;
         }
 
-        public static void RemoveUser(string userId)
+        public static void RemoveUser(TcpClient client)
         {
-            _onlineUsers.Remove(userId);
+            _onlineUsers.Remove(GetUserId(client));
         }
 
         public static TcpClient GetClient(string userId)
