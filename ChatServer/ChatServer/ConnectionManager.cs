@@ -35,5 +35,10 @@ namespace ChatServer
             var entry = _onlineUsers.FirstOrDefault(x => x.Value == client);
             return entry.Key;
         }
+        public static async Task SendAsync(string data, TcpClient client)
+        {
+            byte[] res = Encoding.UTF8.GetBytes(data + "\n");
+            await client.GetStream().WriteAsync(res, 0, res.Length);
+        }
     }
 }

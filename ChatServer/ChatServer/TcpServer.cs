@@ -26,13 +26,12 @@ namespace ChatServer
                     Console.WriteLine($"\n{msg}");
 
                     string[] result = msg.Split(':');
-                    string response = "NO_SUCH_OPERATION";
+                    string response;
 
                     switch (result[0])
                     {
                         case "MSG":
                             Console.WriteLine("Storing message...");
-                            response = "MSG_ACCEPTED";
 
                             //{roomID}@{text}"
                             string[] formated = result[1].Split('@', 2);
@@ -49,6 +48,23 @@ namespace ChatServer
                         case "LOGIN":
                             Console.WriteLine("Authentication...");
                             response = database.Authenticate(result[1], client);
+                            await ConnectionManager.SendAsync(response, client);
+                            break;
+
+                        case "GET_ROOMS":
+                            Console.WriteLine("Sending list of rooms...");
+                            string uid = ConnectionManager.GetUserId(client);
+                            if (uid != null)
+                            {
+                                response = await database.GetUserRoomsAsync(uid);
+                                await ConnectionManager.SendAsync(response, client);
+                            }
+                            break;
+
+                        case "GET_HISTORY":
+                            Console.WriteLine("Sending history of messages...");
+                            string roomId = result[1];
+                            await database.SendMessageHistoryAsync(roomId, client);
                             break;
 
                         default:
@@ -57,10 +73,6 @@ namespace ChatServer
                             break;
                     }
                     Console.WriteLine("SWITCH END!");
-
-                    byte[] responseBuffer = Encoding.UTF8.GetBytes(response);
-                    await stream.WriteAsync(responseBuffer, 0, responseBuffer.Length);
-                    Console.WriteLine($"Sent: {response}");
                 }
             }
             finally
@@ -69,5 +81,7 @@ namespace ChatServer
             }
 
         }
+
+        
     }
 }

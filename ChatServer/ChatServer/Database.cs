@@ -56,14 +56,50 @@ namespace ChatServer
          * =============================
          */
 
-        public async Task<List<BsonDocument>> GetUserRooms(string userId)
+        public async Task SendMessageHistoryAsync(string roomId, TcpClient client)
+        {
+            var roomsCollection = GetRoomsCollection();
+            var messagesCollection = GetMessagesCollection();
+
+            //string userId = ConnectionManager.GetUserId(client);
+            //var filter = Builders<BsonDocument>.Filter.AnyEq("Members", new ObjectId(userId));
+
+            var filter = Builders<BsonDocument>.Filter.AnyEq("RoomId", new ObjectId(roomId));
+
+            var sort = Builders<BsonDocument>.Sort.Ascending("Timestamp");
+            var messages = await messagesCollection.Find(filter)
+                                                   .Sort(sort)
+                                                   .Limit(50)
+                                                   .ToListAsync();
+
+            if (messages.Count == 0) return;
+
+            foreach (var doc in messages)
+            {
+                string msgId = doc["_id"].AsObjectId.ToString();
+                string senderId = doc["SenderId"].AsObjectId.ToString();
+                //string senderName = doc.Contains("SenderName") ? doc["SenderName"].AsString : "Unknown";
+                string text = doc["Text"].AsString;
+
+                //DateTime timestamp = doc["Timestamp"].ToUniversalTime();
+
+                await ConnectionManager.SendAsync($"MSG:{senderId}@{text}\n", client);
+            }
+
+        }
+
+        public async Task<string> GetUserRoomsAsync(string userId)
         {
             var roomsCollection = GetRoomsCollection();
 
-            var filter = Builders<BsonDocument>.Filter.AnyEq("Members", userId);
-
+            var filter = Builders<BsonDocument>.Filter.AnyEq("Members", new ObjectId(userId));
             var rooms = await roomsCollection.Find(filter).ToListAsync();
-            return rooms;
+
+            if (rooms.Count == 0) return "ROOM_LIST:NONE";
+
+            // Format: ID,Name|ID,Name
+            var roomStrings = rooms.Select(r => $"{r["_id"]},{r["RoomName"]}");
+            return "ROOM_LIST:" + string.Join("|", roomStrings);
         }
 
         public async Task BroadcastToRoomAsync(string roomId, string messageText, string senderId)
@@ -76,7 +112,7 @@ namespace ChatServer
             if (room == null || !room.Contains("Members")) return;
 
             var members = room["Members"].AsBsonArray;
-            string protocolMessage = $"MSG:{senderId}@{messageText}\n"; // Add \n for protocol separation
+            string protocolMessage = $"MSG:{senderId}@{messageText}";
             byte[] data = Encoding.UTF8.GetBytes(protocolMessage);
 
             foreach (var memberValue in members)
@@ -84,18 +120,18 @@ namespace ChatServer
                 string memberId = memberValue.AsObjectId.ToString();
                 Console.WriteLine($"Member ID in broadcast: {memberId}");
 
-                // FIND the connection for THIS specific member
-                TcpClient targetClient = ConnectionManager.GetClient(memberId);
+                TcpClient targetClient = ConnectionManager.GetClient(memberId); // Find connection
 
                 if (targetClient != null && targetClient.Connected)
                 {
                     try
                     {
-                        // Write to the TARGET, not the original sender
                         await targetClient.GetStream().WriteAsync(data, 0, data.Length);
                         Console.WriteLine($"Sent to member: {memberId}");
                     }
-                    catch { /* Handle disconnects */ }
+                    catch {
+                        Debug.WriteLine("Disconnected...");
+                    }
                 }
                 else
                 {

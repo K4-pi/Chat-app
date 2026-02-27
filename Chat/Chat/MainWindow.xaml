@@ -12,57 +12,49 @@
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="180"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="180"/>
         </Grid.ColumnDefinitions>
 
-        <ListView x:Name="MessageList" Grid.Row="0" Grid.Column="0"
-          Margin="0,0,10,10" SelectionMode="None">
+        <ListView x:Name="RoomList" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0"
+              Header="My Rooms" Margin="0,0,10,0"
+              BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}"
+              BorderThickness="1"
+              SelectionChanged="RoomList_SelectionChanged">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="local:ChatRoom">
+                    <TextBlock Text="{x:Bind Name}" VerticalAlignment="Center" Padding="5"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <ListView x:Name="MessageList" Grid.Row="0" Grid.Column="1">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="local:Message">
-                    <StackPanel Margin="5,8">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
-
-                            <TextBlock Text="{x:Bind Username}" 
-                               FontWeight="Bold" 
-                               Foreground="{ThemeResource SystemControlHighlightAccentBrush}"/>
-
-                            <TextBlock Text="{x:Bind SentAt}" 
-                               Grid.Column="1" 
-                               FontSize="10" 
-                               Foreground="Gray" 
-                               VerticalAlignment="Bottom"/>
-                        </Grid>
-
-                        <TextBlock Text="{x:Bind Text}" 
-                           TextWrapping="Wrap" 
-                           Margin="0,4,0,0"/>
+                    <StackPanel Margin="0,4">
+                        <TextBlock Text="{x:Bind Username}" FontWeight="Bold" Foreground="Blue"/>
+                        <TextBlock Text="{x:Bind Text}" TextWrapping="Wrap"/>
+                        <TextBlock Text="{x:Bind SentAt}" FontSize="10" Foreground="Gray"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
 
-        <ListView x:Name="UserList" Grid.Row="0" Grid.RowSpan="2" Grid.Column="1"
-                  Header="Users Online"
-                  BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}"
-                  BorderThickness="1">
+        <ListView x:Name="UserList" Grid.Row="0" Grid.RowSpan="2" Grid.Column="2"
+              Header="Users Online"
+              BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}"
+              BorderThickness="1">
         </ListView>
 
-        <Grid Grid.Row="1" Grid.Column="0" Margin="0,0,10,0">
+        <Grid Grid.Row="1" Grid.Column="1" Margin="0,0,10,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-
-            <TextBox x:Name="MessageInput" PlaceholderText="Type a message..."
-                     VerticalAlignment="Center"/>
+            <TextBox x:Name="MessageInput" PlaceholderText="Type a message..." VerticalAlignment="Center"/>
             <Button x:Name="SendButton" Content="Send" Grid.Column="1"
-                    Margin="10,0,0,0" VerticalAlignment="Center"
-                    Click="SendButton_Click"/>
+                Margin="10,0,0,0" VerticalAlignment="Center" Click="SendButton_Click"/>
         </Grid>
     </Grid>
 </Window>

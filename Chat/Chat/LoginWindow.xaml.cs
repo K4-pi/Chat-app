@@ -36,10 +36,12 @@ namespace Chat
 
             foreach (char c in ":@'/,.><-_=+()$#!?")
             {
-                if (UsernameField.Text.Contains(c))
+                if (UsernameField.Text.Contains(c) || PasswordField.Password.Contains(c))
                 {
                     ErrorLoginText.Text = "No special symbols!";
                     LoginButton.IsEnabled = true;
+                    UsernameField.Text = "";
+                    PasswordField.Password = "";
                     return;
                 }
             }
