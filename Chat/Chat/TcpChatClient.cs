@@ -30,6 +30,7 @@ namespace Chat
         // Listen after login
         public async Task ListenAsync(Action<string> onMessageReceived)
         {
+            Debug.WriteLine("Started listen loop");
             byte[] buffer = new byte[2048];
             try
             {
@@ -46,6 +47,7 @@ namespace Chat
             {
                 Debug.WriteLine($"Disconnected: {ex.Message}");
             }
+            Debug.WriteLine("Ended listen loop");
         }
 
         public async void SendAsync(string message)

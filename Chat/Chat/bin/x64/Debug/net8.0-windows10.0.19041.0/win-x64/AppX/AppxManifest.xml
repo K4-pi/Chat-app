@@ -7,7 +7,7 @@
 
     For more information on package manifest files, see http://go.microsoft.com/fwlink/?LinkID=241727
   -->
-  <Identity Name="f5f7443a-3258-478d-bcf1-fc15783ddccc" Publisher="CN=vboxuser" Version="1.0.0.0" ProcessorArchitecture="x64" />
+  <Identity Name="f5f7443a-3258-478d-bcf1-fc15783ddccc" Publisher="CN=vboxuser" Version="0.3.0.0" ProcessorArchitecture="x64" />
   <mp:PhoneIdentity PhoneProductId="f5f7443a-3258-478d-bcf1-fc15783ddccc" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Chat</DisplayName>

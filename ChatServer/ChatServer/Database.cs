@@ -43,12 +43,12 @@ namespace ChatServer
 
         private IMongoCollection<BsonDocument> GetRoomsCollection()
         {
-            return database.GetCollection<BsonDocument>("Rooms");
+            return database.GetCollection<BsonDocument>("rooms");
         }
 
         private IMongoCollection<BsonDocument> GetMessagesCollection()
         {
-            return database.GetCollection<BsonDocument>("Messages");
+            return database.GetCollection<BsonDocument>("messages");
         }
 
         /* =============================
@@ -66,7 +66,45 @@ namespace ChatServer
             return rooms;
         }
 
-        public async Task StoreMessageAsync(string message, TcpClient client)
+        public async Task BroadcastToRoomAsync(string roomId, string messageText, string senderId)
+        {
+            Console.WriteLine("Broadcast function start...");
+            var roomsCollection = GetRoomsCollection();
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", new ObjectId(roomId));
+            var room = await roomsCollection.Find(filter).FirstOrDefaultAsync();
+
+            if (room == null || !room.Contains("Members")) return;
+
+            var members = room["Members"].AsBsonArray;
+            string protocolMessage = $"MSG:{senderId}@{messageText}\n"; // Add \n for protocol separation
+            byte[] data = Encoding.UTF8.GetBytes(protocolMessage);
+
+            foreach (var memberValue in members)
+            {
+                string memberId = memberValue.AsObjectId.ToString();
+                Console.WriteLine($"Member ID in broadcast: {memberId}");
+
+                // FIND the connection for THIS specific member
+                TcpClient targetClient = ConnectionManager.GetClient(memberId);
+
+                if (targetClient != null && targetClient.Connected)
+                {
+                    try
+                    {
+                        // Write to the TARGET, not the original sender
+                        await targetClient.GetStream().WriteAsync(data, 0, data.Length);
+                        Console.WriteLine($"Sent to member: {memberId}");
+                    }
+                    catch { /* Handle disconnects */ }
+                }
+                else
+                {
+                    Console.WriteLine("This client is not connected");
+                }
+            }
+        }
+
+        public async Task StoreMessageAsync(string roomId, string message, TcpClient client)
         {
             string senderId = ConnectionManager.GetUserId(client);
 
@@ -76,23 +114,19 @@ namespace ChatServer
                 return;
             }
 
-            string roomName = "general";
-            string sender = "User321";
+            var roomsCollection = GetRoomsCollection();
+            var messagesCollection = GetMessagesCollection();
 
-            var roomsCollection = database.GetCollection<BsonDocument>("rooms");
-            var messagesCollection = database.GetCollection<BsonDocument>("messages");
-
-            var roomFilter = Builders<BsonDocument>.Filter.Eq("RoomName", roomName);
+            var roomFilter = Builders<BsonDocument>.Filter.Eq("_id", new ObjectId(roomId));
             var room = await roomsCollection.Find(roomFilter).FirstOrDefaultAsync();
 
             if (room == null)
             {
-                Console.WriteLine($"Error: Room '{roomName}' not found.");
+                Console.WriteLine($"Error: Room '{roomId}' not found.");
                 return;
             }
 
-            Console.WriteLine($"Room: {roomName}");
-            Console.WriteLine($"Sender: {sender}");
+            Console.WriteLine($"RoomID: {roomId}");
             Console.WriteLine($"Sender ID: {senderId}");
             Console.WriteLine($"Message: {message}");
 
@@ -100,7 +134,7 @@ namespace ChatServer
             {
                 { "RoomId", room["_id"].AsObjectId },
                 { "SenderId", new ObjectId(senderId) },
-                { "SenderName", sender },
+                //{ "SenderName", sender },
                 { "Text", message },
                 { "Timestamp", DateTime.UtcNow }
             };

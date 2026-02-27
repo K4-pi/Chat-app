@@ -33,17 +33,30 @@ namespace ChatServer
                         case "MSG":
                             Console.WriteLine("Storing message...");
                             response = "MSG_ACCEPTED";
-                            await database.StoreMessageAsync(result[1], client);
+
+                            //{roomID}@{text}"
+                            string[] formated = result[1].Split('@', 2);
+                            string roomID = formated[0];
+                            string msgText = formated[1];
+
+                            await database.StoreMessageAsync(roomID, msgText, client);
+
+                            Console.WriteLine($"Broadcasting message to room {roomID}");
+                            string senderId = ConnectionManager.GetUserId(client);
+                            _ = database.BroadcastToRoomAsync(roomID, msgText, senderId);
                             break;
+
                         case "LOGIN":
                             Console.WriteLine("Authentication...");
                             response = database.Authenticate(result[1], client);
                             break;
+
                         default:
                             Console.WriteLine("No such operation " + result[0]);
                             Console.WriteLine(msg);
                             break;
                     }
+                    Console.WriteLine("SWITCH END!");
 
                     byte[] responseBuffer = Encoding.UTF8.GetBytes(response);
                     await stream.WriteAsync(responseBuffer, 0, responseBuffer.Length);

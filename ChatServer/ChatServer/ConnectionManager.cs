@@ -9,6 +9,11 @@ namespace ChatServer
     {
         private static Dictionary<string, TcpClient> _onlineUsers = new Dictionary<string, TcpClient>();
 
+        public static Dictionary<string, TcpClient> GetOnlineUsers() 
+        { 
+            return _onlineUsers; 
+        }
+
         public static void AddUser(string userId, TcpClient client)
         {
             _onlineUsers[userId] = client;
@@ -30,6 +35,5 @@ namespace ChatServer
             var entry = _onlineUsers.FirstOrDefault(x => x.Value == client);
             return entry.Key;
         }
-
     }
 }

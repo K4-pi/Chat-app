@@ -1,0 +1,20 @@
+[
+  {
+    "Name": "Nowy Profil",
+    "Projects": [
+      {
+        "Path": "Chat\\Chat.csproj",
+        "Action": "StartWithoutDebugging"
+      }
+    ]
+  },
+  {
+    "Name": "Nowy Profil (1)",
+    "Projects": [
+      {
+        "Path": "Chat\\Chat.csproj",
+        "Action": "StartWithoutDebugging"
+      }
+    ]
+  }
+]

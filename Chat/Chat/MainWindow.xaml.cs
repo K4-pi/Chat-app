@@ -30,8 +30,9 @@ namespace Chat
 
         public MainWindow(string userId, TcpChatClient _client)
         {
+            Debug.WriteLine("DEBUG chat window");
             InitializeComponent();
-            Title = $"Session: {userId}";
+            Title = $"UserID: {userId}";
 
             client = _client;
             _ = client.ListenAsync(OnMessageReceived);
@@ -39,18 +40,18 @@ namespace Chat
 
         public void OnMessageReceived(string msg)
         {
-            // "MSG:general:User@Hello World!"
+            Debug.WriteLine($"OnMessageReceived: {msg}");
+
+            string myRoomID = "69a0a4f759fb6ad9c0945263"; //general
+
+            // "MSG:User@Hello World!"
             if (!msg.StartsWith("MSG:")) return;
 
-            // "general:User@Hello World!"
+            // "User@Hello World!"
             string formated = msg.Substring(4); // Remove "MSG:" prefix
 
-            // "[general] [User@Hello World!]"
-            string[] tokens = formated.Split(':', 2);
-            if (tokens.Length < 2) return;
-
-            // "[User] [Hello World!]"
-            string[] content = tokens[1].Split('@', 2);
+            // "[69a0a4f759fb6ad9c0945263] [Hello World!]"
+            string[] content = formated.Split('@', 2);
 
             string user = content[0];
             string text = content[1];
@@ -61,7 +62,7 @@ namespace Chat
                 {
                     Username = user,
                     Text = text,
-                    SentAt = DateTime.UtcNow.ToString("HH:mm")
+                    SentAt = DateTime.UtcNow.ToString()
                 });
 
                 MessageList.ScrollIntoView(MessageList.Items.LastOrDefault());
@@ -76,10 +77,12 @@ namespace Chat
                 It should do that
             */
 
+            string roomID = "69a0a4f759fb6ad9c0945263";
+
             string text = MessageInput.Text.Trim();
             if (string.IsNullOrEmpty(text)) return;
 
-            client.SendAsync($"MSG:{text}");
+            client.SendAsync($"MSG:{roomID}@{text}@{DateTime.UtcNow.ToString("HH:mm")}");
 
             MessageInput.Text = "";
         }

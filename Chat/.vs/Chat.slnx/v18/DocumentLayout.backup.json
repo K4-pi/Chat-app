@@ -3,28 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\vboxuser\\Documents\\GitHub\\Chat-app\\Chat\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{296CED49-A16E-D2C0-D06B-675E37B852EF}|Chat\\Chat.csproj|c:\\users\\vboxuser\\documents\\github\\chat-app\\chat\\chat\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{296CED49-A16E-D2C0-D06B-675E37B852EF}|Chat\\Chat.csproj|solutionrelative:chat\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{296CED49-A16E-D2C0-D06B-675E37B852EF}|Chat\\Chat.csproj|c:\\users\\vboxuser\\documents\\github\\chat-app\\chat\\chat\\tcpchatclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{296CED49-A16E-D2C0-D06B-675E37B852EF}|Chat\\Chat.csproj|solutionrelative:chat\\tcpchatclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{296CED49-A16E-D2C0-D06B-675E37B852EF}|Chat\\Chat.csproj|c:\\users\\vboxuser\\documents\\github\\chat-app\\chat\\chat\\message.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{296CED49-A16E-D2C0-D06B-675E37B852EF}|Chat\\Chat.csproj|solutionrelative:chat\\message.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{296CED49-A16E-D2C0-D06B-675E37B852EF}|Chat\\Chat.csproj|c:\\users\\vboxuser\\documents\\github\\chat-app\\chat\\chat\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{296CED49-A16E-D2C0-D06B-675E37B852EF}|Chat\\Chat.csproj|solutionrelative:chat\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{296CED49-A16E-D2C0-D06B-675E37B852EF}|Chat\\Chat.csproj|c:\\users\\vboxuser\\documents\\github\\chat-app\\chat\\chat\\loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{296CED49-A16E-D2C0-D06B-675E37B852EF}|Chat\\Chat.csproj|solutionrelative:chat\\loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{296CED49-A16E-D2C0-D06B-675E37B852EF}|Chat\\Chat.csproj|c:\\users\\vboxuser\\documents\\github\\chat-app\\chat\\chat\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{296CED49-A16E-D2C0-D06B-675E37B852EF}|Chat\\Chat.csproj|solutionrelative:chat\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{296CED49-A16E-D2C0-D06B-675E37B852EF}|Chat\\Chat.csproj|c:\\users\\vboxuser\\documents\\github\\chat-app\\chat\\chat\\loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{296CED49-A16E-D2C0-D06B-675E37B852EF}|Chat\\Chat.csproj|solutionrelative:chat\\loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{296CED49-A16E-D2C0-D06B-675E37B852EF}|Chat\\Chat.csproj|c:\\users\\vboxuser\\documents\\github\\chat-app\\chat\\chat\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{296CED49-A16E-D2C0-D06B-675E37B852EF}|Chat\\Chat.csproj|solutionrelative:chat\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{296CED49-A16E-D2C0-D06B-675E37B852EF}|Chat\\Chat.csproj|c:\\users\\vboxuser\\documents\\github\\chat-app\\chat\\chat\\chat.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{296CED49-A16E-D2C0-D06B-675E37B852EF}|Chat\\Chat.csproj|solutionrelative:chat\\chat.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{296CED49-A16E-D2C0-D06B-675E37B852EF}|Chat\\Chat.csproj|c:\\users\\vboxuser\\documents\\github\\chat-app\\chat\\chat\\message.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{296CED49-A16E-D2C0-D06B-675E37B852EF}|Chat\\Chat.csproj|solutionrelative:chat\\message.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{296CED49-A16E-D2C0-D06B-675E37B852EF}|Chat\\Chat.csproj|c:\\users\\vboxuser\\documents\\github\\chat-app\\chat\\chat\\tcpchatclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{296CED49-A16E-D2C0-D06B-675E37B852EF}|Chat\\Chat.csproj|solutionrelative:chat\\tcpchatclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{296CED49-A16E-D2C0-D06B-675E37B852EF}|Chat\\Chat.csproj|c:\\users\\vboxuser\\documents\\github\\chat-app\\chat\\chat\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{296CED49-A16E-D2C0-D06B-675E37B852EF}|Chat\\Chat.csproj|solutionrelative:chat\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{296CED49-A16E-D2C0-D06B-675E37B852EF}|Chat\\Chat.csproj|c:\\users\\vboxuser\\documents\\github\\chat-app\\chat\\chat\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,11 +46,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
+              "Title": "Chat",
+              "DocumentMoniker": "C:\\Users\\vboxuser\\Documents\\GitHub\\Chat-app\\Chat\\Chat\\Chat.csproj",
+              "RelativeDocumentMoniker": "Chat\\Chat.csproj",
+              "ToolTip": "C:\\Users\\vboxuser\\Documents\\GitHub\\Chat-app\\Chat\\Chat\\Chat.csproj",
+              "RelativeToolTip": "Chat\\Chat.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-02-27T13:28:32.252Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Message.cs",
               "DocumentMoniker": "C:\\Users\\vboxuser\\Documents\\GitHub\\Chat-app\\Chat\\Chat\\Message.cs",
               "RelativeDocumentMoniker": "Chat\\Message.cs",
@@ -59,84 +76,85 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\vboxuser\\Documents\\GitHub\\Chat-app\\Chat\\Chat\\MainWindow.xaml",
               "RelativeDocumentMoniker": "Chat\\MainWindow.xaml",
               "ToolTip": "C:\\Users\\vboxuser\\Documents\\GitHub\\Chat-app\\Chat\\Chat\\MainWindow.xaml",
               "RelativeToolTip": "Chat\\MainWindow.xaml",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAuwCEAAAA+AAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABgAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2026-02-26T18:02:49.794Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "TcpChatClient.cs",
               "DocumentMoniker": "C:\\Users\\vboxuser\\Documents\\GitHub\\Chat-app\\Chat\\Chat\\TcpChatClient.cs",
               "RelativeDocumentMoniker": "Chat\\TcpChatClient.cs",
               "ToolTip": "C:\\Users\\vboxuser\\Documents\\GitHub\\Chat-app\\Chat\\Chat\\TcpChatClient.cs",
               "RelativeToolTip": "Chat\\TcpChatClient.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAA5wEAAAAA6AAAAAAAAAA==",
+              "ViewState": "AgIAACEAAAAAAAAAAAAuwDEAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-26T16:32:29.14Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\vboxuser\\Documents\\GitHub\\Chat-app\\Chat\\Chat\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "Chat\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\vboxuser\\Documents\\GitHub\\Chat-app\\Chat\\Chat\\MainWindow.xaml.cs",
               "RelativeToolTip": "Chat\\MainWindow.xaml.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAYwDIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAADsAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-26T16:25:35.993Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "LoginWindow.xaml",
               "DocumentMoniker": "C:\\Users\\vboxuser\\Documents\\GitHub\\Chat-app\\Chat\\Chat\\LoginWindow.xaml",
               "RelativeDocumentMoniker": "Chat\\LoginWindow.xaml",
               "ToolTip": "C:\\Users\\vboxuser\\Documents\\GitHub\\Chat-app\\Chat\\Chat\\LoginWindow.xaml",
               "RelativeToolTip": "Chat\\LoginWindow.xaml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABVAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2026-02-26T16:24:25.717Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "LoginWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\vboxuser\\Documents\\GitHub\\Chat-app\\Chat\\Chat\\LoginWindow.xaml.cs",
               "RelativeDocumentMoniker": "Chat\\LoginWindow.xaml.cs",
               "ToolTip": "C:\\Users\\vboxuser\\Documents\\GitHub\\Chat-app\\Chat\\Chat\\LoginWindow.xaml.cs",
               "RelativeToolTip": "Chat\\LoginWindow.xaml.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAEcAAABFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-26T16:23:03.763Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "App.xaml.cs",
               "DocumentMoniker": "C:\\Users\\vboxuser\\Documents\\GitHub\\Chat-app\\Chat\\Chat\\App.xaml.cs",
               "RelativeDocumentMoniker": "Chat\\App.xaml.cs",
               "ToolTip": "C:\\Users\\vboxuser\\Documents\\GitHub\\Chat-app\\Chat\\Chat\\App.xaml.cs",
               "RelativeToolTip": "Chat\\App.xaml.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAAC4AAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAC4AAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-25T21:52:32.021Z"
+              "WhenOpened": "2026-02-25T21:52:32.021Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "App.xaml",
               "DocumentMoniker": "C:\\Users\\vboxuser\\Documents\\GitHub\\Chat-app\\Chat\\Chat\\App.xaml",
               "RelativeDocumentMoniker": "Chat\\App.xaml",
