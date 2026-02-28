@@ -61,9 +61,6 @@ namespace ChatServer
             var roomsCollection = GetRoomsCollection();
             var messagesCollection = GetMessagesCollection();
 
-            //string userId = ConnectionManager.GetUserId(client);
-            //var filter = Builders<BsonDocument>.Filter.AnyEq("Members", new ObjectId(userId));
-
             var filter = Builders<BsonDocument>.Filter.AnyEq("RoomId", new ObjectId(roomId));
 
             var sort = Builders<BsonDocument>.Sort.Ascending("Timestamp");
@@ -80,10 +77,9 @@ namespace ChatServer
                 string senderId = doc["SenderId"].AsObjectId.ToString();
                 string senderName = doc.Contains("SenderName") ? doc["SenderName"].AsString : "Unknown";
                 string text = doc["Text"].AsString;
+                DateTime timeStamp = doc["Timestamp"].ToUniversalTime();
 
-                //DateTime timestamp = doc["Timestamp"].ToUniversalTime();
-
-                await ConnectionManager.SendAsync($"MSG:{senderName}@{text}", client);
+                await ConnectionManager.SendAsync($"MSG:{senderName}@{text}@{timeStamp.ToString("HH:mm dd/MM/yyyy")}", client); // If change time here also change time in client app
             }
 
         }
@@ -102,7 +98,7 @@ namespace ChatServer
             return "ROOM_LIST:" + string.Join("|", roomStrings);
         }
 
-        public async Task BroadcastToRoomAsync(string roomId, string messageText, string senderId)
+        public async Task BroadcastToRoomAsync(string roomId, string messageText, string sendTime, string senderId)
         {
             Console.WriteLine("Broadcast function start...");
             var roomsCollection = GetRoomsCollection();
@@ -118,7 +114,7 @@ namespace ChatServer
             string senderName = user.Contains("Username") ? user["Username"].AsString : "Unknown";
 
             var members = room["Members"].AsBsonArray;
-            string protocolMessage = $"MSG:{senderName}@{messageText}";
+            string protocolMessage = $"MSG:{senderName}@{messageText}@{DateTime.Parse(sendTime).ToString("HH:mm dd/MM/yyyy")}"; // Might change to fetching time from DB
             byte[] data = Encoding.UTF8.GetBytes(protocolMessage);
 
             foreach (var memberValue in members)
@@ -146,7 +142,7 @@ namespace ChatServer
             }
         }
 
-        public async Task StoreMessageAsync(string roomId, string message, TcpClient client)
+        public async Task StoreMessageAsync(string roomId, string message, string sendTime, TcpClient client)
         {
             string senderId = ConnectionManager.GetUserId(client);
 
@@ -186,7 +182,7 @@ namespace ChatServer
                 { "SenderId", new ObjectId(senderId) },
                 { "SenderName", senderName },
                 { "Text", message },
-                { "Timestamp", DateTime.UtcNow }
+                { "Timestamp", DateTime.Parse(sendTime) }
             };
 
             var messagesCollection = GetMessagesCollection();

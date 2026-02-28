@@ -25,53 +25,53 @@ namespace ChatServer
                     string msg = Encoding.UTF8.GetString(buffer, 0, bytesRead).Trim();
                     Console.WriteLine($"\n{msg}");
 
-                    string[] result = msg.Split(':');
                     string response;
 
-                    switch (result[0])
+                    if (msg.StartsWith("MSG:")) 
                     {
-                        case "MSG":
-                            Console.WriteLine("Storing message...");
+                        Console.WriteLine("Storing message...");
+                        msg = msg.Substring(4);
 
-                            //{roomID}@{text}"
-                            string[] formated = result[1].Split('@', 2);
-                            string roomID = formated[0];
-                            string msgText = formated[1];
+                        //{roomID}@{text}"
+                        string[] formated = msg.Split('@', 3);
+                        string roomID = formated[0];
+                        string msgText = formated[1];
+                        string sendTime = formated[2];
 
-                            await database.StoreMessageAsync(roomID, msgText, client);
+                        await database.StoreMessageAsync(roomID, msgText, sendTime, client);
 
-                            Console.WriteLine($"Broadcasting message to room {roomID}");
-                            string senderId = ConnectionManager.GetUserId(client);
-                            _ = database.BroadcastToRoomAsync(roomID, msgText, senderId);
-                            break;
-
-                        case "LOGIN":
-                            Console.WriteLine("Authentication...");
-                            response = database.Authenticate(result[1], client);
-                            await ConnectionManager.SendAsync(response, client);
-                            break;
-
-                        case "GET_ROOMS":
-                            Console.WriteLine("Sending list of rooms...");
-                            string uid = ConnectionManager.GetUserId(client);
-                            if (uid != null)
-                            {
-                                response = await database.GetUserRoomsAsync(uid);
-                                await ConnectionManager.SendAsync(response, client);
-                            }
-                            break;
-
-                        case "GET_HISTORY":
-                            Console.WriteLine("Sending history of messages...");
-                            string roomId = result[1];
-                            await database.SendMessageHistoryAsync(roomId, client);
-                            break;
-
-                        default:
-                            Console.WriteLine("No such operation " + result[0]);
-                            Console.WriteLine(msg);
-                            break;
+                        Console.WriteLine($"Broadcasting message to room {roomID}");
+                        string senderId = ConnectionManager.GetUserId(client);
+                        _ = database.BroadcastToRoomAsync(roomID, msgText, sendTime, senderId);
                     }
+                    else if (msg.StartsWith("LOGIN:")) 
+                    {
+                        Console.WriteLine("Authentication...");
+                        msg = msg.Substring(6);
+
+                        response = database.Authenticate(msg, client);
+                        await ConnectionManager.SendAsync(response, client);
+                    }
+                    else if (msg.StartsWith("GET_ROOMS"))
+                    {
+                        Console.WriteLine("Sending list of rooms...");
+
+                        string uid = ConnectionManager.GetUserId(client);
+                        if (uid != null)
+                        {
+                            response = await database.GetUserRoomsAsync(uid);
+                            await ConnectionManager.SendAsync(response, client);
+                        }
+                    }
+                    else if (msg.StartsWith("GET_HISTORY:")) 
+                    {
+                        Console.WriteLine("Sending history of messages...");
+                        msg = msg.Substring(12);
+
+                        string roomId = msg;
+                        await database.SendMessageHistoryAsync(roomId, client);
+                    }
+
                     Console.WriteLine("SWITCH END!");
                 }
             }

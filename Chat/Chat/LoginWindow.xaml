@@ -9,13 +9,19 @@
 		<StackPanel Spacing="18">
 			<TextBlock x:Name="WelcomeText" Text="Welcome" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center"/>
 
-			<TextBox x:Name="UsernameField" Header="Username" PlaceholderText="Enter username"/>
-			<PasswordBox x:Name="PasswordField" Header="Password" PlaceholderText="Enter password"/>
+            <TextBox x:Name="UsernameField" Header="Username" PlaceholderText="Enter username"/>
+            <PasswordBox x:Name="PasswordField" Header="Password" PlaceholderText="Enter password"/>
 
 			<Button x:Name="LoginButton" Content="Login"
                     HorizontalAlignment="Stretch"
                     Click="LoginButton_Click"
                     Style="{StaticResource AccentButtonStyle}"/>
+
+            <HyperlinkButton Content="Sign up!"
+                 Click="SignUp_Click"
+                 Padding="0" 
+                 HorizontalAlignment="Center"          
+                 Margin="0,5,0,0"/>
 
             <TextBlock x:Name="ErrorLoginText" Text="" FontSize="12" FontWeight="Normal" HorizontalAlignment="Center" Foreground="Red"/>
         </StackPanel>

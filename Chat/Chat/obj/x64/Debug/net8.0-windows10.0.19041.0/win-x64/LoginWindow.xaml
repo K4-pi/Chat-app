@@ -9,15 +9,21 @@
 		<StackPanel Spacing="18">
 			<TextBlock x:ConnectionId='2' x:Name="WelcomeText" Text="Welcome" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center"/>
 
-			<TextBox x:ConnectionId='3' x:Name="UsernameField" Header="Username" PlaceholderText="Enter username"/>
-			<PasswordBox x:ConnectionId='4' x:Name="PasswordField" Header="Password" PlaceholderText="Enter password"/>
+            <TextBox x:ConnectionId='3' x:Name="UsernameField" TextAlignment="Center" Header="Username" PlaceholderText="Enter username"/>
+            <PasswordBox x:ConnectionId='4' x:Name="PasswordField" PasswordRevealMode="Peek" Header="Password" PlaceholderText="Enter password"/>
 
 			<Button x:ConnectionId='5' x:Name="LoginButton" Content="Login"
                     HorizontalAlignment="Stretch"
                                              
                     Style="{StaticResource AccentButtonStyle}"/>
 
-            <TextBlock x:ConnectionId='6' x:Name="ErrorLoginText" Text="" FontSize="12" FontWeight="Normal" HorizontalAlignment="Center" Foreground="Red"/>
+            <HyperlinkButton x:ConnectionId='6' Content="Sign up!"
+                                     
+                 Padding="0" 
+                 HorizontalAlignment="Center"          
+                 Margin="0,5,0,0"/>
+
+            <TextBlock x:ConnectionId='7' x:Name="ErrorLoginText" Text="" FontSize="12" FontWeight="Normal" HorizontalAlignment="Center" Foreground="Red"/>
         </StackPanel>
 	</Grid>
 </Window>

@@ -62,10 +62,11 @@ namespace Chat
                     string formated = s.Substring(4); // Remove "MSG:" prefix
 
                     // "[User] [Hello World!]"
-                    string[] content = formated.Split('@', 2);
+                    string[] content = formated.Split('@', 3);
 
                     string user = content[0];
                     string text = content[1];
+                    string time = content[2];
 
                     this.DispatcherQueue.TryEnqueue(() =>
                     {
@@ -73,7 +74,7 @@ namespace Chat
                         {
                             Username = user,
                             Text = text,
-                            SentAt = DateTime.UtcNow.ToString()
+                            SentAt = time
                         });
 
                         MessageList.ScrollIntoView(MessageList.Items.LastOrDefault());
@@ -98,7 +99,10 @@ namespace Chat
                             Debug.WriteLine(r);
 
                             var tokens = r.Split(',');
-                            var newRoom = new ChatRoom { Id = tokens[0], Name = tokens[1] };
+                            var newRoom = new ChatRoom { 
+                                Id = tokens[0], 
+                                Name = tokens[1] 
+                            };
                             userRooms.Add(newRoom);
                         }
 
@@ -123,9 +127,8 @@ namespace Chat
         public async void SendButton_Click(object sender, RoutedEventArgs e)
         {
             /*
-                We will not add message to our own list,
-                Server will broadcast it back...
-                It should do that
+                Not adding message to our own list because
+                server will broadcast it back
             */
             if (currentRoomId == null)
             {
@@ -136,7 +139,7 @@ namespace Chat
             string text = MessageInput.Text.Trim();
             if (string.IsNullOrEmpty(text)) return;
 
-            client.SendAsync($"MSG:{currentRoomId}@{text}");
+            client.SendAsync($"MSG:{currentRoomId}@{text}@{DateTime.UtcNow.ToString()}");
 
             MessageInput.Text = "";
         }

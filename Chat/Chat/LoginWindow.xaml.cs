@@ -30,6 +30,11 @@ namespace Chat
             }
         }
 
+        private async void SignUp_Click(object sender, RoutedEventArgs e)
+        {
+            return;
+        }
+
         private async void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             LoginButton.IsEnabled = false;
