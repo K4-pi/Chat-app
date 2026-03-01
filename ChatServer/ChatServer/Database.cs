@@ -189,6 +189,47 @@ namespace ChatServer
             await messagesCollection.InsertOneAsync(messageDoc);
         }
 
+        public async Task<String> RegisterUser(string data, TcpClient client)
+        {
+            string[] credentials = data.Split('@', 2);
+            string username = credentials[0];
+            string password = credentials[1];
+
+            var usersCollection = GetUsersCollection();
+            var usersFilter = Builders<BsonDocument>.Filter.Eq("Username", username);
+            var userDoc = usersCollection.Find(usersFilter).FirstOrDefault();
+
+            if (userDoc != null) return "REGISTER_FAIL";
+
+            var userId = new ObjectId();
+            userId = ObjectId.GenerateNewId();
+
+            var newUser = new BsonDocument
+            {
+                { "_id", userId },
+                { "Username", username },
+                { "Password", password }
+            };
+            await usersCollection.InsertOneAsync(newUser);
+
+            var roomsCollection = GetRoomsCollection();
+            var roomsFilter = Builders<BsonDocument>.Filter.Eq("RoomName", "general");
+            var update = Builders<BsonDocument>.Update.AddToSet("Members", userId);
+
+            var result = await roomsCollection.UpdateOneAsync(roomsFilter, update);
+
+            if (result.ModifiedCount > 0)
+            {
+                Console.WriteLine("User successfully added to room");
+            }
+            else
+            {
+                Console.WriteLine("User was already in the room");
+            }
+
+            return "REGISTER_SUCCESS";
+        }
+
         public String Authenticate(string data, TcpClient client)
         {
             var credentials = data.Split('@');

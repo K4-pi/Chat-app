@@ -1,3 +1,5 @@
 App.xbf
-LoginWindow.xbf
+AuthWindow.xbf
+LoginPage.xbf
 MainWindow.xbf
+RegisterPage.xbf

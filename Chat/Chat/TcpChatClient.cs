@@ -4,6 +4,7 @@ using System.IO;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Media.Protection.PlayReady;
 
 namespace Chat
 {
@@ -24,6 +25,20 @@ namespace Chat
             catch
             {
                 return false;
+            }
+        }
+
+        public async Task CloseConnectionAsync()
+        {
+            try
+            {
+                stream?.Close();
+                client?.Close();
+                client = null; 
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error during cleanup: {ex.Message}");
             }
         }
 

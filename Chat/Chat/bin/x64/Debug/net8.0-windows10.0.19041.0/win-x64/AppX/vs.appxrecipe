@@ -29,7 +29,7 @@
     <AppXManifest Include="C:\Users\vboxuser\Documents\GitHub\Chat-app\Chat\Chat\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2026-02-28T22:54:29.459</Modified>
+      <Modified>2026-03-01T13:59:06.989</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
@@ -39,11 +39,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\vboxuser\Documents\GitHub\Chat-app\Chat\Chat\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\apphost.exe">
       <PackagePath>Chat.exe</PackagePath>
-      <Modified>2026-02-28T22:54:29.069</Modified>
+      <Modified>2026-03-01T13:59:06.599</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\vboxuser\Documents\GitHub\Chat-app\Chat\Chat\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Chat.dll">
       <PackagePath>Chat.dll</PackagePath>
-      <Modified>2026-02-28T22:54:29.061</Modified>
+      <Modified>2026-03-01T13:59:06.585</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\vboxuser\.nuget\packages\microsoft.netcore.app.runtime.win-x64\8.0.24\runtimes\win-x64\lib\net8.0\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -927,7 +927,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\vboxuser\Documents\GitHub\Chat-app\Chat\Chat\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Chat.deps.json">
       <PackagePath>Chat.deps.json</PackagePath>
-      <Modified>2026-02-27T18:20:55.965</Modified>
+      <Modified>2026-03-01T12:27:00.306</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\vboxuser\Documents\GitHub\Chat-app\Chat\Chat\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
@@ -963,7 +963,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\vboxuser\Documents\GitHub\Chat-app\Chat\Chat\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2026-02-28T22:54:29.195</Modified>
+      <Modified>2026-03-01T13:59:06.728</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

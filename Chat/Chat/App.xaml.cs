@@ -43,7 +43,7 @@ namespace Chat
         /// <param name="args">Details about the launch request and process.</param>
         protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
-            _window = new LoginWindow();
+            _window = new AuthWindow();
             _window.Activate();
         }
     }

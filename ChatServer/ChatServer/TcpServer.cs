@@ -20,7 +20,11 @@ namespace ChatServer
                 while (true)
                 {
                     int bytesRead = await stream.ReadAsync(buffer);
-                    if (bytesRead == 0) break;
+                    if (bytesRead == 0)
+                    {
+                        Console.WriteLine("Client disconnected");
+                        break;
+                    }
 
                     string msg = Encoding.UTF8.GetString(buffer, 0, bytesRead).Trim();
                     Console.WriteLine($"\n{msg}");
@@ -68,8 +72,15 @@ namespace ChatServer
                         Console.WriteLine("Sending history of messages...");
                         msg = msg.Substring(12);
 
-                        string roomId = msg;
-                        await database.SendMessageHistoryAsync(roomId, client);
+                        await database.SendMessageHistoryAsync(msg, client);
+                    }
+                    else if (msg.StartsWith("REGISTER:"))
+                    {
+                        Console.WriteLine("Registering user...");
+                        msg = msg.Substring(9);
+
+                        response = await database.RegisterUser(msg, client);
+                        await ConnectionManager.SendAsync(response, client);
                     }
 
                     Console.WriteLine("SWITCH END!");
