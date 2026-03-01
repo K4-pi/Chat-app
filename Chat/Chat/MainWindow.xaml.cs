@@ -36,7 +36,17 @@ namespace Chat
 
         public MainWindow(string userId, TcpChatClient _client)
         {
-            Debug.WriteLine("DEBUG chat window");
+            IntPtr hWnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
+
+            Microsoft.UI.WindowId windowId = Microsoft.UI.Win32Interop.GetWindowIdFromWindow(hWnd);
+
+            Microsoft.UI.Windowing.AppWindow appWindow =
+                Microsoft.UI.Windowing.AppWindow.GetFromWindowId(
+                    Microsoft.UI.Win32Interop.GetWindowIdFromWindow(hWnd)
+                );
+
+            appWindow.Resize(new Windows.Graphics.SizeInt32(1200, 600));
+
             InitializeComponent();
             Title = $"UserID: {userId}";
 
@@ -55,13 +65,13 @@ namespace Chat
 
             foreach (string s in splitedMessages)
             {
-                // "MSG:User@Hello World!"
+                // "MSG:User@Hello World!@time"
                 if (s.StartsWith("MSG:"))
                 {
-                    // "User@Hello World!"
+                    // "User@Hello World!@time"
                     string formated = s.Substring(4); // Remove "MSG:" prefix
 
-                    // "[User] [Hello World!]"
+                    // "[User] [Hello World!] [time]"
                     string[] content = formated.Split('@', 3);
 
                     string user = content[0];
@@ -122,6 +132,13 @@ namespace Chat
                 client.SendAsync($"GET_HISTORY:{currentRoomId}"); // Update messages
                 Debug.WriteLine($"Switched to room: {selectedRoom.Name} ({currentRoomId})");
             }
+        }
+
+        public async void LogoutButton_Click(object sender, RoutedEventArgs e) // Not sure about that
+        {
+            var authWindow = new AuthWindow();
+            this.Close();
+            authWindow.Activate();
         }
 
         public async void SendButton_Click(object sender, RoutedEventArgs e)
