@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OqizWNhAHbc=",
+  "dgSpecHash": "y0zrVt6z60Q=",
   "success": true,
-  "projectFilePath": "/home/kapi/Code/Dotnet-avalonia/ChatApp/ChatApp.csproj",
+  "projectFilePath": "/home/kapi/Git-repos/Chat-app/ChatApp-avalonia/ChatApp/ChatApp.csproj",
   "expectedPackageFiles": [
     "/home/kapi/.nuget/packages/avalonia/11.3.12/avalonia.11.3.12.nupkg.sha512",
     "/home/kapi/.nuget/packages/avalonia.angle.windows.natives/2.1.25547.20250602/avalonia.angle.windows.natives.2.1.25547.20250602.nupkg.sha512",
@@ -30,7 +30,10 @@
     "/home/kapi/.nuget/packages/skiasharp.nativeassets.macos/2.88.9/skiasharp.nativeassets.macos.2.88.9.nupkg.sha512",
     "/home/kapi/.nuget/packages/skiasharp.nativeassets.webassembly/2.88.9/skiasharp.nativeassets.webassembly.2.88.9.nupkg.sha512",
     "/home/kapi/.nuget/packages/skiasharp.nativeassets.win32/2.88.9/skiasharp.nativeassets.win32.2.88.9.nupkg.sha512",
-    "/home/kapi/.nuget/packages/tmds.dbus.protocol/0.21.2/tmds.dbus.protocol.0.21.2.nupkg.sha512"
+    "/home/kapi/.nuget/packages/tmds.dbus.protocol/0.21.2/tmds.dbus.protocol.0.21.2.nupkg.sha512",
+    "/home/kapi/.nuget/packages/microsoft.netcore.app.runtime.win-x64/10.0.3/microsoft.netcore.app.runtime.win-x64.10.0.3.nupkg.sha512",
+    "/home/kapi/.nuget/packages/microsoft.aspnetcore.app.runtime.win-x64/10.0.3/microsoft.aspnetcore.app.runtime.win-x64.10.0.3.nupkg.sha512",
+    "/home/kapi/.nuget/packages/microsoft.netcore.app.host.win-x64/10.0.3/microsoft.netcore.app.host.win-x64.10.0.3.nupkg.sha512"
   ],
   "logs": []
 }
