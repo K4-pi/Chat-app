@@ -112,7 +112,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <TextBox x:ConnectionId='3' x:Name="MessageInput" PlaceholderText="Type a message..." VerticalAlignment="Center"/>
+            <TextBox x:ConnectionId='3' x:Name="MessageInput" IsSpellCheckEnabled="False" PlaceholderText="Type a message..." VerticalAlignment="Center"/>
             <Button x:ConnectionId='4' x:Name="SendButton" Content="Send" Grid.Column="1" Style="{StaticResource AccentButtonStyle}"
                 Margin="10,0,0,0" VerticalAlignment="Center"                         />
         </Grid>

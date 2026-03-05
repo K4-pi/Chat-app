@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net.Sockets;
+﻿using System.Net.Sockets;
 using System.Text;
 
 namespace ChatServer
@@ -21,7 +19,9 @@ namespace ChatServer
 
         public static void RemoveUser(TcpClient client)
         {
-            _onlineUsers.Remove(GetUserId(client));
+            string uid = GetUserId(client);
+            _onlineUsers.Remove(uid);
+            Console.WriteLine($"\nRemoved user with ID: {uid} from table");
         }
 
         public static TcpClient GetClient(string userId)

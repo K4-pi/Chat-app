@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Sockets;
+﻿using System.Net.Sockets;
 using System.Text;
 
 namespace ChatServer
@@ -19,14 +16,21 @@ namespace ChatServer
             {
                 while (true)
                 {
-                    int bytesRead = await stream.ReadAsync(buffer);
-                    if (bytesRead == 0)
-                    {
-                        Console.WriteLine("Client disconnected");
-                        break;
-                    }
+                    var ms = new MemoryStream();
 
-                    string msg = Encoding.UTF8.GetString(buffer, 0, bytesRead).Trim();
+                    do
+                    {
+                        int bytesRead = await stream.ReadAsync(buffer);
+                        if (bytesRead == 0) // MIGHT DISCCONECT EVEN IF CLIENT HAVEN'T DISCCONECTED ????
+                        {
+                            Console.WriteLine("Client disconnected");
+                            return;
+                        }
+                        ms.Write(buffer, 0, bytesRead);
+                    }
+                    while (stream.DataAvailable);
+
+                    string msg = Encoding.UTF8.GetString(ms.ToArray()).Trim();
                     Console.WriteLine($"\n{msg}");
 
                     string response;

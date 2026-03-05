@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,18 +45,26 @@ namespace Chat.Utilities
         public async Task ListenAsync(Action<string> onMessageReceived)
         {
             Debug.WriteLine("Started listen loop");
-            byte[] buffer = new byte[2048];
             try
             {
                 if (stream == null || client == null) return;
 
                 while (client.Connected)
                 {
-                    int bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length);
-                    if (bytesRead == 0) break; // Server shut down the connection
+                    var ms = new MemoryStream(); // Needs to be here to 'clear' it
+                    byte[] buffer = new byte[2048];
+                    int bytesRead = 0;
 
-                    string receivedData = Encoding.UTF8.GetString(buffer, 0, bytesRead).Trim();
-                    onMessageReceived?.Invoke(receivedData); // Sends message back via a callback
+                    do
+                    {
+                        bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length);
+                        if (bytesRead == 0) return;
+                        ms.Write(buffer, 0, bytesRead);
+                    }
+                    while (stream.DataAvailable);
+
+                    string receivedData = Encoding.UTF8.GetString(ms.ToArray()).Trim();
+                    onMessageReceived?.Invoke(receivedData); // Starts 'action' with received message
                 }
             }
             catch (Exception ex)
@@ -81,10 +90,19 @@ namespace Chat.Utilities
             byte[] data = Encoding.UTF8.GetBytes(message);
             await stream.WriteAsync(data, 0, data.Length);
 
-            // Receive
-            byte[] buffer = new byte[1024];
-            int bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length);
-            return Encoding.UTF8.GetString(buffer, 0, bytesRead).Trim();
+            // Receive - use of MemoryStream() prevents data loss problem
+            var ms = new MemoryStream();
+            byte[] buffer = new byte[2048];
+
+            do 
+            { 
+                int bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length);
+                if (bytesRead == 0) break;
+                ms.Write(buffer, 0, bytesRead);
+            } 
+            while (stream.DataAvailable);
+
+            return Encoding.UTF8.GetString(ms.ToArray()).Trim();
         }
     }
 }
