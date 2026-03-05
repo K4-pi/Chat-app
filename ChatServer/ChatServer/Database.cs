@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Net.Sockets;
 using System.Text;
 
-using BCrypt.Net;
+//using BCrypt.Net;
 
 namespace ChatServer
 {

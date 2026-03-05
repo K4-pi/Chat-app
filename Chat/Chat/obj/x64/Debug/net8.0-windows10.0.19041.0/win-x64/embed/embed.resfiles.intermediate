@@ -1,5 +1,5 @@
 App.xbf
-AuthWindow.xbf
-LoginPage.xbf
-MainWindow.xbf
-RegisterPage.xbf
+AuthWindow\AuthWindow.xbf
+AuthWindow\LoginPage\LoginPage.xbf
+AuthWindow\RegisterPage\RegisterPage.xbf
+ChatWindow\ChatWindow.xbf
