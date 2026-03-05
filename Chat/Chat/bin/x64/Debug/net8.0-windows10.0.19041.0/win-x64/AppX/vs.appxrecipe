@@ -29,7 +29,7 @@
     <AppXManifest Include="C:\Users\vboxuser\Documents\GitHub\Chat-app\Chat\Chat\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2026-03-05T19:25:54.558</Modified>
+      <Modified>2026-03-05T20:13:49.535</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
@@ -39,11 +39,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\vboxuser\Documents\GitHub\Chat-app\Chat\Chat\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\apphost.exe">
       <PackagePath>Chat.exe</PackagePath>
-      <Modified>2026-03-05T19:25:54.235</Modified>
+      <Modified>2026-03-05T20:13:49.168</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\vboxuser\Documents\GitHub\Chat-app\Chat\Chat\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Chat.dll">
       <PackagePath>Chat.dll</PackagePath>
-      <Modified>2026-03-05T19:25:54.219</Modified>
+      <Modified>2026-03-05T20:13:49.147</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\vboxuser\.nuget\packages\microsoft.netcore.app.runtime.win-x64\8.0.24\runtimes\win-x64\lib\net8.0\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -967,7 +967,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\vboxuser\Documents\GitHub\Chat-app\Chat\Chat\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2026-03-05T19:14:55.870</Modified>
+      <Modified>2026-03-05T20:13:49.296</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

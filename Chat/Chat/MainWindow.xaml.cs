@@ -31,6 +31,8 @@ namespace Chat
     {
         private TcpChatClient client;
         public ObservableCollection<ChatRoom> userRooms { get; set; } = new ObservableCollection<ChatRoom>();
+        
+        public ObservableCollection<Message> Messages { get; } = new ObservableCollection<Message>();
 
         private string currentRoomId; //general
 
@@ -57,6 +59,11 @@ namespace Chat
             RoomList.ItemsSource = userRooms;
         }
 
+        private void ScrollToBottom()
+        {
+            MessageScrollViewer.ChangeView(null, MessageScrollViewer.ScrollableHeight, null);
+        }
+
         public void OnMessageReceived(string msg)
         {
             Debug.WriteLine($"OnMessageReceived: {msg}");
@@ -80,14 +87,15 @@ namespace Chat
 
                     this.DispatcherQueue.TryEnqueue(() =>
                     {
-                        MessageList.Items.Add(new Message
+                        Messages.Add(new Message
                         {
                             Username = user,
                             Text = text,
                             SentAt = time
                         });
 
-                        MessageList.ScrollIntoView(MessageList.Items.LastOrDefault());
+                        MessageList.UpdateLayout();
+                        MessageScrollViewer.ChangeView(null, MessageScrollViewer.ScrollableHeight, null);
                     });
                 }
                 else if (s.StartsWith("ROOM_LIST:"))
@@ -127,7 +135,7 @@ namespace Chat
             if (RoomList.SelectedItem is ChatRoom selectedRoom)
             {
                 currentRoomId = selectedRoom.Id;
-                MessageList.Items.Clear();
+                Messages.Clear();
 
                 client.SendAsync($"GET_HISTORY:{currentRoomId}"); // Update messages
                 Debug.WriteLine($"Switched to room: {selectedRoom.Name} ({currentRoomId})");
