@@ -2,6 +2,7 @@ using Chat.DataModels;
 using Chat.Utilities;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Input;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -131,12 +132,13 @@ namespace Chat
 
         public async void LogoutButton_Click(object sender, RoutedEventArgs e) // Not sure about that
         {
+            client.SendAsync("DISCONNECT");
             var authWindow = new AuthWindow();
             this.Close();
             authWindow.Activate();
         }
 
-        public async void SendButton_Click(object sender, RoutedEventArgs e)
+        private void SendMessage()
         {
             /*
                 Not adding message to our own list because
@@ -154,6 +156,20 @@ namespace Chat
             client.SendAsync($"MSG:{currentRoomId}@{text}@{DateTime.UtcNow.ToString()}");
 
             MessageInput.Text = "";
+        }
+
+        public async void SendButton_Click(object sender, RoutedEventArgs e)
+        {
+            SendMessage();
+        }
+
+        private void MessageInput_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.Key == Windows.System.VirtualKey.Enter)
+            {
+                SendMessage();
+                e.Handled = true;
+            }
         }
     }
 }

@@ -86,6 +86,10 @@ namespace ChatServer
                         response = await database.RegisterUser(msg, client);
                         await ConnectionManager.SendAsync(response, client);
                     }
+                    else if (msg.StartsWith("DISCONNECT"))
+                    {
+                        break; // Logouts user
+                    }
 
                     Console.WriteLine("SWITCH END!");
                 }

@@ -66,11 +66,16 @@
                 HorizontalAlignment="Stretch" Margin="0,5,0,0" Click="LogoutButton_Click" Style="{StaticResource AccentButtonStyle}"/>
         </Grid>
 
-        <ScrollViewer x:Name="MessageScrollViewer" 
+        <ScrollViewer x:Name="MessageScrollViewer"
               Grid.Row="0" Grid.Column="1" 
               VerticalScrollBarVisibility="Auto"
-              VerticalScrollMode="Enabled">
-            <ItemsRepeater x:Name="MessageList" 
+              VerticalScrollMode="Enabled"
+              BorderThickness="5" 
+              BorderBrush="Gray"
+              CornerRadius="4"
+              Padding="5"
+              Margin="0,0,0,10">
+            <ItemsRepeater x:Name="MessageList"
                    ItemsSource="{x:Bind Messages}"
                    HorizontalAlignment="Stretch"
                    VerticalAlignment="Top">
@@ -112,7 +117,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <TextBox x:Name="MessageInput" IsSpellCheckEnabled="False" PlaceholderText="Type a message..." VerticalAlignment="Center"/>
+            <TextBox x:Name="MessageInput" IsSpellCheckEnabled="False" PlaceholderText="Type a message..." VerticalAlignment="Center" KeyDown="MessageInput_KeyDown"/>
             <Button x:Name="SendButton" Content="Send" Grid.Column="1" Style="{StaticResource AccentButtonStyle}"
                 Margin="10,0,0,0" VerticalAlignment="Center" Click="SendButton_Click"/>
         </Grid>
