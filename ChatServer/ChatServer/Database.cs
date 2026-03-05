@@ -1,13 +1,8 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Driver;
-using MongoDB.Driver.Core.Servers;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Sockets;
-using System.Reflection;
 using System.Text;
-using static System.Net.Mime.MediaTypeNames;
 
 using BCrypt.Net;
 
@@ -15,8 +10,8 @@ namespace ChatServer
 {
     internal class Database
     {
-        private IMongoClient client;
-        private IMongoDatabase database;
+        private IMongoClient? client;
+        private IMongoDatabase? database;
 
         public Database()
         {
@@ -40,17 +35,17 @@ namespace ChatServer
 
         private IMongoCollection<BsonDocument> GetUsersCollection()
         {
-            return database.GetCollection<BsonDocument>("users");
+            return database!.GetCollection<BsonDocument>("users");
         }
 
         private IMongoCollection<BsonDocument> GetRoomsCollection()
         {
-            return database.GetCollection<BsonDocument>("rooms");
+            return database!.GetCollection<BsonDocument>("rooms");
         }
 
         private IMongoCollection<BsonDocument> GetMessagesCollection()
         {
-            return database.GetCollection<BsonDocument>("messages");
+            return database!.GetCollection<BsonDocument>("messages");
         }
 
         /* =============================
@@ -246,9 +241,9 @@ namespace ChatServer
             var filter = Builders<BsonDocument>.Filter.Eq("Username", username);
             var userDoc = usersCollection.Find(filter).FirstOrDefault();
 
-            if (userDoc != null && BCrypt.Net.BCrypt.Verify(password, userDoc["Password"].ToString()))
+            if (userDoc != null && BCrypt.Net.BCrypt.Verify(password, userDoc["Password"]?.ToString()))
             {
-                string userId = userDoc["_id"].ToString();
+                string userId = userDoc["_id"]?.ToString() ?? throw new Exception("User ID is missing in database!"); ;
 
                 ConnectionManager.AddUser(userId, client);
 

@@ -23,7 +23,7 @@ namespace Chat
     /// </summary>
     public sealed partial class AuthWindow : Window
     {
-        private static Window authWindow;
+        private static Window? authWindow;
 
         public AuthWindow()
         {
@@ -51,7 +51,7 @@ namespace Chat
 
         public static void CloseRootWindow()
         {
-            authWindow.Close();
+            authWindow!.Close();
         }
     }
 }

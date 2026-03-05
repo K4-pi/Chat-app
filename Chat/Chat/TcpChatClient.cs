@@ -10,8 +10,8 @@ namespace Chat
 {
     public class TcpChatClient
     {
-        private TcpClient client;
-        private NetworkStream stream;
+        private TcpClient? client;
+        private NetworkStream? stream;
 
         public async Task<bool> ConnectAsync(string ip, int port)
         {
@@ -49,6 +49,8 @@ namespace Chat
             byte[] buffer = new byte[2048];
             try
             {
+                if (stream == null || client == null) return;
+
                 while (client.Connected)
                 {
                     int bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length);

@@ -1,23 +1,8 @@
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml.Controls.Primitives;
-using Microsoft.UI.Xaml.Data;
-using Microsoft.UI.Xaml.Input;
-using Microsoft.UI.Xaml.Media;
-using Microsoft.UI.Xaml.Navigation;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.ApplicationModel.Chat;
-using Windows.ApplicationModel.Store.Preview.InstallControl;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.Media.Protection.PlayReady;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -34,7 +19,7 @@ namespace Chat
         
         public ObservableCollection<Message> Messages { get; } = new ObservableCollection<Message>();
 
-        private string currentRoomId; //general
+        private string? currentRoomId; //general
 
         public MainWindow(string userId, TcpChatClient _client)
         {
