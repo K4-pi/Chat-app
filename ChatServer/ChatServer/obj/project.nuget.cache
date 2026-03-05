@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Mf8S7BgxTjU=",
+  "dgSpecHash": "mBU5xt/KK/w=",
   "success": true,
   "projectFilePath": "C:\\Users\\vboxuser\\Documents\\GitHub\\Chat-app\\ChatServer\\ChatServer\\ChatServer.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\vboxuser\\.nuget\\packages\\bcrypt.net-next\\4.1.0\\bcrypt.net-next.4.1.0.nupkg.sha512",
     "C:\\Users\\vboxuser\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
     "C:\\Users\\vboxuser\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\2.0.0\\microsoft.extensions.logging.abstractions.2.0.0.nupkg.sha512",
     "C:\\Users\\vboxuser\\.nuget\\packages\\mongodb.bson\\3.6.0\\mongodb.bson.3.6.0.nupkg.sha512",

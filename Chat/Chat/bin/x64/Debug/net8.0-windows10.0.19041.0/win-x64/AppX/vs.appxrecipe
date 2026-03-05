@@ -29,21 +29,21 @@
     <AppXManifest Include="C:\Users\vboxuser\Documents\GitHub\Chat-app\Chat\Chat\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2026-03-01T21:15:54.752</Modified>
+      <Modified>2026-03-05T19:25:54.558</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\vboxuser\Documents\GitHub\Chat-app\Chat\Chat\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Chat.runtimeconfig.json">
       <PackagePath>Chat.runtimeconfig.json</PackagePath>
-      <Modified>2026-02-27T13:41:53.058</Modified>
+      <Modified>2026-03-05T19:14:55.787</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\vboxuser\Documents\GitHub\Chat-app\Chat\Chat\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\apphost.exe">
       <PackagePath>Chat.exe</PackagePath>
-      <Modified>2026-03-01T21:15:54.398</Modified>
+      <Modified>2026-03-05T19:25:54.235</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\vboxuser\Documents\GitHub\Chat-app\Chat\Chat\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Chat.dll">
       <PackagePath>Chat.dll</PackagePath>
-      <Modified>2026-03-01T21:15:54.390</Modified>
+      <Modified>2026-03-05T19:25:54.219</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\vboxuser\.nuget\packages\microsoft.netcore.app.runtime.win-x64\8.0.24\runtimes\win-x64\lib\net8.0\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -781,6 +781,10 @@
       <PackagePath>WinRT.Runtime.dll</PackagePath>
       <Modified>2024-11-11T17:23:04.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\vboxuser\.nuget\packages\bcrypt.net-next\4.1.0\lib\netstandard2.1\BCrypt.Net-Next.dll">
+      <PackagePath>BCrypt.Net-Next.dll</PackagePath>
+      <Modified>2026-02-16T11:44:28.000</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\vboxuser\.nuget\packages\microsoft.windowsappsdk.ai\1.8.47\lib\net6.0-windows10.0.17763.0\Microsoft.Graphics.Imaging.Projection.dll">
       <PackagePath>Microsoft.Graphics.Imaging.Projection.dll</PackagePath>
       <Modified>2026-02-03T04:28:08.000</Modified>
@@ -927,35 +931,35 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\vboxuser\Documents\GitHub\Chat-app\Chat\Chat\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Chat.deps.json">
       <PackagePath>Chat.deps.json</PackagePath>
-      <Modified>2026-03-01T12:27:00.306</Modified>
+      <Modified>2026-03-05T19:14:55.782</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\vboxuser\Documents\GitHub\Chat-app\Chat\Chat\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
-      <Modified>2026-02-27T10:54:58.398</Modified>
+      <Modified>2026-03-05T19:00:01.935</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\vboxuser\Documents\GitHub\Chat-app\Chat\Chat\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
-      <Modified>2026-02-27T10:54:58.398</Modified>
+      <Modified>2026-03-05T19:00:01.935</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\vboxuser\Documents\GitHub\Chat-app\Chat\Chat\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
-      <Modified>2026-02-27T10:54:58.398</Modified>
+      <Modified>2026-03-05T19:00:01.935</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\vboxuser\Documents\GitHub\Chat-app\Chat\Chat\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
-      <Modified>2026-02-27T10:54:58.398</Modified>
+      <Modified>2026-03-05T19:00:01.938</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\vboxuser\Documents\GitHub\Chat-app\Chat\Chat\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
-      <Modified>2026-02-27T10:54:58.398</Modified>
+      <Modified>2026-03-05T19:00:01.938</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\vboxuser\Documents\GitHub\Chat-app\Chat\Chat\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
-      <Modified>2026-02-27T10:54:58.400</Modified>
+      <Modified>2026-03-05T19:00:01.938</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\vboxuser\Documents\GitHub\Chat-app\Chat\Chat\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
-      <Modified>2026-02-27T10:54:58.400</Modified>
+      <Modified>2026-03-05T19:00:01.938</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\vboxuser\.nuget\packages\microsoft.web.webview2\1.0.3179.45\build\..\lib\Microsoft.Web.WebView2.Core.winmd">
       <PackagePath>Microsoft.Web.WebView2.Core.winmd</PackagePath>
@@ -963,7 +967,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\vboxuser\Documents\GitHub\Chat-app\Chat\Chat\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2026-03-01T21:15:54.504</Modified>
+      <Modified>2026-03-05T19:14:55.870</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

@@ -9,6 +9,8 @@ using System.Reflection;
 using System.Text;
 using static System.Net.Mime.MediaTypeNames;
 
+using BCrypt.Net;
+
 namespace ChatServer
 {
     internal class Database
@@ -208,7 +210,7 @@ namespace ChatServer
             {
                 { "_id", userId },
                 { "Username", username },
-                { "Password", password }
+                { "Password", BCrypt.Net.BCrypt.HashPassword(password) }
             };
             await usersCollection.InsertOneAsync(newUser);
 
@@ -232,7 +234,7 @@ namespace ChatServer
 
         public String Authenticate(string data, TcpClient client)
         {
-            var credentials = data.Split('@');
+            var credentials = data.Split('@', 2);
             string username = credentials[0];
             string password = credentials[1];
 
@@ -244,7 +246,7 @@ namespace ChatServer
             var filter = Builders<BsonDocument>.Filter.Eq("Username", username);
             var userDoc = usersCollection.Find(filter).FirstOrDefault();
 
-            if (userDoc != null && userDoc["Password"] == password)
+            if (userDoc != null && BCrypt.Net.BCrypt.Verify(password, userDoc["Password"].ToString()))
             {
                 string userId = userDoc["_id"].ToString();
 

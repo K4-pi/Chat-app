@@ -43,12 +43,16 @@ namespace Chat
         private async void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
             ErrorLoginText.Foreground = new SolidColorBrush(Microsoft.UI.Colors.Red);
-            if (UsernameField.Text == "")
+
+            string username = UsernameField.Text;
+            string password = PasswordField.Password;
+
+            if (username == "")
             {
                 ErrorLoginText.Text = "No username provided!";
 
             }
-            else if (PasswordField.Password == "")
+            else if (password == "")
             {
                 ErrorLoginText.Text = "No password provided!";
             }
@@ -56,7 +60,7 @@ namespace Chat
             {
                 foreach (char c in ":@'/,.-_=+$#!?%^&*|(){}[]><")
                 {
-                    if (UsernameField.Text.Contains(c) || PasswordField.Password.Contains(c))
+                    if (username.Contains(c) || password.Contains(c))
                     {
                         ErrorLoginText.Text = "No special symbols!";
                         UsernameField.Text = "";
@@ -72,7 +76,7 @@ namespace Chat
                 {
                     if (await client.ConnectAsync(address, port))
                     {
-                        string request = $"REGISTER:{UsernameField.Text}@{PasswordField.Password}";
+                        string request = $"REGISTER:{username}@{password}";
                         string response = await client.SendAndReceiveAsync(request);
 
                         if (response.StartsWith("REGISTER_SUCCESS"))
