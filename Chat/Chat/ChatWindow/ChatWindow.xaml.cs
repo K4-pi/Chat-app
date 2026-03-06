@@ -6,6 +6,8 @@ using Microsoft.UI.Xaml.Input;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -19,8 +21,8 @@ namespace Chat
     {
         private TcpChatClient client;
         public ObservableCollection<ChatRoom> userRooms { get; set; } = new ObservableCollection<ChatRoom>();
-        
         public ObservableCollection<Message> Messages { get; } = new ObservableCollection<Message>();
+        public ObservableCollection<User> UsersInRoom { get; } = new ObservableCollection<User>();
 
         private string? currentRoomId; //general
 
@@ -42,14 +44,9 @@ namespace Chat
 
             client = _client;
             _ = client.ListenAsync(OnMessageReceived);
+            _ = client.SendAsync("GET_ROOMS");
 
-            client.SendAsync("GET_ROOMS");
             RoomList.ItemsSource = userRooms;
-        }
-
-        private void ScrollToBottom()
-        {
-            MessageScrollViewer.ChangeView(null, MessageScrollViewer.ScrollableHeight, null);
         }
 
         public void OnMessageReceived(string msg)
@@ -91,11 +88,11 @@ namespace Chat
                     string content = s.Substring(10);
                     if (content == "NONE") return;
 
-                    var rooms = content.Split('|');
+                    string[] rooms = content.Split('|');
 
                     this.DispatcherQueue.TryEnqueue(() =>
                     {
-                        RoomList.ItemsSource = null; // Prevents refreshing every time new message is added
+                        RoomList.ItemsSource = null; // Prevents refreshing every time new room is added
 
                         userRooms.Clear();
                         Debug.WriteLine("Your rooms:");
@@ -104,7 +101,7 @@ namespace Chat
                         {
                             Debug.WriteLine(r);
 
-                            var tokens = r.Split(',');
+                            var tokens = r.Split(',', 2);
                             var newRoom = new ChatRoom { 
                                 Id = tokens[0], 
                                 Name = tokens[1] 
@@ -115,30 +112,63 @@ namespace Chat
                         RoomList.ItemsSource = userRooms;
                     });
                 }
+                else if (s.StartsWith("USERS_LIST:"))
+                {
+                    string content = s.Substring(11);
+                    if (content == "NONE") return;
+
+                    string[] users = content.Split('|');
+
+                    Debug.WriteLine("users list:");
+                    foreach (var u in users)
+                    {
+                        Debug.WriteLine($"USER {u}");
+                    }
+
+                    this.DispatcherQueue.TryEnqueue(() =>
+                    {
+                        UsersInRoom.Clear();
+
+                        foreach (var u in users)
+                        {
+                            UsersInRoom.Add(new User
+                            {
+                                Username = u
+                            });
+                        }
+
+                        UsersList.UpdateLayout();
+                        UserScrollViewer.ChangeView(null, UserScrollViewer.ScrollableHeight, null);
+                    });
+                }
             }            
         }
 
-        private void RoomList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void RoomList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (RoomList.SelectedItem is ChatRoom selectedRoom)
             {
                 currentRoomId = selectedRoom.Id;
                 Messages.Clear();
+                UsersInRoom.Clear();
 
-                client.SendAsync($"GET_HISTORY:{currentRoomId}"); // Update messages
+                await client.SendAsync($"GET_HISTORY:{currentRoomId}"); // Update messages
                 Debug.WriteLine($"Switched to room: {selectedRoom.Name} ({currentRoomId})");
+
+                await Task.Delay(100);
+                await client.SendAsync($"GET_USERS_LIST:{currentRoomId}"); // Update users
             }
         }
 
         public async void LogoutButton_Click(object sender, RoutedEventArgs e) // Not sure about that
         {
-            client.SendAsync("DISCONNECT");
+            await client.SendAsync("DISCONNECT");
             var authWindow = new AuthWindow();
             this.Close();
             authWindow.Activate();
         }
 
-        private void SendMessage()
+        private async Task SendMessage()
         {
             /*
                 Not adding message to our own list because
@@ -153,21 +183,29 @@ namespace Chat
             string text = MessageInput.Text.Trim();
             if (string.IsNullOrEmpty(text)) return;
 
-            client.SendAsync($"MSG:{currentRoomId}@{text}@{DateTime.UtcNow.ToString()}");
+
+            try
+            {
+                await client.SendAsync($"MSG:{currentRoomId}@{text}@{DateTime.UtcNow.ToString()}");
+            }
+            catch (Exception ex) 
+            {
+                Debug.WriteLine($"SendMessageException:{ex.Message}");
+            }
 
             MessageInput.Text = "";
         }
 
         public async void SendButton_Click(object sender, RoutedEventArgs e)
         {
-            SendMessage();
+            await SendMessage();
         }
 
         private void MessageInput_KeyDown(object sender, KeyRoutedEventArgs e)
         {
             if (e.Key == Windows.System.VirtualKey.Enter)
             {
-                SendMessage();
+                _ = SendMessage();
                 e.Handled = true;
             }
         }

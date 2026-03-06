@@ -86,6 +86,17 @@ namespace ChatServer
                         response = await database.RegisterUser(msg, client);
                         await ConnectionManager.SendAsync(response, client);
                     }
+                    else if (msg.StartsWith("GET_USERS_LIST:")) //$"GET_USERS_LIST:{currentRoomId}"
+                    {
+                        Console.WriteLine("Users list request...");
+                        msg = msg.Substring(15);
+
+                        response = await database.GetUsersListAsync(msg);
+
+                        Console.WriteLine($"USERS L: {response}");
+                        await ConnectionManager.SendAsync(response, client);
+                    }
+
                     else if (msg.StartsWith("DISCONNECT"))
                     {
                         break; // Logouts user

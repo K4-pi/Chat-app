@@ -28,20 +28,20 @@
 
             <TextBlock Text="My Rooms" FontSize="18" HorizontalAlignment="Center" FontWeight="SemiBold" Margin="0,0,0,10" Grid.Row="0" Style="{StaticResource SubtitleTextBlockStyle}"/>
 
-            <ListView x:ConnectionId='14' x:Name="RoomList" Grid.Row="1" CornerRadius="4"
-              BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}"
+            <ListView x:ConnectionId='18' x:Name="RoomList" Grid.Row="1" CornerRadius="4"
+              BorderBrush="Gray"
               BorderThickness="5"
                                                           >
                 <ListView.ItemTemplate>
                     <DataTemplate                             >
-                        <TextBlock x:ConnectionId='18'                      VerticalAlignment="Center" Padding="5"/>
+                        <TextBlock x:ConnectionId='22'                      VerticalAlignment="Center" Padding="5"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
 
-            <Button x:ConnectionId='15' x:Name="CreateRoomButton" Content="Create Room" Grid.Row="2" 
+            <Button x:ConnectionId='19' x:Name="CreateRoomButton" Content="Create Room" Grid.Row="2" 
             HorizontalAlignment="Stretch" Margin="0,10,0,0" Style="{StaticResource AccentButtonStyle}"/>
-            <Button x:ConnectionId='16' x:Name="JoinRoomButton" Content="Join Private" Grid.Row="3" 
+            <Button x:ConnectionId='20' x:Name="JoinRoomButton" Content="Join Private" Grid.Row="3" 
             HorizontalAlignment="Stretch" Margin="0,5,0,0" Style="{StaticResource AccentButtonStyle}"/>
         </Grid>
 
@@ -55,10 +55,41 @@
 
             <TextBlock Text="Users Online" FontSize="18" HorizontalAlignment="Center" FontWeight="SemiBold" Margin="0,0,0,10" Grid.Row="0" Style="{StaticResource SubtitleTextBlockStyle}"/>
 
-            <ListView x:ConnectionId='11' x:Name="UserList" Grid.Row="1" CornerRadius="4"
-              BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}"
-              BorderThickness="5">
-            </ListView>
+            <ScrollViewer x:ConnectionId='11' x:Name="UserScrollViewer"
+              Grid.Row="1" 
+              VerticalScrollBarVisibility="Auto"
+              VerticalScrollMode="Enabled"
+              BorderThickness="5" 
+              BorderBrush="Gray"
+              CornerRadius="4"
+              Padding="5">
+
+                <ItemsRepeater x:ConnectionId='14' x:Name="UsersList"
+                                                      
+                   HorizontalAlignment="Stretch">
+                    <ItemsRepeater.ItemTemplate>
+                        <DataTemplate                         >
+                            <Grid x:ConnectionId='16' Padding="8,4" Margin="2" Background="{ThemeResource SystemControlBackgroundAltMediumLowBrush}" CornerRadius="4">
+                                <StackPanel Orientation="Horizontal" Spacing="12">
+                                    <Ellipse Width="32" Height="32" Fill="{ThemeResource SystemColorControlAccentColor}"/>
+
+                                    <StackPanel VerticalAlignment="Center">
+                                        <TextBlock x:ConnectionId='17'                          
+                                       FontWeight="SemiBold" 
+                                       FontSize="14"/>
+                                        <TextBlock Text="Streak" 
+                                       FontSize="10" 
+                                       Foreground="OrangeRed"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsRepeater.ItemTemplate>
+                    <ItemsRepeater.Layout>
+                        <StackLayout Spacing="2"/>
+                    </ItemsRepeater.Layout>
+                </ItemsRepeater>
+            </ScrollViewer>
 
             <Button x:ConnectionId='12' x:Name="AddFriendButton" Content="Add Friend" Grid.Row="2" 
                 HorizontalAlignment="Stretch" Margin="0,10,0,0" Style="{StaticResource AccentButtonStyle}"/>

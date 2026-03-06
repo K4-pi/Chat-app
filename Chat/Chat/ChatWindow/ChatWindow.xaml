@@ -29,7 +29,7 @@
             <TextBlock Text="My Rooms" FontSize="18" HorizontalAlignment="Center" FontWeight="SemiBold" Margin="0,0,0,10" Grid.Row="0" Style="{StaticResource SubtitleTextBlockStyle}"/>
 
             <ListView x:Name="RoomList" Grid.Row="1" CornerRadius="4"
-              BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}"
+              BorderBrush="Gray"
               BorderThickness="5"
               SelectionChanged="RoomList_SelectionChanged">
                 <ListView.ItemTemplate>
@@ -55,10 +55,41 @@
 
             <TextBlock Text="Users Online" FontSize="18" HorizontalAlignment="Center" FontWeight="SemiBold" Margin="0,0,0,10" Grid.Row="0" Style="{StaticResource SubtitleTextBlockStyle}"/>
 
-            <ListView x:Name="UserList" Grid.Row="1" CornerRadius="4"
-              BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}"
-              BorderThickness="5">
-            </ListView>
+            <ScrollViewer x:Name="UserScrollViewer"
+              Grid.Row="1" 
+              VerticalScrollBarVisibility="Auto"
+              VerticalScrollMode="Enabled"
+              BorderThickness="5" 
+              BorderBrush="Gray"
+              CornerRadius="4"
+              Padding="5">
+
+                <ItemsRepeater x:Name="UsersList"
+                   ItemsSource="{x:Bind UsersInRoom}" 
+                   HorizontalAlignment="Stretch">
+                    <ItemsRepeater.ItemTemplate>
+                        <DataTemplate x:DataType="models:User">
+                            <Grid Padding="8,4" Margin="2" Background="{ThemeResource SystemControlBackgroundAltMediumLowBrush}" CornerRadius="4">
+                                <StackPanel Orientation="Horizontal" Spacing="12">
+                                    <Ellipse Width="32" Height="32" Fill="{ThemeResource SystemColorControlAccentColor}"/>
+
+                                    <StackPanel VerticalAlignment="Center">
+                                        <TextBlock Text="{x:Bind Username}" 
+                                       FontWeight="SemiBold" 
+                                       FontSize="14"/>
+                                        <TextBlock Text="Streak" 
+                                       FontSize="10" 
+                                       Foreground="OrangeRed"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsRepeater.ItemTemplate>
+                    <ItemsRepeater.Layout>
+                        <StackLayout Spacing="2"/>
+                    </ItemsRepeater.Layout>
+                </ItemsRepeater>
+            </ScrollViewer>
 
             <Button x:Name="AddFriendButton" Content="Add Friend" Grid.Row="2" 
                 HorizontalAlignment="Stretch" Margin="0,10,0,0" Style="{StaticResource AccentButtonStyle}"/>

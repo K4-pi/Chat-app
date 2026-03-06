@@ -74,35 +74,50 @@ namespace Chat.Utilities
             Debug.WriteLine("Ended listen loop");
         }
 
-        public async void SendAsync(string message)
+        public async Task SendAsync(string message)
         {
             if (stream == null) return; // "ERROR:Not Connected"
 
-            byte[] data = Encoding.UTF8.GetBytes(message);
-            await stream.WriteAsync(data, 0, data.Length);
+            try
+            {
+                byte[] data = Encoding.UTF8.GetBytes(message + '\n');
+                await stream.WriteAsync(data, 0, data.Length);
+            }
+            catch (Exception ex) 
+            { 
+                Debug.WriteLine($"SendAsyncException:{ex.Message}"); 
+            }
         }
 
         public async Task<string> SendAndReceiveAsync(string message)
         {
-            if (stream == null) return "ERROR:Not Connected";
+            try
+            {
+                if (stream == null) return "ERROR:Not Connected";
 
-            // Send
-            byte[] data = Encoding.UTF8.GetBytes(message);
-            await stream.WriteAsync(data, 0, data.Length);
+                // Send
+                byte[] data = Encoding.UTF8.GetBytes(message);
+                await stream.WriteAsync(data, 0, data.Length);
 
-            // Receive - use of MemoryStream() prevents data loss problem
-            var ms = new MemoryStream();
-            byte[] buffer = new byte[2048];
+                // Receive - use of MemoryStream() prevents data loss problem
+                var ms = new MemoryStream();
+                byte[] buffer = new byte[2048];
 
-            do 
+                do
+                {
+                    int bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length);
+                    if (bytesRead == 0) break;
+                    ms.Write(buffer, 0, bytesRead);
+                }
+                while (stream.DataAvailable);
+
+                return Encoding.UTF8.GetString(ms.ToArray()).Trim();
+            }
+            catch (Exception ex) 
             { 
-                int bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length);
-                if (bytesRead == 0) break;
-                ms.Write(buffer, 0, bytesRead);
-            } 
-            while (stream.DataAvailable);
-
-            return Encoding.UTF8.GetString(ms.ToArray()).Trim();
+                Debug.WriteLine($"SendAndReceiveAsyncException{ex.Message}"); 
+            }
+            return "ERROR:catch";
         }
     }
 }

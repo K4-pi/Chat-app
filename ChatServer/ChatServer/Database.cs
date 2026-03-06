@@ -1,5 +1,6 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Driver;
+using System.Collections;
 using System.Diagnostics;
 using System.Net.Sockets;
 using System.Text;
@@ -78,7 +79,28 @@ namespace ChatServer
 
                 await ConnectionManager.SendAsync($"MSG:{senderName}@{text}@{timeStamp.ToString("HH:mm dd/MM/yyyy")}", client); // If change time here also change time in client app
             }
+        }
 
+        public async Task<string> GetUsersListAsync(string roomId)
+        {
+            Console.WriteLine($"Room ID:{roomId}");
+
+            var roomsCollection = GetRoomsCollection();
+
+            var roomFilter = Builders<BsonDocument>.Filter.AnyEq("_id", new ObjectId(roomId));
+            var room = await roomsCollection.Find(roomFilter).FirstOrDefaultAsync();
+
+            if (room == null) return "USERS_LIST:NONE";
+
+            var members = room["Members"].AsBsonArray;
+
+            var usersCollection = GetUsersCollection();
+
+            var membersIds = members.Select(m => m.AsObjectId).ToList();
+            var usersFilter = Builders<BsonDocument>.Filter.In("_id", membersIds);
+            var users = await usersCollection.Find(usersFilter).ToListAsync();
+            var names = users.Select(u => u["Username"].ToString());
+            return "USERS_LIST:" + string.Join("|", names);
         }
 
         public async Task<string> GetUserRoomsAsync(string userId)
