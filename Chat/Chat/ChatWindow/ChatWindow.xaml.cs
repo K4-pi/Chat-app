@@ -6,7 +6,6 @@ using Microsoft.UI.Xaml.Input;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Linq;
 using System.Threading.Tasks;
 
 // To learn more about WinUI, the WinUI project structure,
@@ -25,6 +24,7 @@ namespace Chat
         public ObservableCollection<User> UsersInRoom { get; } = new ObservableCollection<User>();
 
         private string? currentRoomId; //general
+        private bool isShowed = false;
 
         public MainWindow(string userId, TcpChatClient _client)
         {
@@ -49,7 +49,7 @@ namespace Chat
             RoomList.ItemsSource = userRooms;
         }
 
-        public void OnMessageReceived(string msg)
+        public async void OnMessageReceived(string msg)
         {
             Debug.WriteLine($"OnMessageReceived: {msg}");
 
@@ -88,7 +88,7 @@ namespace Chat
                     string content = s.Substring(10);
                     if (content == "NONE") return;
 
-                    string[] rooms = content.Split('|');
+                    string[] rooms = content.Split('@');
 
                     this.DispatcherQueue.TryEnqueue(() =>
                     {
@@ -101,10 +101,11 @@ namespace Chat
                         {
                             Debug.WriteLine(r);
 
-                            var tokens = r.Split(',', 2);
+                            var tokens = r.Split(',', 3);
                             var newRoom = new ChatRoom { 
                                 Id = tokens[0], 
-                                Name = tokens[1] 
+                                Name = tokens[1], 
+                                Code = tokens[2]
                             };
                             userRooms.Add(newRoom);
                         }
@@ -117,7 +118,7 @@ namespace Chat
                     string content = s.Substring(11);
                     if (content == "NONE") return;
 
-                    string[] users = content.Split('|');
+                    string[] users = content.Split('@');
 
                     Debug.WriteLine("users list:");
                     foreach (var u in users)
@@ -140,6 +141,58 @@ namespace Chat
                         UsersList.UpdateLayout();
                         UserScrollViewer.ChangeView(null, UserScrollViewer.ScrollableHeight, null);
                     });
+                }
+                else if (s.StartsWith("CREATE_ROOM:"))
+                {
+                    string content = s.Substring(12);
+                    if (content == "SUCCESS")
+                    {
+                        await client.SendAsync("GET_ROOMS");
+                        await ShowAlert("SUCCESS", "Created room");
+                    }
+                    else if (content == "EXISTS")
+                    {
+                        await ShowAlert("ERROR", "Room with that name already exists");
+                    }
+                    else
+                    {
+                        await ShowAlert("ERROR", "Failed to create room");
+                    }
+                }
+                else if (s.StartsWith("JOIN_ROOM:"))
+                {
+                    string content = s.Substring(10);
+                    if (content == "SUCCESS")
+                    {
+                        await client.SendAsync("GET_ROOMS");
+                        await ShowAlert("SUCCESS", "Joined room");
+                    }
+                    else if (content == "NO_ROOM")
+                    {
+                        await ShowAlert("ERROR", "Room doesn't exists");
+                    }
+                    else
+                    {
+                        await ShowAlert("ERROR", "Failed to join a room");
+                    }
+                }
+                else if (s.StartsWith("DELETE_ROOM:"))
+                {
+                    string content = s.Substring(12);
+                    if (content == "DELETED")
+                    {
+                        await client.SendAsync("GET_ROOMS");
+                        await ShowAlert("SUCCESS", "Deleted room");
+                    }
+                    else if (content == "LEFT")
+                    {
+                        await client.SendAsync("GET_ROOMS");
+                        await ShowAlert("SUCCESS", "Left room");
+                    }
+                    else
+                    {
+                        await ShowAlert("ERROR", "Room delete/leave problem");
+                    }
                 }
             }            
         }
@@ -176,7 +229,7 @@ namespace Chat
             */
             if (currentRoomId == null)
             {
-                Debug.WriteLine("You need to choose room before you send message");
+                await ShowAlert("ERROR", "You need to choose room before you send message");
                 return;
             }
 
@@ -201,6 +254,110 @@ namespace Chat
             await SendMessage();
         }
 
+        private async void DeleteRoomButton_Click(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+
+            if (button?.DataContext is ChatRoom selectedRoom)
+            {
+                await client.SendAsync($"DELETE_ROOM:{selectedRoom.Name}");
+            }
+        }
+
+        private async void JoinRoomButton_Click(object sender, RoutedEventArgs e)
+        {
+            TextBox roomNameInput = new TextBox
+            {
+                Header = "Name",
+                //PlaceholderText = "insert room name",
+                Margin = new Thickness(0, 0, 0, 10)
+            };
+
+            TextBox roomCodeInput = new TextBox
+            {
+                Header = "Code"
+                //PlaceholderText = "insert room code"
+            };
+
+            StackPanel panel = new StackPanel();
+            panel.Children.Add(roomNameInput);
+            panel.Children.Add(roomCodeInput);
+
+            ContentDialog dialog = new ContentDialog
+            {
+                Title = "Join room",
+                Content = panel,
+                PrimaryButtonText = "Join",
+                CloseButtonText = "Cancel",
+                DefaultButton = ContentDialogButton.Primary,
+                XamlRoot = this.Content.XamlRoot
+            };
+
+            ContentDialogResult result = await dialog.ShowAsync();
+
+            if (result == ContentDialogResult.Primary)
+            {
+                string roomCode = roomCodeInput.Text;
+                string roomName = roomNameInput.Text;
+
+                if (!string.IsNullOrEmpty(roomCode) && !string.IsNullOrEmpty(roomName))
+                {
+                    await client.SendAsync($"JOIN_ROOM:{roomName}@{roomCode}");
+                }
+                else
+                {
+                    await ShowAlert("ERROR", "You need to provide name and code");
+                }
+            }
+        }
+
+        private async void CreateRoomButton_Click(object sender, RoutedEventArgs e)
+        {
+            TextBox roomNameInput = new TextBox
+            {
+                Header = "Name",
+                //PlaceholderText = "insert room name",
+                Margin = new Thickness(0, 0, 0, 10)
+            };
+
+            TextBox roomCodeInput = new TextBox
+            {
+                Header = "Code"
+                //PlaceholderText = "insert room code"
+            };
+
+            StackPanel panel = new StackPanel();
+            panel.Children.Add(roomNameInput);
+            panel.Children.Add(roomCodeInput);
+
+            ContentDialog dialog = new ContentDialog
+            {
+                Title = "Crete room",
+                Content = panel,
+                PrimaryButtonText = "Create",
+                CloseButtonText = "Cancel",
+                DefaultButton = ContentDialogButton.Primary,
+                XamlRoot = this.Content.XamlRoot
+            };
+
+            ContentDialogResult result = await dialog.ShowAsync();
+
+            if (result == ContentDialogResult.Primary)
+            {
+                string roomName = roomNameInput.Text;
+                string roomCode = roomCodeInput.Text;
+
+                if (!string.IsNullOrEmpty(roomCode) && !string.IsNullOrEmpty(roomName))
+                {
+                    await client.SendAsync($"CREATE_ROOM:{roomName}@{roomCode}");
+                }
+                else
+                {
+                    await ShowAlert("ERROR", "You need to provide name and code");
+                }
+            }
+        }
+
         private void MessageInput_KeyDown(object sender, KeyRoutedEventArgs e)
         {
             if (e.Key == Windows.System.VirtualKey.Enter)
@@ -208,6 +365,24 @@ namespace Chat
                 _ = SendMessage();
                 e.Handled = true;
             }
+        }
+
+        private async Task ShowAlert(string title, string message)
+        {
+            if (isShowed) return;
+
+            isShowed = true;
+            ContentDialog errorDialog = new ContentDialog
+            {
+                Title = title,
+                Content = message,
+                CloseButtonText = "OK",
+                DefaultButton = ContentDialogButton.Close,
+                XamlRoot = this.Content.XamlRoot
+            };
+
+            await errorDialog.ShowAsync();
+            isShowed = false;
         }
     }
 }

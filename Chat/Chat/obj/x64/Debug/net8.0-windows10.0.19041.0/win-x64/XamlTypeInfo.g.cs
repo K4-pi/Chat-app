@@ -654,6 +654,7 @@ namespace Chat.Chat_XamlTypeInfo
                 userType.StaticInitializer = StaticInitializer_30_ChatRoom;
                 userType.AddMemberName("Id");
                 userType.AddMemberName("Name");
+                userType.AddMemberName("Code");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -949,102 +950,112 @@ namespace Chat.Chat_XamlTypeInfo
             var that = (global::Chat.DataModels.ChatRoom)instance;
             that.Name = (global::System.String)Value;
         }
-        private object get_16_MainWindow_Messages(object instance)
+        private object get_16_ChatRoom_Code(object instance)
+        {
+            var that = (global::Chat.DataModels.ChatRoom)instance;
+            return that.Code;
+        }
+        private void set_16_ChatRoom_Code(object instance, object Value)
+        {
+            var that = (global::Chat.DataModels.ChatRoom)instance;
+            that.Code = (global::System.String)Value;
+        }
+        private object get_17_MainWindow_Messages(object instance)
         {
             var that = (global::Chat.MainWindow)instance;
             return that.Messages;
         }
-        private object get_17_Message_Username(object instance)
+        private object get_18_Message_Username(object instance)
         {
             var that = (global::Chat.DataModels.Message)instance;
             return that.Username;
         }
-        private void set_17_Message_Username(object instance, object Value)
+        private void set_18_Message_Username(object instance, object Value)
         {
             var that = (global::Chat.DataModels.Message)instance;
             that.Username = (global::System.String)Value;
         }
-        private object get_18_Message_Text(object instance)
+        private object get_19_Message_Text(object instance)
         {
             var that = (global::Chat.DataModels.Message)instance;
             return that.Text;
         }
-        private void set_18_Message_Text(object instance, object Value)
+        private void set_19_Message_Text(object instance, object Value)
         {
             var that = (global::Chat.DataModels.Message)instance;
             that.Text = (global::System.String)Value;
         }
-        private object get_19_Message_SentAt(object instance)
+        private object get_20_Message_SentAt(object instance)
         {
             var that = (global::Chat.DataModels.Message)instance;
             return that.SentAt;
         }
-        private void set_19_Message_SentAt(object instance, object Value)
+        private void set_20_Message_SentAt(object instance, object Value)
         {
             var that = (global::Chat.DataModels.Message)instance;
             that.SentAt = (global::System.String)Value;
         }
-        private object get_20_MainWindow_UsersInRoom(object instance)
+        private object get_21_MainWindow_UsersInRoom(object instance)
         {
             var that = (global::Chat.MainWindow)instance;
             return that.UsersInRoom;
         }
-        private object get_21_User_Username(object instance)
+        private object get_22_User_Username(object instance)
         {
             var that = (global::Chat.DataModels.User)instance;
             return that.Username;
         }
-        private void set_21_User_Username(object instance, object Value)
+        private void set_22_User_Username(object instance, object Value)
         {
             var that = (global::Chat.DataModels.User)instance;
             that.Username = (global::System.String)Value;
         }
-        private object get_22_TreeViewNode_Children(object instance)
+        private object get_23_TreeViewNode_Children(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Children;
         }
-        private object get_23_TreeViewNode_Content(object instance)
+        private object get_24_TreeViewNode_Content(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Content;
         }
-        private void set_23_TreeViewNode_Content(object instance, object Value)
+        private void set_24_TreeViewNode_Content(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             that.Content = (global::System.Object)Value;
         }
-        private object get_24_TreeViewNode_Depth(object instance)
+        private object get_25_TreeViewNode_Depth(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Depth;
         }
-        private object get_25_TreeViewNode_HasChildren(object instance)
+        private object get_26_TreeViewNode_HasChildren(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.HasChildren;
         }
-        private object get_26_TreeViewNode_HasUnrealizedChildren(object instance)
+        private object get_27_TreeViewNode_HasUnrealizedChildren(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.HasUnrealizedChildren;
         }
-        private void set_26_TreeViewNode_HasUnrealizedChildren(object instance, object Value)
+        private void set_27_TreeViewNode_HasUnrealizedChildren(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             that.HasUnrealizedChildren = (global::System.Boolean)Value;
         }
-        private object get_27_TreeViewNode_IsExpanded(object instance)
+        private object get_28_TreeViewNode_IsExpanded(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.IsExpanded;
         }
-        private void set_27_TreeViewNode_IsExpanded(object instance, object Value)
+        private void set_28_TreeViewNode_IsExpanded(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             that.IsExpanded = (global::System.Boolean)Value;
         }
-        private object get_28_TreeViewNode_Parent(object instance)
+        private object get_29_TreeViewNode_Parent(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Parent;
@@ -1164,86 +1175,92 @@ namespace Chat.Chat_XamlTypeInfo
                 xamlMember.Getter = get_15_ChatRoom_Name;
                 xamlMember.Setter = set_15_ChatRoom_Name;
                 break;
+            case "Chat.DataModels.ChatRoom.Code":
+                userType = (global::Chat.Chat_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Chat.DataModels.ChatRoom");
+                xamlMember = new global::Chat.Chat_XamlTypeInfo.XamlMember(this, "Code", "String");
+                xamlMember.Getter = get_16_ChatRoom_Code;
+                xamlMember.Setter = set_16_ChatRoom_Code;
+                break;
             case "Chat.MainWindow.Messages":
                 userType = (global::Chat.Chat_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Chat.MainWindow");
                 xamlMember = new global::Chat.Chat_XamlTypeInfo.XamlMember(this, "Messages", "System.Collections.ObjectModel.ObservableCollection`1<Chat.DataModels.Message>");
-                xamlMember.Getter = get_16_MainWindow_Messages;
+                xamlMember.Getter = get_17_MainWindow_Messages;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Chat.DataModels.Message.Username":
                 userType = (global::Chat.Chat_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Chat.DataModels.Message");
                 xamlMember = new global::Chat.Chat_XamlTypeInfo.XamlMember(this, "Username", "String");
-                xamlMember.Getter = get_17_Message_Username;
-                xamlMember.Setter = set_17_Message_Username;
+                xamlMember.Getter = get_18_Message_Username;
+                xamlMember.Setter = set_18_Message_Username;
                 break;
             case "Chat.DataModels.Message.Text":
                 userType = (global::Chat.Chat_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Chat.DataModels.Message");
                 xamlMember = new global::Chat.Chat_XamlTypeInfo.XamlMember(this, "Text", "String");
-                xamlMember.Getter = get_18_Message_Text;
-                xamlMember.Setter = set_18_Message_Text;
+                xamlMember.Getter = get_19_Message_Text;
+                xamlMember.Setter = set_19_Message_Text;
                 break;
             case "Chat.DataModels.Message.SentAt":
                 userType = (global::Chat.Chat_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Chat.DataModels.Message");
                 xamlMember = new global::Chat.Chat_XamlTypeInfo.XamlMember(this, "SentAt", "String");
-                xamlMember.Getter = get_19_Message_SentAt;
-                xamlMember.Setter = set_19_Message_SentAt;
+                xamlMember.Getter = get_20_Message_SentAt;
+                xamlMember.Setter = set_20_Message_SentAt;
                 break;
             case "Chat.MainWindow.UsersInRoom":
                 userType = (global::Chat.Chat_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Chat.MainWindow");
                 xamlMember = new global::Chat.Chat_XamlTypeInfo.XamlMember(this, "UsersInRoom", "System.Collections.ObjectModel.ObservableCollection`1<Chat.DataModels.User>");
-                xamlMember.Getter = get_20_MainWindow_UsersInRoom;
+                xamlMember.Getter = get_21_MainWindow_UsersInRoom;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Chat.DataModels.User.Username":
                 userType = (global::Chat.Chat_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Chat.DataModels.User");
                 xamlMember = new global::Chat.Chat_XamlTypeInfo.XamlMember(this, "Username", "String");
-                xamlMember.Getter = get_21_User_Username;
-                xamlMember.Setter = set_21_User_Username;
+                xamlMember.Getter = get_22_User_Username;
+                xamlMember.Setter = set_22_User_Username;
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Children":
                 userType = (global::Chat.Chat_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::Chat.Chat_XamlTypeInfo.XamlMember(this, "Children", "System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>");
-                xamlMember.Getter = get_22_TreeViewNode_Children;
+                xamlMember.Getter = get_23_TreeViewNode_Children;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Content":
                 userType = (global::Chat.Chat_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::Chat.Chat_XamlTypeInfo.XamlMember(this, "Content", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_23_TreeViewNode_Content;
-                xamlMember.Setter = set_23_TreeViewNode_Content;
+                xamlMember.Getter = get_24_TreeViewNode_Content;
+                xamlMember.Setter = set_24_TreeViewNode_Content;
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Depth":
                 userType = (global::Chat.Chat_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::Chat.Chat_XamlTypeInfo.XamlMember(this, "Depth", "Int32");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_24_TreeViewNode_Depth;
+                xamlMember.Getter = get_25_TreeViewNode_Depth;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.HasChildren":
                 userType = (global::Chat.Chat_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::Chat.Chat_XamlTypeInfo.XamlMember(this, "HasChildren", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_25_TreeViewNode_HasChildren;
+                xamlMember.Getter = get_26_TreeViewNode_HasChildren;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.HasUnrealizedChildren":
                 userType = (global::Chat.Chat_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::Chat.Chat_XamlTypeInfo.XamlMember(this, "HasUnrealizedChildren", "Boolean");
-                xamlMember.Getter = get_26_TreeViewNode_HasUnrealizedChildren;
-                xamlMember.Setter = set_26_TreeViewNode_HasUnrealizedChildren;
+                xamlMember.Getter = get_27_TreeViewNode_HasUnrealizedChildren;
+                xamlMember.Setter = set_27_TreeViewNode_HasUnrealizedChildren;
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.IsExpanded":
                 userType = (global::Chat.Chat_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::Chat.Chat_XamlTypeInfo.XamlMember(this, "IsExpanded", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_27_TreeViewNode_IsExpanded;
-                xamlMember.Setter = set_27_TreeViewNode_IsExpanded;
+                xamlMember.Getter = get_28_TreeViewNode_IsExpanded;
+                xamlMember.Setter = set_28_TreeViewNode_IsExpanded;
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Parent":
                 userType = (global::Chat.Chat_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::Chat.Chat_XamlTypeInfo.XamlMember(this, "Parent", "Microsoft.UI.Xaml.Controls.TreeViewNode");
-                xamlMember.Getter = get_28_TreeViewNode_Parent;
+                xamlMember.Getter = get_29_TreeViewNode_Parent;
                 xamlMember.SetIsReadOnly();
                 break;
             }

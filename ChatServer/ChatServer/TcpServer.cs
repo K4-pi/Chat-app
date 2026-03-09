@@ -40,7 +40,7 @@ namespace ChatServer
                         Console.WriteLine("Storing message...");
                         msg = msg.Substring(4);
 
-                        //{roomID}@{text}"
+                        //{roomID}@{text}@{time}"
                         string[] formated = msg.Split('@', 3);
                         string roomID = formated[0];
                         string msgText = formated[1];
@@ -93,10 +93,37 @@ namespace ChatServer
 
                         response = await database.GetUsersListAsync(msg);
 
-                        Console.WriteLine($"USERS L: {response}");
                         await ConnectionManager.SendAsync(response, client);
                     }
+                    else if (msg.StartsWith("CREATE_ROOM:")) // $"CREATE_ROOM:{roomName}@{roomCode}"
+                    {
+                        Console.WriteLine("Creating room...");
+                        msg = msg.Substring(12);
+                        string[] tokens = msg.Split('@', 2);
 
+                        response = await database.CreateRoomAsync(tokens[0], tokens[1], client);
+
+                        await ConnectionManager.SendAsync(response, client);
+                    }
+                    else if (msg.StartsWith("JOIN_ROOM:")) // $"JOIN_ROOM:{roomName}@{roomCode}"
+                    {
+                        Console.WriteLine("Joining room...");
+                        msg = msg.Substring(10);
+                        string[] tokens = msg.Split('@', 2);
+
+                        response = await database.JoinRoomAsync(tokens[0], tokens[1], client);
+
+                        await ConnectionManager.SendAsync(response, client);
+                    }
+                    else if (msg.StartsWith("DELETE_ROOM:"))
+                    {
+                        Console.WriteLine("Deleting room...");
+                        msg = msg.Substring(12);
+
+                        response = await database.DeleteRoomAsync(msg, client);
+
+                        await ConnectionManager.SendAsync(response, client);
+                    }
                     else if (msg.StartsWith("DISCONNECT"))
                     {
                         break; // Logouts user

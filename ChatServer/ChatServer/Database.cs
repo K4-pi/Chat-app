@@ -5,8 +5,6 @@ using System.Diagnostics;
 using System.Net.Sockets;
 using System.Text;
 
-//using BCrypt.Net;
-
 namespace ChatServer
 {
     internal class Database
@@ -100,7 +98,7 @@ namespace ChatServer
             var usersFilter = Builders<BsonDocument>.Filter.In("_id", membersIds);
             var users = await usersCollection.Find(usersFilter).ToListAsync();
             var names = users.Select(u => u["Username"].ToString());
-            return "USERS_LIST:" + string.Join("|", names);
+            return "USERS_LIST:" + string.Join("@", names);
         }
 
         public async Task<string> GetUserRoomsAsync(string userId)
@@ -112,9 +110,9 @@ namespace ChatServer
 
             if (rooms.Count == 0) return "ROOM_LIST:NONE";
 
-            // Format: ID,Name|ID,Name
-            var roomStrings = rooms.Select(r => $"{r["_id"]},{r["RoomName"]}");
-            return "ROOM_LIST:" + string.Join("|", roomStrings);
+            // Format: ID,Name@ID,Name
+            var roomStrings = rooms.Select(r => $"{r["_id"]},{r["RoomName"]},{r["RoomCode"]}");
+            return "ROOM_LIST:" + string.Join("@", roomStrings);
         }
 
         public async Task BroadcastToRoomAsync(string roomId, string messageText, string sendTime, string senderId)
@@ -206,6 +204,99 @@ namespace ChatServer
 
             var messagesCollection = GetMessagesCollection();
             await messagesCollection.InsertOneAsync(messageDoc);
+        }
+
+        /*
+         * A little misleading beceause it evaluates if client is Owner or Member,
+         * if Owner delete room from database
+         * if member delete user from room 
+         */
+        public async Task<string> DeleteRoomAsync(string roomName, TcpClient client)
+        {
+            Console.WriteLine($"Room:{roomName}");
+            string userId = ConnectionManager.GetUserId(client);
+
+            if (userId == null)
+            {
+                Console.WriteLine("userid == null");
+                return "DELETE_ROOM:FAILED";
+            }
+
+            var roomsCollection = GetRoomsCollection();
+            var roomsFilter = Builders<BsonDocument>.Filter.Eq("RoomName", roomName);
+            var room = await roomsCollection.Find(roomsFilter).FirstOrDefaultAsync();
+
+            if (room == null)
+            {
+                Console.WriteLine("Room == null");
+                return "DELETE_ROOM:FAILED";
+            }
+
+            var uid = new ObjectId(userId);
+
+            if (room["Owner"] == uid)
+            {
+                var result = await roomsCollection.DeleteOneAsync(roomsFilter);
+
+                if (result.DeletedCount > 0) return "DELETE_ROOM:DELETED";
+
+                Console.WriteLine("Owner error");
+                return "DELETE_ROOM:FAILED";
+            }
+            else
+            {
+                var update = Builders<BsonDocument>.Update.Pull("Members", uid);
+                var result = await roomsCollection.UpdateOneAsync(roomsFilter, update);
+
+                if (result.ModifiedCount > 0) return "DELETE_ROOM:LEFT";
+
+                Console.WriteLine("Leave error");
+                return "DELETE_ROOM:FAILED";
+            }
+        }
+
+        public async Task<string> JoinRoomAsync(string roomName, string roomCode, TcpClient client)
+        {
+            string userID = ConnectionManager.GetUserId(client);
+            if (userID == null) return "JOIN_ROOM:FAILED";
+
+            var roomsCollection = GetRoomsCollection();
+            var roomFilter = Builders<BsonDocument>.Filter.Eq("RoomName", roomName);
+            var room = roomsCollection.Find(roomFilter).FirstOrDefault();
+
+            if (room == null) return "JOIN_ROOM:NO_ROOM";
+
+            var update = Builders<BsonDocument>.Update.AddToSet("Members", new ObjectId(userID));
+            var result = await roomsCollection.UpdateOneAsync(roomFilter, update);
+
+            if (result.ModifiedCount > 0) return "JOIN_ROOM:SUCCESS";
+            
+            return "JOIN_ROOM:FAILED";
+        }
+
+        public async Task<String> CreateRoomAsync(string roomName, string roomCode, TcpClient client)
+        {
+            string userID = ConnectionManager.GetUserId(client);
+            if (userID == null) return "CREATE_ROOM:FAILED";
+
+            var roomsCollection = GetRoomsCollection();
+            var filter = Builders<BsonDocument>.Filter.Eq("RoomName", roomName);
+            var room = roomsCollection.Find(filter).FirstOrDefault();
+
+            if (room != null) return "CREATE_ROOM:EXISTS";
+
+            var uid = new ObjectId(userID);
+            var newRoom = new BsonDocument
+            {
+                { "Owner",  uid},
+                { "RoomName", roomName },
+                { "RoomCode", roomCode },
+                { "Members", new BsonArray{ uid } 
+                }
+            };
+            await roomsCollection.InsertOneAsync(newRoom);
+
+            return "CREATE_ROOM:SUCCESS";
         }
 
         public async Task<String> RegisterUser(string data, TcpClient client)
