@@ -2,9 +2,12 @@
 using System.Net;
 using System.Net.Sockets;
 
-var listener = new TcpListener(IPAddress.Any, 9000);
+IPAddress IpAddress = IPAddress.Any;
+int Port = 9000;
+
+var listener = new TcpListener(IpAddress, Port);
 listener.Start();
-Console.WriteLine("Server started");
+Console.WriteLine($"Server listening on {IpAddress}:{Port}");
 
 while (true) //MAIN LOOP
 {

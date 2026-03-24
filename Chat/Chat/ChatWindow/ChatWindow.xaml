@@ -55,10 +55,7 @@
             <Button x:Name="JoinRoomButton" Content="Join Room" Grid.Row="3" 
             HorizontalAlignment="Stretch" Margin="0,10,0,0" Click="JoinRoomButton_Click" Style="{StaticResource AccentButtonStyle}"/>
 
-            <Button x:Name="SettingsButton" Content="Settings" Grid.Row="4" 
-            HorizontalAlignment="Stretch" Margin="0,10,0,0" Style="{StaticResource AccentButtonStyle}"/>
-
-            <Button x:Name="LogoutButton" Content="Logout" Grid.Row="5" 
+            <Button x:Name="LogoutButton" Content="Logout" Grid.Row="4" 
             HorizontalAlignment="Stretch" Margin="0,10,0,0" Click="LogoutButton_Click" Style="{StaticResource AccentButtonStyle}"/>
         </Grid>
 

@@ -27,7 +27,7 @@ namespace ChatServer
         public static TcpClient GetClient(string userId)
         {
             _onlineUsers.TryGetValue(userId, out var client);
-            return client;
+            return client!;
         }
 
         public static string GetUserId(TcpClient client)
