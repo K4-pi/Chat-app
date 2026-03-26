@@ -57,18 +57,24 @@ namespace Chat
 
             foreach (string s in splitedMessages)
             {
-                // "MSG:User@Hello World!@time"
+                // "MSG:roomId@User@Hello World!@time"
                 if (s.StartsWith("MSG:"))
                 {
-                    // "User@Hello World!@time"
+                    // "roomId@User@Hello World!@time"
                     string formated = s.Substring(4); // Remove "MSG:" prefix
 
-                    // "[User] [Hello World!] [time]"
-                    string[] content = formated.Split('@', 3);
+                    // "[roomId] [User] [Hello World!] [time]"
+                    string[] content = formated.Split('@', 4);
 
-                    string user = content[0];
-                    string text = content[1];
-                    string time = content[2];
+                    string roomId = content[0];
+                    string user   = content[1];
+                    string text   = content[2];
+                    string time   = content[3];
+
+                    Debug.WriteLine($"roomid: {roomId}");
+                    Debug.WriteLine($"current room id: {currentRoomId}");
+
+                    if (roomId != currentRoomId) return;
 
                     this.DispatcherQueue.TryEnqueue(() =>
                     {

@@ -14,7 +14,7 @@ namespace ChatServer
 
         public Database()
         {
-            string connectionUri = "mongodb+srv://chat_db_user:VbAcD6aY3FPrywXd@chatapp.mpve4di.mongodb.net";
+            string connectionUri = "mongodb+srv://chat_db_user:VbAcD6aY3FPrywXd@mainclusters.mpve4di.mongodb.net";
 
             try
             {
@@ -75,7 +75,7 @@ namespace ChatServer
                 string text = doc["Text"].AsString;
                 DateTime timeStamp = doc["Timestamp"].ToUniversalTime();
 
-                await ConnectionManager.SendAsync($"MSG:{senderName}@{text}@{timeStamp.ToString("HH:mm dd/MM/yyyy")}", client); // If change time here also change time in client app
+                await ConnectionManager.SendAsync($"MSG:{roomId}@{senderName}@{text}@{timeStamp.ToString("HH:mm dd/MM/yyyy")}", client); // If change time here also change time in client app
             }
         }
 
@@ -131,7 +131,7 @@ namespace ChatServer
             string senderName = user.Contains("Username") ? user["Username"].AsString : "Unknown";
 
             var members = room["Members"].AsBsonArray;
-            string protocolMessage = $"MSG:{senderName}@{messageText}@{DateTime.Parse(sendTime).ToString("HH:mm dd/MM/yyyy")}"; // Might change to fetching time from DB
+            string protocolMessage = $"MSG:{roomId}@{senderName}@{messageText}@{DateTime.Parse(sendTime).ToString("HH:mm dd/MM/yyyy")}"; // Might change to fetching time from DB
             byte[] data = Encoding.UTF8.GetBytes(protocolMessage);
 
             foreach (var memberValue in members)
