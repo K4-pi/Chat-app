@@ -1,17 +1,53 @@
 {
   "version": 2,
-  "dgSpecHash": "8sR0FRVhfVQ=",
+  "dgSpecHash": "2fiuxFW54ZE=",
   "success": true,
   "projectFilePath": "C:\\Users\\vboxuser\\Documents\\GitHub\\Chat-app\\ChatServer\\ChatServer\\ChatServer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vboxuser\\.nuget\\packages\\bcrypt.net-next\\4.1.0\\bcrypt.net-next.4.1.0.nupkg.sha512",
     "C:\\Users\\vboxuser\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
-    "C:\\Users\\vboxuser\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\2.0.0\\microsoft.extensions.logging.abstractions.2.0.0.nupkg.sha512",
+    "C:\\Users\\vboxuser\\.nuget\\packages\\microsoft.entityframeworkcore\\10.0.8\\microsoft.entityframeworkcore.10.0.8.nupkg.sha512",
+    "C:\\Users\\vboxuser\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\10.0.8\\microsoft.entityframeworkcore.abstractions.10.0.8.nupkg.sha512",
+    "C:\\Users\\vboxuser\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\10.0.8\\microsoft.entityframeworkcore.analyzers.10.0.8.nupkg.sha512",
+    "C:\\Users\\vboxuser\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\10.0.8\\microsoft.extensions.caching.abstractions.10.0.8.nupkg.sha512",
+    "C:\\Users\\vboxuser\\.nuget\\packages\\microsoft.extensions.caching.memory\\10.0.8\\microsoft.extensions.caching.memory.10.0.8.nupkg.sha512",
+    "C:\\Users\\vboxuser\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\10.0.8\\microsoft.extensions.dependencyinjection.10.0.8.nupkg.sha512",
+    "C:\\Users\\vboxuser\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.8\\microsoft.extensions.dependencyinjection.abstractions.10.0.8.nupkg.sha512",
+    "C:\\Users\\vboxuser\\.nuget\\packages\\microsoft.extensions.logging\\10.0.8\\microsoft.extensions.logging.10.0.8.nupkg.sha512",
+    "C:\\Users\\vboxuser\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\10.0.8\\microsoft.extensions.logging.abstractions.10.0.8.nupkg.sha512",
+    "C:\\Users\\vboxuser\\.nuget\\packages\\microsoft.extensions.options\\10.0.8\\microsoft.extensions.options.10.0.8.nupkg.sha512",
+    "C:\\Users\\vboxuser\\.nuget\\packages\\microsoft.extensions.primitives\\10.0.8\\microsoft.extensions.primitives.10.0.8.nupkg.sha512",
     "C:\\Users\\vboxuser\\.nuget\\packages\\mongodb.bson\\3.6.0\\mongodb.bson.3.6.0.nupkg.sha512",
     "C:\\Users\\vboxuser\\.nuget\\packages\\mongodb.driver\\3.6.0\\mongodb.driver.3.6.0.nupkg.sha512",
+    "C:\\Users\\vboxuser\\.nuget\\packages\\mongodb.entityframeworkcore\\10.0.1\\mongodb.entityframeworkcore.10.0.1.nupkg.sha512",
     "C:\\Users\\vboxuser\\.nuget\\packages\\sharpcompress\\0.30.1\\sharpcompress.0.30.1.nupkg.sha512",
     "C:\\Users\\vboxuser\\.nuget\\packages\\snappier\\1.0.0\\snappier.1.0.0.nupkg.sha512",
     "C:\\Users\\vboxuser\\.nuget\\packages\\zstdsharp.port\\0.7.3\\zstdsharp.port.0.7.3.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "message": "Package 'SharpCompress' 0.30.1 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-6c8g-7p36-r338",
+      "projectPath": "C:\\Users\\vboxuser\\Documents\\GitHub\\Chat-app\\ChatServer\\ChatServer\\ChatServer.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\vboxuser\\Documents\\GitHub\\Chat-app\\ChatServer\\ChatServer\\ChatServer.csproj",
+      "libraryId": "SharpCompress",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    },
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "message": "Package 'Snappier' 1.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-pggp-6c3x-2xmx",
+      "projectPath": "C:\\Users\\vboxuser\\Documents\\GitHub\\Chat-app\\ChatServer\\ChatServer\\ChatServer.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\vboxuser\\Documents\\GitHub\\Chat-app\\ChatServer\\ChatServer\\ChatServer.csproj",
+      "libraryId": "Snappier",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
 }

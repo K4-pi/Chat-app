@@ -10,90 +10,90 @@
       "Chat/1.0.0": {
         "dependencies": {
           "Microsoft.WindowsAppSDK": "1.8.260209005",
-          "runtimepack.Microsoft.NETCore.App.Runtime.win-x64": "8.0.24",
+          "runtimepack.Microsoft.NETCore.App.Runtime.win-x64": "8.0.25",
           "runtimepack.Microsoft.Windows.SDK.NET.Ref": "10.0.19041.57"
         },
         "runtime": {
           "Chat.dll": {}
         }
       },
-      "runtimepack.Microsoft.NETCore.App.Runtime.win-x64/8.0.24": {
+      "runtimepack.Microsoft.NETCore.App.Runtime.win-x64/8.0.25": {
         "runtime": {
           "System.Collections.Concurrent.dll": {
             "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.2426.7010"
+            "fileVersion": "8.0.2526.11203"
           },
           "System.Collections.Immutable.dll": {
             "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.2426.7010"
+            "fileVersion": "8.0.2526.11203"
           },
           "System.Collections.dll": {
             "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.2426.7010"
+            "fileVersion": "8.0.2526.11203"
           },
           "System.ComponentModel.dll": {
             "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.2426.7010"
+            "fileVersion": "8.0.2526.11203"
           },
           "System.Diagnostics.DiagnosticSource.dll": {
             "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.2426.7010"
+            "fileVersion": "8.0.2526.11203"
           },
           "System.Diagnostics.StackTrace.dll": {
             "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.2426.7010"
+            "fileVersion": "8.0.2526.11203"
           },
           "System.IO.Compression.dll": {
             "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.2426.7010"
+            "fileVersion": "8.0.2526.11203"
           },
           "System.IO.MemoryMappedFiles.dll": {
             "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.2426.7010"
+            "fileVersion": "8.0.2526.11203"
           },
           "System.Linq.Expressions.dll": {
             "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.2426.7010"
+            "fileVersion": "8.0.2526.11203"
           },
           "System.Linq.dll": {
             "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.2426.7010"
+            "fileVersion": "8.0.2526.11203"
           },
           "System.Net.NameResolution.dll": {
             "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.2426.7010"
+            "fileVersion": "8.0.2526.11203"
           },
           "System.Net.Primitives.dll": {
             "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.2426.7010"
+            "fileVersion": "8.0.2526.11203"
           },
           "System.Net.Sockets.dll": {
             "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.2426.7010"
+            "fileVersion": "8.0.2526.11203"
           },
           "System.ObjectModel.dll": {
             "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.2426.7010"
+            "fileVersion": "8.0.2526.11203"
           },
           "System.Private.CoreLib.dll": {
             "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.2426.7010"
+            "fileVersion": "8.0.2526.11203"
           },
           "System.Private.Uri.dll": {
             "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.2426.7010"
+            "fileVersion": "8.0.2526.11203"
           },
           "System.Reflection.Metadata.dll": {
             "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.2426.7010"
+            "fileVersion": "8.0.2526.11203"
           },
           "System.Runtime.InteropServices.dll": {
             "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.2426.7010"
+            "fileVersion": "8.0.2526.11203"
           },
           "System.Security.Cryptography.dll": {
             "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.2426.7010"
+            "fileVersion": "8.0.2526.11203"
           }
         },
         "native": {
@@ -101,43 +101,43 @@
             "fileVersion": "14.42.34436.0"
           },
           "System.IO.Compression.Native.dll": {
-            "fileVersion": "8.0.2426.7010"
+            "fileVersion": "8.0.2526.11203"
           },
           "clretwrc.dll": {
-            "fileVersion": "8.0.2426.7010"
+            "fileVersion": "8.0.2526.11203"
           },
           "clrgc.dll": {
-            "fileVersion": "8.0.2426.7010"
+            "fileVersion": "8.0.2526.11203"
           },
           "clrjit.dll": {
-            "fileVersion": "8.0.2426.7010"
+            "fileVersion": "8.0.2526.11203"
           },
           "coreclr.dll": {
-            "fileVersion": "8.0.2426.7010"
+            "fileVersion": "8.0.2526.11203"
           },
           "createdump.exe": {
-            "fileVersion": "8.0.2426.7010"
+            "fileVersion": "8.0.2526.11203"
           },
           "hostfxr.dll": {
-            "fileVersion": "8.0.2426.7010"
+            "fileVersion": "8.0.2526.11203"
           },
           "hostpolicy.dll": {
-            "fileVersion": "8.0.2426.7010"
+            "fileVersion": "8.0.2526.11203"
           },
           "mscordaccore.dll": {
-            "fileVersion": "8.0.2426.7010"
+            "fileVersion": "8.0.2526.11203"
           },
-          "mscordaccore_amd64_amd64_8.0.2426.7010.dll": {
-            "fileVersion": "8.0.2426.7010"
+          "mscordaccore_amd64_amd64_8.0.2526.11203.dll": {
+            "fileVersion": "8.0.2526.11203"
           },
           "mscordbi.dll": {
-            "fileVersion": "8.0.2426.7010"
+            "fileVersion": "8.0.2526.11203"
           },
           "mscorrc.dll": {
-            "fileVersion": "8.0.2426.7010"
+            "fileVersion": "8.0.2526.11203"
           },
           "msquic.dll": {
-            "fileVersion": "2.4.8.0"
+            "fileVersion": "2.4.16.0"
           }
         }
       },
@@ -170,12 +170,6 @@
       "Microsoft.WindowsAppSDK.Foundation/1.8.260203002": {
         "dependencies": {
           "Microsoft.WindowsAppSDK.InteractiveExperiences": "1.8.260125001"
-        },
-        "runtime": {
-          "lib/net6.0-windows10.0.17763.0/Microsoft.Windows.ApplicationModel.WindowsAppRuntime.Projection.dll": {
-            "assemblyVersion": "1.8.0.0",
-            "fileVersion": "1.8.0.0"
-          }
         },
         "native": {
           "runtimes/win-x64/native/Microsoft.Windows.ApplicationModel.Background.UniversalBGTask.dll": {
@@ -215,7 +209,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "runtimepack.Microsoft.NETCore.App.Runtime.win-x64/8.0.24": {
+    "runtimepack.Microsoft.NETCore.App.Runtime.win-x64/8.0.25": {
       "type": "runtimepack",
       "serviceable": false,
       "sha512": ""

@@ -226,31 +226,91 @@ namespace Chat.Chat_XamlTypeInfo
         
         private void InitTypeTables()
         {
-            _typeNameTable = new string[11];
+            _typeNameTable = new string[41];
             _typeNameTable[0] = "Microsoft.UI.Xaml.Controls.XamlControlsResources";
             _typeNameTable[1] = "Microsoft.UI.Xaml.ResourceDictionary";
             _typeNameTable[2] = "Object";
             _typeNameTable[3] = "Boolean";
-            _typeNameTable[4] = "Chat.LoginWindow";
-            _typeNameTable[5] = "Microsoft.UI.Xaml.Window";
-            _typeNameTable[6] = "Chat.MainWindow";
-            _typeNameTable[7] = "Microsoft.UI.Xaml.Controls.TreeViewNode";
-            _typeNameTable[8] = "Microsoft.UI.Xaml.DependencyObject";
-            _typeNameTable[9] = "System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>";
-            _typeNameTable[10] = "Int32";
+            _typeNameTable[4] = "Microsoft.UI.Xaml.Media.MicaBackdrop";
+            _typeNameTable[5] = "Microsoft.UI.Xaml.Media.SystemBackdrop";
+            _typeNameTable[6] = "Microsoft.UI.Composition.SystemBackdrops.MicaKind";
+            _typeNameTable[7] = "System.Enum";
+            _typeNameTable[8] = "System.ValueType";
+            _typeNameTable[9] = "Chat.AuthWindow";
+            _typeNameTable[10] = "Microsoft.UI.Xaml.Window";
+            _typeNameTable[11] = "Chat.LoginPage";
+            _typeNameTable[12] = "Microsoft.UI.Xaml.Controls.Page";
+            _typeNameTable[13] = "Microsoft.UI.Xaml.Controls.UserControl";
+            _typeNameTable[14] = "Chat.RegisterPage";
+            _typeNameTable[15] = "Microsoft.UI.Xaml.Controls.ItemsRepeater";
+            _typeNameTable[16] = "Microsoft.UI.Xaml.FrameworkElement";
+            _typeNameTable[17] = "Microsoft.UI.Xaml.Controls.Layout";
+            _typeNameTable[18] = "Microsoft.UI.Xaml.DependencyObject";
+            _typeNameTable[19] = "Microsoft.UI.Xaml.Media.Brush";
+            _typeNameTable[20] = "Double";
+            _typeNameTable[21] = "Microsoft.UI.Xaml.Controls.ItemCollectionTransitionProvider";
+            _typeNameTable[22] = "Microsoft.UI.Xaml.Controls.ItemsSourceView";
+            _typeNameTable[23] = "Microsoft.UI.Xaml.Controls.StackLayout";
+            _typeNameTable[24] = "Microsoft.UI.Xaml.Controls.VirtualizingLayout";
+            _typeNameTable[25] = "Microsoft.UI.Xaml.Controls.Orientation";
+            _typeNameTable[26] = "Microsoft.UI.Xaml.Controls.IndexBasedLayoutOrientation";
+            _typeNameTable[27] = "Chat.MainWindow";
+            _typeNameTable[28] = "System.Collections.ObjectModel.ObservableCollection`1<Chat.DataModels.ChatRoom>";
+            _typeNameTable[29] = "System.Collections.ObjectModel.Collection`1<Chat.DataModels.ChatRoom>";
+            _typeNameTable[30] = "Chat.DataModels.ChatRoom";
+            _typeNameTable[31] = "String";
+            _typeNameTable[32] = "System.Collections.ObjectModel.ObservableCollection`1<Chat.DataModels.Message>";
+            _typeNameTable[33] = "System.Collections.ObjectModel.Collection`1<Chat.DataModels.Message>";
+            _typeNameTable[34] = "Chat.DataModels.Message";
+            _typeNameTable[35] = "System.Collections.ObjectModel.ObservableCollection`1<Chat.DataModels.User>";
+            _typeNameTable[36] = "System.Collections.ObjectModel.Collection`1<Chat.DataModels.User>";
+            _typeNameTable[37] = "Chat.DataModels.User";
+            _typeNameTable[38] = "Microsoft.UI.Xaml.Controls.TreeViewNode";
+            _typeNameTable[39] = "System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>";
+            _typeNameTable[40] = "Int32";
 
-            _typeTable = new global::System.Type[11];
+            _typeTable = new global::System.Type[41];
             _typeTable[0] = typeof(global::Microsoft.UI.Xaml.Controls.XamlControlsResources);
             _typeTable[1] = typeof(global::Microsoft.UI.Xaml.ResourceDictionary);
             _typeTable[2] = typeof(global::System.Object);
             _typeTable[3] = typeof(global::System.Boolean);
-            _typeTable[4] = typeof(global::Chat.LoginWindow);
-            _typeTable[5] = typeof(global::Microsoft.UI.Xaml.Window);
-            _typeTable[6] = typeof(global::Chat.MainWindow);
-            _typeTable[7] = typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode);
-            _typeTable[8] = typeof(global::Microsoft.UI.Xaml.DependencyObject);
-            _typeTable[9] = typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>);
-            _typeTable[10] = typeof(global::System.Int32);
+            _typeTable[4] = typeof(global::Microsoft.UI.Xaml.Media.MicaBackdrop);
+            _typeTable[5] = typeof(global::Microsoft.UI.Xaml.Media.SystemBackdrop);
+            _typeTable[6] = typeof(global::Microsoft.UI.Composition.SystemBackdrops.MicaKind);
+            _typeTable[7] = typeof(global::System.Enum);
+            _typeTable[8] = typeof(global::System.ValueType);
+            _typeTable[9] = typeof(global::Chat.AuthWindow);
+            _typeTable[10] = typeof(global::Microsoft.UI.Xaml.Window);
+            _typeTable[11] = typeof(global::Chat.LoginPage);
+            _typeTable[12] = typeof(global::Microsoft.UI.Xaml.Controls.Page);
+            _typeTable[13] = typeof(global::Microsoft.UI.Xaml.Controls.UserControl);
+            _typeTable[14] = typeof(global::Chat.RegisterPage);
+            _typeTable[15] = typeof(global::Microsoft.UI.Xaml.Controls.ItemsRepeater);
+            _typeTable[16] = typeof(global::Microsoft.UI.Xaml.FrameworkElement);
+            _typeTable[17] = typeof(global::Microsoft.UI.Xaml.Controls.Layout);
+            _typeTable[18] = typeof(global::Microsoft.UI.Xaml.DependencyObject);
+            _typeTable[19] = typeof(global::Microsoft.UI.Xaml.Media.Brush);
+            _typeTable[20] = typeof(global::System.Double);
+            _typeTable[21] = typeof(global::Microsoft.UI.Xaml.Controls.ItemCollectionTransitionProvider);
+            _typeTable[22] = typeof(global::Microsoft.UI.Xaml.Controls.ItemsSourceView);
+            _typeTable[23] = typeof(global::Microsoft.UI.Xaml.Controls.StackLayout);
+            _typeTable[24] = typeof(global::Microsoft.UI.Xaml.Controls.VirtualizingLayout);
+            _typeTable[25] = typeof(global::Microsoft.UI.Xaml.Controls.Orientation);
+            _typeTable[26] = typeof(global::Microsoft.UI.Xaml.Controls.IndexBasedLayoutOrientation);
+            _typeTable[27] = typeof(global::Chat.MainWindow);
+            _typeTable[28] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::Chat.DataModels.ChatRoom>);
+            _typeTable[29] = typeof(global::System.Collections.ObjectModel.Collection<global::Chat.DataModels.ChatRoom>);
+            _typeTable[30] = typeof(global::Chat.DataModels.ChatRoom);
+            _typeTable[31] = typeof(global::System.String);
+            _typeTable[32] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::Chat.DataModels.Message>);
+            _typeTable[33] = typeof(global::System.Collections.ObjectModel.Collection<global::Chat.DataModels.Message>);
+            _typeTable[34] = typeof(global::Chat.DataModels.Message);
+            _typeTable[35] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::Chat.DataModels.User>);
+            _typeTable[36] = typeof(global::System.Collections.ObjectModel.Collection<global::Chat.DataModels.User>);
+            _typeTable[37] = typeof(global::Chat.DataModels.User);
+            _typeTable[38] = typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode);
+            _typeTable[39] = typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>);
+            _typeTable[40] = typeof(global::System.Int32);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -286,13 +346,51 @@ namespace Chat.Chat_XamlTypeInfo
         }
 
         private object Activate_0_XamlControlsResources() { return new global::Microsoft.UI.Xaml.Controls.XamlControlsResources(); }
-        private object Activate_4_LoginWindow() { return new global::Chat.LoginWindow(); }
-        private object Activate_7_TreeViewNode() { return new global::Microsoft.UI.Xaml.Controls.TreeViewNode(); }
+        private object Activate_4_MicaBackdrop() { return new global::Microsoft.UI.Xaml.Media.MicaBackdrop(); }
+        private object Activate_9_AuthWindow() { return new global::Chat.AuthWindow(); }
+        private object Activate_11_LoginPage() { return new global::Chat.LoginPage(); }
+        private object Activate_14_RegisterPage() { return new global::Chat.RegisterPage(); }
+        private object Activate_15_ItemsRepeater() { return new global::Microsoft.UI.Xaml.Controls.ItemsRepeater(); }
+        private object Activate_21_ItemCollectionTransitionProvider() { return new global::Microsoft.UI.Xaml.Controls.ItemCollectionTransitionProvider(); }
+        private object Activate_23_StackLayout() { return new global::Microsoft.UI.Xaml.Controls.StackLayout(); }
+        private object Activate_24_VirtualizingLayout() { return new global::Microsoft.UI.Xaml.Controls.VirtualizingLayout(); }
+        private object Activate_28_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::Chat.DataModels.ChatRoom>(); }
+        private object Activate_29_Collection() { return new global::System.Collections.ObjectModel.Collection<global::Chat.DataModels.ChatRoom>(); }
+        private object Activate_30_ChatRoom() { return new global::Chat.DataModels.ChatRoom(); }
+        private object Activate_32_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::Chat.DataModels.Message>(); }
+        private object Activate_33_Collection() { return new global::System.Collections.ObjectModel.Collection<global::Chat.DataModels.Message>(); }
+        private object Activate_34_Message() { return new global::Chat.DataModels.Message(); }
+        private object Activate_35_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::Chat.DataModels.User>(); }
+        private object Activate_36_Collection() { return new global::System.Collections.ObjectModel.Collection<global::Chat.DataModels.User>(); }
+        private object Activate_37_User() { return new global::Chat.DataModels.User(); }
+        private object Activate_38_TreeViewNode() { return new global::Microsoft.UI.Xaml.Controls.TreeViewNode(); }
         private void StaticInitializer_0_XamlControlsResources() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.XamlControlsResources).TypeHandle);
-        private void StaticInitializer_4_LoginWindow() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Chat.LoginWindow).TypeHandle);
-        private void StaticInitializer_6_MainWindow() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Chat.MainWindow).TypeHandle);
-        private void StaticInitializer_7_TreeViewNode() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode).TypeHandle);
-        private void StaticInitializer_9_IList() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>).TypeHandle);
+        private void StaticInitializer_4_MicaBackdrop() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Media.MicaBackdrop).TypeHandle);
+        private void StaticInitializer_6_MicaKind() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Composition.SystemBackdrops.MicaKind).TypeHandle);
+        private void StaticInitializer_7_Enum() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Enum).TypeHandle);
+        private void StaticInitializer_8_ValueType() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.ValueType).TypeHandle);
+        private void StaticInitializer_9_AuthWindow() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Chat.AuthWindow).TypeHandle);
+        private void StaticInitializer_11_LoginPage() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Chat.LoginPage).TypeHandle);
+        private void StaticInitializer_14_RegisterPage() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Chat.RegisterPage).TypeHandle);
+        private void StaticInitializer_15_ItemsRepeater() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.ItemsRepeater).TypeHandle);
+        private void StaticInitializer_17_Layout() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.Layout).TypeHandle);
+        private void StaticInitializer_21_ItemCollectionTransitionProvider() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.ItemCollectionTransitionProvider).TypeHandle);
+        private void StaticInitializer_22_ItemsSourceView() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.ItemsSourceView).TypeHandle);
+        private void StaticInitializer_23_StackLayout() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.StackLayout).TypeHandle);
+        private void StaticInitializer_24_VirtualizingLayout() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.VirtualizingLayout).TypeHandle);
+        private void StaticInitializer_26_IndexBasedLayoutOrientation() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.IndexBasedLayoutOrientation).TypeHandle);
+        private void StaticInitializer_27_MainWindow() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Chat.MainWindow).TypeHandle);
+        private void StaticInitializer_28_ObservableCollection() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.ObjectModel.ObservableCollection<global::Chat.DataModels.ChatRoom>).TypeHandle);
+        private void StaticInitializer_29_Collection() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.ObjectModel.Collection<global::Chat.DataModels.ChatRoom>).TypeHandle);
+        private void StaticInitializer_30_ChatRoom() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Chat.DataModels.ChatRoom).TypeHandle);
+        private void StaticInitializer_32_ObservableCollection() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.ObjectModel.ObservableCollection<global::Chat.DataModels.Message>).TypeHandle);
+        private void StaticInitializer_33_Collection() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.ObjectModel.Collection<global::Chat.DataModels.Message>).TypeHandle);
+        private void StaticInitializer_34_Message() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Chat.DataModels.Message).TypeHandle);
+        private void StaticInitializer_35_ObservableCollection() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.ObjectModel.ObservableCollection<global::Chat.DataModels.User>).TypeHandle);
+        private void StaticInitializer_36_Collection() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.ObjectModel.Collection<global::Chat.DataModels.User>).TypeHandle);
+        private void StaticInitializer_37_User() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Chat.DataModels.User).TypeHandle);
+        private void StaticInitializer_38_TreeViewNode() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode).TypeHandle);
+        private void StaticInitializer_39_IList() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>).TypeHandle);
         private void MapAdd_0_XamlControlsResources(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.Object, global::System.Object>)instance;
@@ -300,7 +398,43 @@ namespace Chat.Chat_XamlTypeInfo
             var newItem = (global::System.Object)item;
             collection.Add(newKey, newItem);
         }
-        private void VectorAdd_9_IList(object instance, object item)
+        private void VectorAdd_28_ObservableCollection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::Chat.DataModels.ChatRoom>)instance;
+            var newItem = (global::Chat.DataModels.ChatRoom)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_29_Collection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::Chat.DataModels.ChatRoom>)instance;
+            var newItem = (global::Chat.DataModels.ChatRoom)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_32_ObservableCollection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::Chat.DataModels.Message>)instance;
+            var newItem = (global::Chat.DataModels.Message)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_33_Collection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::Chat.DataModels.Message>)instance;
+            var newItem = (global::Chat.DataModels.Message)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_35_ObservableCollection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::Chat.DataModels.User>)instance;
+            var newItem = (global::Chat.DataModels.User)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_36_Collection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::Chat.DataModels.User>)instance;
+            var newItem = (global::Chat.DataModels.User)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_39_IList(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::Microsoft.UI.Xaml.Controls.TreeViewNode>)instance;
             var newItem = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)item;
@@ -338,29 +472,253 @@ namespace Chat.Chat_XamlTypeInfo
                 xamlType = new global::Chat.Chat_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 4:   //  Chat.LoginWindow
-                userType = new global::Chat.Chat_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Window"));
-                userType.Activator = Activate_4_LoginWindow;
-                userType.StaticInitializer = StaticInitializer_4_LoginWindow;
-                userType.SetIsLocalType();
+            case 4:   //  Microsoft.UI.Xaml.Media.MicaBackdrop
+                userType = new global::Chat.Chat_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Media.SystemBackdrop"));
+                userType.Activator = Activate_4_MicaBackdrop;
+                userType.StaticInitializer = StaticInitializer_4_MicaBackdrop;
+                userType.AddMemberName("Kind");
                 xamlType = userType;
                 break;
 
-            case 5:   //  Microsoft.UI.Xaml.Window
+            case 5:   //  Microsoft.UI.Xaml.Media.SystemBackdrop
                 xamlType = new global::Chat.Chat_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 6:   //  Chat.MainWindow
+            case 6:   //  Microsoft.UI.Composition.SystemBackdrops.MicaKind
+                userType = new global::Chat.Chat_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
+                userType.StaticInitializer = StaticInitializer_6_MicaKind;
+                userType.AddEnumValue("Base", global::Microsoft.UI.Composition.SystemBackdrops.MicaKind.Base);
+                userType.AddEnumValue("BaseAlt", global::Microsoft.UI.Composition.SystemBackdrops.MicaKind.BaseAlt);
+                xamlType = userType;
+                break;
+
+            case 7:   //  System.Enum
+                userType = new global::Chat.Chat_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
+                userType.StaticInitializer = StaticInitializer_7_Enum;
+                xamlType = userType;
+                break;
+
+            case 8:   //  System.ValueType
+                userType = new global::Chat.Chat_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.StaticInitializer = StaticInitializer_8_ValueType;
+                xamlType = userType;
+                break;
+
+            case 9:   //  Chat.AuthWindow
                 userType = new global::Chat.Chat_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Window"));
-                userType.StaticInitializer = StaticInitializer_6_MainWindow;
+                userType.Activator = Activate_9_AuthWindow;
+                userType.StaticInitializer = StaticInitializer_9_AuthWindow;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 7:   //  Microsoft.UI.Xaml.Controls.TreeViewNode
+            case 10:   //  Microsoft.UI.Xaml.Window
+                xamlType = new global::Chat.Chat_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 11:   //  Chat.LoginPage
+                userType = new global::Chat.Chat_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_11_LoginPage;
+                userType.StaticInitializer = StaticInitializer_11_LoginPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 12:   //  Microsoft.UI.Xaml.Controls.Page
+                xamlType = new global::Chat.Chat_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 13:   //  Microsoft.UI.Xaml.Controls.UserControl
+                xamlType = new global::Chat.Chat_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 14:   //  Chat.RegisterPage
+                userType = new global::Chat.Chat_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_14_RegisterPage;
+                userType.StaticInitializer = StaticInitializer_14_RegisterPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 15:   //  Microsoft.UI.Xaml.Controls.ItemsRepeater
+                userType = new global::Chat.Chat_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.FrameworkElement"));
+                userType.Activator = Activate_15_ItemsRepeater;
+                userType.StaticInitializer = StaticInitializer_15_ItemsRepeater;
+                userType.SetContentPropertyName("Microsoft.UI.Xaml.Controls.ItemsRepeater.ItemTemplate");
+                userType.AddMemberName("ItemTemplate");
+                userType.AddMemberName("ItemsSource");
+                userType.AddMemberName("Layout");
+                userType.AddMemberName("Background");
+                userType.AddMemberName("HorizontalCacheLength");
+                userType.AddMemberName("ItemTransitionProvider");
+                userType.AddMemberName("ItemsSourceView");
+                userType.AddMemberName("VerticalCacheLength");
+                xamlType = userType;
+                break;
+
+            case 16:   //  Microsoft.UI.Xaml.FrameworkElement
+                xamlType = new global::Chat.Chat_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 17:   //  Microsoft.UI.Xaml.Controls.Layout
                 userType = new global::Chat.Chat_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.DependencyObject"));
-                userType.Activator = Activate_7_TreeViewNode;
-                userType.StaticInitializer = StaticInitializer_7_TreeViewNode;
+                userType.StaticInitializer = StaticInitializer_17_Layout;
+                userType.AddMemberName("IndexBasedLayoutOrientation");
+                xamlType = userType;
+                break;
+
+            case 18:   //  Microsoft.UI.Xaml.DependencyObject
+                xamlType = new global::Chat.Chat_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 19:   //  Microsoft.UI.Xaml.Media.Brush
+                xamlType = new global::Chat.Chat_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 20:   //  Double
+                xamlType = new global::Chat.Chat_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 21:   //  Microsoft.UI.Xaml.Controls.ItemCollectionTransitionProvider
+                userType = new global::Chat.Chat_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.StaticInitializer = StaticInitializer_21_ItemCollectionTransitionProvider;
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 22:   //  Microsoft.UI.Xaml.Controls.ItemsSourceView
+                userType = new global::Chat.Chat_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.StaticInitializer = StaticInitializer_22_ItemsSourceView;
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 23:   //  Microsoft.UI.Xaml.Controls.StackLayout
+                userType = new global::Chat.Chat_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.VirtualizingLayout"));
+                userType.Activator = Activate_23_StackLayout;
+                userType.StaticInitializer = StaticInitializer_23_StackLayout;
+                userType.AddMemberName("Spacing");
+                userType.AddMemberName("Orientation");
+                xamlType = userType;
+                break;
+
+            case 24:   //  Microsoft.UI.Xaml.Controls.VirtualizingLayout
+                userType = new global::Chat.Chat_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Layout"));
+                userType.Activator = Activate_24_VirtualizingLayout;
+                userType.StaticInitializer = StaticInitializer_24_VirtualizingLayout;
+                xamlType = userType;
+                break;
+
+            case 25:   //  Microsoft.UI.Xaml.Controls.Orientation
+                xamlType = new global::Chat.Chat_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 26:   //  Microsoft.UI.Xaml.Controls.IndexBasedLayoutOrientation
+                userType = new global::Chat.Chat_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
+                userType.StaticInitializer = StaticInitializer_26_IndexBasedLayoutOrientation;
+                userType.AddEnumValue("None", global::Microsoft.UI.Xaml.Controls.IndexBasedLayoutOrientation.None);
+                userType.AddEnumValue("TopToBottom", global::Microsoft.UI.Xaml.Controls.IndexBasedLayoutOrientation.TopToBottom);
+                userType.AddEnumValue("LeftToRight", global::Microsoft.UI.Xaml.Controls.IndexBasedLayoutOrientation.LeftToRight);
+                xamlType = userType;
+                break;
+
+            case 27:   //  Chat.MainWindow
+                userType = new global::Chat.Chat_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Window"));
+                userType.StaticInitializer = StaticInitializer_27_MainWindow;
+                userType.AddMemberName("userRooms");
+                userType.AddMemberName("Messages");
+                userType.AddMemberName("UsersInRoom");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 28:   //  System.Collections.ObjectModel.ObservableCollection`1<Chat.DataModels.ChatRoom>
+                userType = new global::Chat.Chat_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Collections.ObjectModel.Collection`1<Chat.DataModels.ChatRoom>"));
+                userType.StaticInitializer = StaticInitializer_28_ObservableCollection;
+                userType.CollectionAdd = VectorAdd_28_ObservableCollection;
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 29:   //  System.Collections.ObjectModel.Collection`1<Chat.DataModels.ChatRoom>
+                userType = new global::Chat.Chat_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_29_Collection;
+                userType.StaticInitializer = StaticInitializer_29_Collection;
+                userType.CollectionAdd = VectorAdd_29_Collection;
+                xamlType = userType;
+                break;
+
+            case 30:   //  Chat.DataModels.ChatRoom
+                userType = new global::Chat.Chat_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_30_ChatRoom;
+                userType.StaticInitializer = StaticInitializer_30_ChatRoom;
+                userType.AddMemberName("Id");
+                userType.AddMemberName("Name");
+                userType.AddMemberName("Code");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 31:   //  String
+                xamlType = new global::Chat.Chat_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 32:   //  System.Collections.ObjectModel.ObservableCollection`1<Chat.DataModels.Message>
+                userType = new global::Chat.Chat_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Collections.ObjectModel.Collection`1<Chat.DataModels.Message>"));
+                userType.StaticInitializer = StaticInitializer_32_ObservableCollection;
+                userType.CollectionAdd = VectorAdd_32_ObservableCollection;
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 33:   //  System.Collections.ObjectModel.Collection`1<Chat.DataModels.Message>
+                userType = new global::Chat.Chat_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_33_Collection;
+                userType.StaticInitializer = StaticInitializer_33_Collection;
+                userType.CollectionAdd = VectorAdd_33_Collection;
+                xamlType = userType;
+                break;
+
+            case 34:   //  Chat.DataModels.Message
+                userType = new global::Chat.Chat_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_34_Message;
+                userType.StaticInitializer = StaticInitializer_34_Message;
+                userType.AddMemberName("Username");
+                userType.AddMemberName("Text");
+                userType.AddMemberName("SentAt");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 35:   //  System.Collections.ObjectModel.ObservableCollection`1<Chat.DataModels.User>
+                userType = new global::Chat.Chat_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Collections.ObjectModel.Collection`1<Chat.DataModels.User>"));
+                userType.StaticInitializer = StaticInitializer_35_ObservableCollection;
+                userType.CollectionAdd = VectorAdd_35_ObservableCollection;
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 36:   //  System.Collections.ObjectModel.Collection`1<Chat.DataModels.User>
+                userType = new global::Chat.Chat_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_36_Collection;
+                userType.StaticInitializer = StaticInitializer_36_Collection;
+                userType.CollectionAdd = VectorAdd_36_Collection;
+                xamlType = userType;
+                break;
+
+            case 37:   //  Chat.DataModels.User
+                userType = new global::Chat.Chat_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_37_User;
+                userType.StaticInitializer = StaticInitializer_37_User;
+                userType.AddMemberName("Username");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 38:   //  Microsoft.UI.Xaml.Controls.TreeViewNode
+                userType = new global::Chat.Chat_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.DependencyObject"));
+                userType.Activator = Activate_38_TreeViewNode;
+                userType.StaticInitializer = StaticInitializer_38_TreeViewNode;
                 userType.AddMemberName("Children");
                 userType.AddMemberName("Content");
                 userType.AddMemberName("Depth");
@@ -372,19 +730,15 @@ namespace Chat.Chat_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 8:   //  Microsoft.UI.Xaml.DependencyObject
-                xamlType = new global::Chat.Chat_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 9:   //  System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>
+            case 39:   //  System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>
                 userType = new global::Chat.Chat_XamlTypeInfo.XamlUserType(this, typeName, type, null);
-                userType.StaticInitializer = StaticInitializer_9_IList;
-                userType.CollectionAdd = VectorAdd_9_IList;
+                userType.StaticInitializer = StaticInitializer_39_IList;
+                userType.CollectionAdd = VectorAdd_39_IList;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 10:   //  Int32
+            case 40:   //  Int32
                 xamlType = new global::Chat.Chat_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
             }
@@ -456,52 +810,252 @@ namespace Chat.Chat_XamlTypeInfo
             var that = (global::Microsoft.UI.Xaml.Controls.XamlControlsResources)instance;
             that.UseCompactResources = (global::System.Boolean)Value;
         }
-        private object get_1_TreeViewNode_Children(object instance)
+        private object get_1_MicaBackdrop_Kind(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Media.MicaBackdrop)instance;
+            return that.Kind;
+        }
+        private void set_1_MicaBackdrop_Kind(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Media.MicaBackdrop)instance;
+            that.Kind = (global::Microsoft.UI.Composition.SystemBackdrops.MicaKind)Value;
+        }
+        private object get_2_ItemsRepeater_ItemTemplate(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.ItemsRepeater)instance;
+            return that.ItemTemplate;
+        }
+        private void set_2_ItemsRepeater_ItemTemplate(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.ItemsRepeater)instance;
+            that.ItemTemplate = (global::System.Object)Value;
+        }
+        private object get_3_ItemsRepeater_ItemsSource(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.ItemsRepeater)instance;
+            return that.ItemsSource;
+        }
+        private void set_3_ItemsRepeater_ItemsSource(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.ItemsRepeater)instance;
+            that.ItemsSource = (global::System.Object)Value;
+        }
+        private object get_4_ItemsRepeater_Layout(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.ItemsRepeater)instance;
+            return that.Layout;
+        }
+        private void set_4_ItemsRepeater_Layout(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.ItemsRepeater)instance;
+            that.Layout = (global::Microsoft.UI.Xaml.Controls.Layout)Value;
+        }
+        private object get_5_ItemsRepeater_Background(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.ItemsRepeater)instance;
+            return that.Background;
+        }
+        private void set_5_ItemsRepeater_Background(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.ItemsRepeater)instance;
+            that.Background = (global::Microsoft.UI.Xaml.Media.Brush)Value;
+        }
+        private object get_6_ItemsRepeater_HorizontalCacheLength(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.ItemsRepeater)instance;
+            return that.HorizontalCacheLength;
+        }
+        private void set_6_ItemsRepeater_HorizontalCacheLength(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.ItemsRepeater)instance;
+            that.HorizontalCacheLength = (global::System.Double)Value;
+        }
+        private object get_7_ItemsRepeater_ItemTransitionProvider(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.ItemsRepeater)instance;
+            return that.ItemTransitionProvider;
+        }
+        private void set_7_ItemsRepeater_ItemTransitionProvider(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.ItemsRepeater)instance;
+            that.ItemTransitionProvider = (global::Microsoft.UI.Xaml.Controls.ItemCollectionTransitionProvider)Value;
+        }
+        private object get_8_ItemsRepeater_ItemsSourceView(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.ItemsRepeater)instance;
+            return that.ItemsSourceView;
+        }
+        private object get_9_ItemsRepeater_VerticalCacheLength(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.ItemsRepeater)instance;
+            return that.VerticalCacheLength;
+        }
+        private void set_9_ItemsRepeater_VerticalCacheLength(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.ItemsRepeater)instance;
+            that.VerticalCacheLength = (global::System.Double)Value;
+        }
+        private object get_10_StackLayout_Spacing(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.StackLayout)instance;
+            return that.Spacing;
+        }
+        private void set_10_StackLayout_Spacing(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.StackLayout)instance;
+            that.Spacing = (global::System.Double)Value;
+        }
+        private object get_11_StackLayout_Orientation(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.StackLayout)instance;
+            return that.Orientation;
+        }
+        private void set_11_StackLayout_Orientation(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.StackLayout)instance;
+            that.Orientation = (global::Microsoft.UI.Xaml.Controls.Orientation)Value;
+        }
+        private object get_12_Layout_IndexBasedLayoutOrientation(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.Layout)instance;
+            return that.IndexBasedLayoutOrientation;
+        }
+        private object get_13_MainWindow_userRooms(object instance)
+        {
+            var that = (global::Chat.MainWindow)instance;
+            return that.userRooms;
+        }
+        private void set_13_MainWindow_userRooms(object instance, object Value)
+        {
+            var that = (global::Chat.MainWindow)instance;
+            that.userRooms = (global::System.Collections.ObjectModel.ObservableCollection<global::Chat.DataModels.ChatRoom>)Value;
+        }
+        private object get_14_ChatRoom_Id(object instance)
+        {
+            var that = (global::Chat.DataModels.ChatRoom)instance;
+            return that.Id;
+        }
+        private void set_14_ChatRoom_Id(object instance, object Value)
+        {
+            var that = (global::Chat.DataModels.ChatRoom)instance;
+            that.Id = (global::System.String)Value;
+        }
+        private object get_15_ChatRoom_Name(object instance)
+        {
+            var that = (global::Chat.DataModels.ChatRoom)instance;
+            return that.Name;
+        }
+        private void set_15_ChatRoom_Name(object instance, object Value)
+        {
+            var that = (global::Chat.DataModels.ChatRoom)instance;
+            that.Name = (global::System.String)Value;
+        }
+        private object get_16_ChatRoom_Code(object instance)
+        {
+            var that = (global::Chat.DataModels.ChatRoom)instance;
+            return that.Code;
+        }
+        private void set_16_ChatRoom_Code(object instance, object Value)
+        {
+            var that = (global::Chat.DataModels.ChatRoom)instance;
+            that.Code = (global::System.String)Value;
+        }
+        private object get_17_MainWindow_Messages(object instance)
+        {
+            var that = (global::Chat.MainWindow)instance;
+            return that.Messages;
+        }
+        private object get_18_Message_Username(object instance)
+        {
+            var that = (global::Chat.DataModels.Message)instance;
+            return that.Username;
+        }
+        private void set_18_Message_Username(object instance, object Value)
+        {
+            var that = (global::Chat.DataModels.Message)instance;
+            that.Username = (global::System.String)Value;
+        }
+        private object get_19_Message_Text(object instance)
+        {
+            var that = (global::Chat.DataModels.Message)instance;
+            return that.Text;
+        }
+        private void set_19_Message_Text(object instance, object Value)
+        {
+            var that = (global::Chat.DataModels.Message)instance;
+            that.Text = (global::System.String)Value;
+        }
+        private object get_20_Message_SentAt(object instance)
+        {
+            var that = (global::Chat.DataModels.Message)instance;
+            return that.SentAt;
+        }
+        private void set_20_Message_SentAt(object instance, object Value)
+        {
+            var that = (global::Chat.DataModels.Message)instance;
+            that.SentAt = (global::System.String)Value;
+        }
+        private object get_21_MainWindow_UsersInRoom(object instance)
+        {
+            var that = (global::Chat.MainWindow)instance;
+            return that.UsersInRoom;
+        }
+        private object get_22_User_Username(object instance)
+        {
+            var that = (global::Chat.DataModels.User)instance;
+            return that.Username;
+        }
+        private void set_22_User_Username(object instance, object Value)
+        {
+            var that = (global::Chat.DataModels.User)instance;
+            that.Username = (global::System.String)Value;
+        }
+        private object get_23_TreeViewNode_Children(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Children;
         }
-        private object get_2_TreeViewNode_Content(object instance)
+        private object get_24_TreeViewNode_Content(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Content;
         }
-        private void set_2_TreeViewNode_Content(object instance, object Value)
+        private void set_24_TreeViewNode_Content(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             that.Content = (global::System.Object)Value;
         }
-        private object get_3_TreeViewNode_Depth(object instance)
+        private object get_25_TreeViewNode_Depth(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Depth;
         }
-        private object get_4_TreeViewNode_HasChildren(object instance)
+        private object get_26_TreeViewNode_HasChildren(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.HasChildren;
         }
-        private object get_5_TreeViewNode_HasUnrealizedChildren(object instance)
+        private object get_27_TreeViewNode_HasUnrealizedChildren(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.HasUnrealizedChildren;
         }
-        private void set_5_TreeViewNode_HasUnrealizedChildren(object instance, object Value)
+        private void set_27_TreeViewNode_HasUnrealizedChildren(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             that.HasUnrealizedChildren = (global::System.Boolean)Value;
         }
-        private object get_6_TreeViewNode_IsExpanded(object instance)
+        private object get_28_TreeViewNode_IsExpanded(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.IsExpanded;
         }
-        private void set_6_TreeViewNode_IsExpanded(object instance, object Value)
+        private void set_28_TreeViewNode_IsExpanded(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             that.IsExpanded = (global::System.Boolean)Value;
         }
-        private object get_7_TreeViewNode_Parent(object instance)
+        private object get_29_TreeViewNode_Parent(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Parent;
@@ -521,50 +1075,192 @@ namespace Chat.Chat_XamlTypeInfo
                 xamlMember.Getter = get_0_XamlControlsResources_UseCompactResources;
                 xamlMember.Setter = set_0_XamlControlsResources_UseCompactResources;
                 break;
+            case "Microsoft.UI.Xaml.Media.MicaBackdrop.Kind":
+                userType = (global::Chat.Chat_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Media.MicaBackdrop");
+                xamlMember = new global::Chat.Chat_XamlTypeInfo.XamlMember(this, "Kind", "Microsoft.UI.Composition.SystemBackdrops.MicaKind");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_1_MicaBackdrop_Kind;
+                xamlMember.Setter = set_1_MicaBackdrop_Kind;
+                break;
+            case "Microsoft.UI.Xaml.Controls.ItemsRepeater.ItemTemplate":
+                userType = (global::Chat.Chat_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ItemsRepeater");
+                xamlMember = new global::Chat.Chat_XamlTypeInfo.XamlMember(this, "ItemTemplate", "Object");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_2_ItemsRepeater_ItemTemplate;
+                xamlMember.Setter = set_2_ItemsRepeater_ItemTemplate;
+                break;
+            case "Microsoft.UI.Xaml.Controls.ItemsRepeater.ItemsSource":
+                userType = (global::Chat.Chat_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ItemsRepeater");
+                xamlMember = new global::Chat.Chat_XamlTypeInfo.XamlMember(this, "ItemsSource", "Object");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_3_ItemsRepeater_ItemsSource;
+                xamlMember.Setter = set_3_ItemsRepeater_ItemsSource;
+                break;
+            case "Microsoft.UI.Xaml.Controls.ItemsRepeater.Layout":
+                userType = (global::Chat.Chat_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ItemsRepeater");
+                xamlMember = new global::Chat.Chat_XamlTypeInfo.XamlMember(this, "Layout", "Microsoft.UI.Xaml.Controls.Layout");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_4_ItemsRepeater_Layout;
+                xamlMember.Setter = set_4_ItemsRepeater_Layout;
+                break;
+            case "Microsoft.UI.Xaml.Controls.ItemsRepeater.Background":
+                userType = (global::Chat.Chat_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ItemsRepeater");
+                xamlMember = new global::Chat.Chat_XamlTypeInfo.XamlMember(this, "Background", "Microsoft.UI.Xaml.Media.Brush");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_5_ItemsRepeater_Background;
+                xamlMember.Setter = set_5_ItemsRepeater_Background;
+                break;
+            case "Microsoft.UI.Xaml.Controls.ItemsRepeater.HorizontalCacheLength":
+                userType = (global::Chat.Chat_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ItemsRepeater");
+                xamlMember = new global::Chat.Chat_XamlTypeInfo.XamlMember(this, "HorizontalCacheLength", "Double");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_6_ItemsRepeater_HorizontalCacheLength;
+                xamlMember.Setter = set_6_ItemsRepeater_HorizontalCacheLength;
+                break;
+            case "Microsoft.UI.Xaml.Controls.ItemsRepeater.ItemTransitionProvider":
+                userType = (global::Chat.Chat_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ItemsRepeater");
+                xamlMember = new global::Chat.Chat_XamlTypeInfo.XamlMember(this, "ItemTransitionProvider", "Microsoft.UI.Xaml.Controls.ItemCollectionTransitionProvider");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_7_ItemsRepeater_ItemTransitionProvider;
+                xamlMember.Setter = set_7_ItemsRepeater_ItemTransitionProvider;
+                break;
+            case "Microsoft.UI.Xaml.Controls.ItemsRepeater.ItemsSourceView":
+                userType = (global::Chat.Chat_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ItemsRepeater");
+                xamlMember = new global::Chat.Chat_XamlTypeInfo.XamlMember(this, "ItemsSourceView", "Microsoft.UI.Xaml.Controls.ItemsSourceView");
+                xamlMember.Getter = get_8_ItemsRepeater_ItemsSourceView;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Microsoft.UI.Xaml.Controls.ItemsRepeater.VerticalCacheLength":
+                userType = (global::Chat.Chat_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ItemsRepeater");
+                xamlMember = new global::Chat.Chat_XamlTypeInfo.XamlMember(this, "VerticalCacheLength", "Double");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_9_ItemsRepeater_VerticalCacheLength;
+                xamlMember.Setter = set_9_ItemsRepeater_VerticalCacheLength;
+                break;
+            case "Microsoft.UI.Xaml.Controls.StackLayout.Spacing":
+                userType = (global::Chat.Chat_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.StackLayout");
+                xamlMember = new global::Chat.Chat_XamlTypeInfo.XamlMember(this, "Spacing", "Double");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_10_StackLayout_Spacing;
+                xamlMember.Setter = set_10_StackLayout_Spacing;
+                break;
+            case "Microsoft.UI.Xaml.Controls.StackLayout.Orientation":
+                userType = (global::Chat.Chat_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.StackLayout");
+                xamlMember = new global::Chat.Chat_XamlTypeInfo.XamlMember(this, "Orientation", "Microsoft.UI.Xaml.Controls.Orientation");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_11_StackLayout_Orientation;
+                xamlMember.Setter = set_11_StackLayout_Orientation;
+                break;
+            case "Microsoft.UI.Xaml.Controls.Layout.IndexBasedLayoutOrientation":
+                userType = (global::Chat.Chat_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Layout");
+                xamlMember = new global::Chat.Chat_XamlTypeInfo.XamlMember(this, "IndexBasedLayoutOrientation", "Microsoft.UI.Xaml.Controls.IndexBasedLayoutOrientation");
+                xamlMember.Getter = get_12_Layout_IndexBasedLayoutOrientation;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Chat.MainWindow.userRooms":
+                userType = (global::Chat.Chat_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Chat.MainWindow");
+                xamlMember = new global::Chat.Chat_XamlTypeInfo.XamlMember(this, "userRooms", "System.Collections.ObjectModel.ObservableCollection`1<Chat.DataModels.ChatRoom>");
+                xamlMember.Getter = get_13_MainWindow_userRooms;
+                xamlMember.Setter = set_13_MainWindow_userRooms;
+                break;
+            case "Chat.DataModels.ChatRoom.Id":
+                userType = (global::Chat.Chat_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Chat.DataModels.ChatRoom");
+                xamlMember = new global::Chat.Chat_XamlTypeInfo.XamlMember(this, "Id", "String");
+                xamlMember.Getter = get_14_ChatRoom_Id;
+                xamlMember.Setter = set_14_ChatRoom_Id;
+                break;
+            case "Chat.DataModels.ChatRoom.Name":
+                userType = (global::Chat.Chat_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Chat.DataModels.ChatRoom");
+                xamlMember = new global::Chat.Chat_XamlTypeInfo.XamlMember(this, "Name", "String");
+                xamlMember.Getter = get_15_ChatRoom_Name;
+                xamlMember.Setter = set_15_ChatRoom_Name;
+                break;
+            case "Chat.DataModels.ChatRoom.Code":
+                userType = (global::Chat.Chat_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Chat.DataModels.ChatRoom");
+                xamlMember = new global::Chat.Chat_XamlTypeInfo.XamlMember(this, "Code", "String");
+                xamlMember.Getter = get_16_ChatRoom_Code;
+                xamlMember.Setter = set_16_ChatRoom_Code;
+                break;
+            case "Chat.MainWindow.Messages":
+                userType = (global::Chat.Chat_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Chat.MainWindow");
+                xamlMember = new global::Chat.Chat_XamlTypeInfo.XamlMember(this, "Messages", "System.Collections.ObjectModel.ObservableCollection`1<Chat.DataModels.Message>");
+                xamlMember.Getter = get_17_MainWindow_Messages;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Chat.DataModels.Message.Username":
+                userType = (global::Chat.Chat_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Chat.DataModels.Message");
+                xamlMember = new global::Chat.Chat_XamlTypeInfo.XamlMember(this, "Username", "String");
+                xamlMember.Getter = get_18_Message_Username;
+                xamlMember.Setter = set_18_Message_Username;
+                break;
+            case "Chat.DataModels.Message.Text":
+                userType = (global::Chat.Chat_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Chat.DataModels.Message");
+                xamlMember = new global::Chat.Chat_XamlTypeInfo.XamlMember(this, "Text", "String");
+                xamlMember.Getter = get_19_Message_Text;
+                xamlMember.Setter = set_19_Message_Text;
+                break;
+            case "Chat.DataModels.Message.SentAt":
+                userType = (global::Chat.Chat_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Chat.DataModels.Message");
+                xamlMember = new global::Chat.Chat_XamlTypeInfo.XamlMember(this, "SentAt", "String");
+                xamlMember.Getter = get_20_Message_SentAt;
+                xamlMember.Setter = set_20_Message_SentAt;
+                break;
+            case "Chat.MainWindow.UsersInRoom":
+                userType = (global::Chat.Chat_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Chat.MainWindow");
+                xamlMember = new global::Chat.Chat_XamlTypeInfo.XamlMember(this, "UsersInRoom", "System.Collections.ObjectModel.ObservableCollection`1<Chat.DataModels.User>");
+                xamlMember.Getter = get_21_MainWindow_UsersInRoom;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Chat.DataModels.User.Username":
+                userType = (global::Chat.Chat_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Chat.DataModels.User");
+                xamlMember = new global::Chat.Chat_XamlTypeInfo.XamlMember(this, "Username", "String");
+                xamlMember.Getter = get_22_User_Username;
+                xamlMember.Setter = set_22_User_Username;
+                break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Children":
                 userType = (global::Chat.Chat_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::Chat.Chat_XamlTypeInfo.XamlMember(this, "Children", "System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>");
-                xamlMember.Getter = get_1_TreeViewNode_Children;
+                xamlMember.Getter = get_23_TreeViewNode_Children;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Content":
                 userType = (global::Chat.Chat_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::Chat.Chat_XamlTypeInfo.XamlMember(this, "Content", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_2_TreeViewNode_Content;
-                xamlMember.Setter = set_2_TreeViewNode_Content;
+                xamlMember.Getter = get_24_TreeViewNode_Content;
+                xamlMember.Setter = set_24_TreeViewNode_Content;
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Depth":
                 userType = (global::Chat.Chat_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::Chat.Chat_XamlTypeInfo.XamlMember(this, "Depth", "Int32");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_3_TreeViewNode_Depth;
+                xamlMember.Getter = get_25_TreeViewNode_Depth;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.HasChildren":
                 userType = (global::Chat.Chat_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::Chat.Chat_XamlTypeInfo.XamlMember(this, "HasChildren", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_4_TreeViewNode_HasChildren;
+                xamlMember.Getter = get_26_TreeViewNode_HasChildren;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.HasUnrealizedChildren":
                 userType = (global::Chat.Chat_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::Chat.Chat_XamlTypeInfo.XamlMember(this, "HasUnrealizedChildren", "Boolean");
-                xamlMember.Getter = get_5_TreeViewNode_HasUnrealizedChildren;
-                xamlMember.Setter = set_5_TreeViewNode_HasUnrealizedChildren;
+                xamlMember.Getter = get_27_TreeViewNode_HasUnrealizedChildren;
+                xamlMember.Setter = set_27_TreeViewNode_HasUnrealizedChildren;
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.IsExpanded":
                 userType = (global::Chat.Chat_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::Chat.Chat_XamlTypeInfo.XamlMember(this, "IsExpanded", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_6_TreeViewNode_IsExpanded;
-                xamlMember.Setter = set_6_TreeViewNode_IsExpanded;
+                xamlMember.Getter = get_28_TreeViewNode_IsExpanded;
+                xamlMember.Setter = set_28_TreeViewNode_IsExpanded;
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Parent":
                 userType = (global::Chat.Chat_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::Chat.Chat_XamlTypeInfo.XamlMember(this, "Parent", "Microsoft.UI.Xaml.Controls.TreeViewNode");
-                xamlMember.Getter = get_7_TreeViewNode_Parent;
+                xamlMember.Getter = get_29_TreeViewNode_Parent;
                 xamlMember.SetIsReadOnly();
                 break;
             }

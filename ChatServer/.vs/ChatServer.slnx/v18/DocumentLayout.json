@@ -38,7 +38,8 @@
               "RelativeToolTip": "ChatServer\\TcpServer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-26T21:05:49.108Z"
+              "WhenOpened": "2026-02-26T21:05:49.108Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -50,7 +51,8 @@
               "RelativeToolTip": "ChatServer\\ConnectionManager.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-26T20:28:17.157Z"
+              "WhenOpened": "2026-02-26T20:28:17.157Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -60,7 +62,7 @@
               "RelativeDocumentMoniker": "ChatServer\\Database.cs",
               "ToolTip": "C:\\Users\\vboxuser\\Documents\\GitHub\\Chat-app\\ChatServer\\ChatServer\\Database.cs",
               "RelativeToolTip": "ChatServer\\Database.cs",
-              "ViewState": "AgIAAGsAAAAAAAAAAAAAAIUAAACxAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIUAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-26T16:09:43.943Z",
               "EditorCaption": ""
