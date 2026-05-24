@@ -1,0 +1,21 @@
+[{
+  "_id": {
+    "$oid": "69af0b82e802502400b15eba"
+  },
+  "Owner": {
+    "$oid": "69aef6c0740748c077317d69"
+  },
+  "RoomName": "general",
+  "RoomCode": "general",
+  "Members": [
+    {
+      "$oid": "69aef6c0740748c077317d69"
+    },
+    {
+      "$oid": "69c458aa557dc1958fecd9cc"
+    },
+    {
+      "$oid": "6a04d75cf221c97314dda85c"
+    }
+  ]
+}]

@@ -1,0 +1,14 @@
+[{
+  "_id": {
+    "$oid": "69aef6c0740748c077317d69"
+  },
+  "Username": "admin",
+  "Password": "$2a$11$OkqmKQH5rw.u4Jfza/tnNupoS84HAFn0ETXqosKK/d./F39qnx2Vi"
+},
+{
+  "_id": {
+    "$oid": "69c458aa557dc1958fecd9cc"
+  },
+  "Username": "player",
+  "Password": "$2a$11$V60BGZUS0eXxLgA5O/PzV.UaxlIKYl1UKArDjlKwIKub1HyFp9Zf2"
+}]
