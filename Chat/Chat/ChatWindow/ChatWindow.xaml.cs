@@ -6,6 +6,7 @@ using Microsoft.UI.Xaml.Input;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
 
 // To learn more about WinUI, the WinUI project structure,
@@ -315,6 +316,117 @@ namespace Chat
                     await ShowAlert("ERROR", "You need to provide name and code");
                 }
             }
+        }
+
+        private async void SettingsButton_Click(object sender, RoutedEventArgs e)
+        {
+            // NEW USERNAME
+            TextBox newUsername = new TextBox
+            {
+                Header = "new username",
+                Margin = new Thickness(0, 0, 10, 0),
+                Description = "..."
+            };
+
+            Button usernameButton = new Button
+            {
+                Content = "Change", 
+                VerticalAlignment = VerticalAlignment.Bottom 
+            };
+
+            Grid usernameGrid = new Grid();
+            usernameGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) }); // Fill space
+            usernameGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
+            usernameGrid.Margin = new Thickness(0, 0, 0, 10);
+
+            Grid.SetColumn(newUsername, 0);
+            Grid.SetColumn(usernameButton, 1);
+            usernameGrid.Children.Add(newUsername);
+            usernameGrid.Children.Add(usernameButton);
+
+            TextBox oldPassword = new TextBox
+            {
+                Header = "old password",
+                Margin = new Thickness(0, 0, 0, 10)
+            };
+
+            TextBox newPassword = new TextBox
+            {
+                Header = "new password",
+                Margin = new Thickness(0, 0, 10, 0),
+                Description = "..."
+            };
+
+            Button passwordButton = new Button
+            {
+                Content = "Change", 
+                VerticalAlignment = VerticalAlignment.Bottom
+            };
+
+            // NEW PASSWORD
+            Grid passwordGrid = new Grid();
+            passwordGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+            passwordGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
+            passwordGrid.Margin = new Thickness(0, 0, 0, 10);
+
+            Grid.SetColumn(newPassword, 0);
+            Grid.SetColumn(passwordButton, 1);
+            passwordGrid.Children.Add(newPassword);
+            passwordGrid.Children.Add(passwordButton);
+
+            StackPanel panel = new StackPanel();
+            panel.Children.Add(usernameGrid);
+            panel.Children.Add(oldPassword);
+            panel.Children.Add(passwordGrid);
+
+            ContentDialog dialog = new ContentDialog
+            {
+                Title = "Update Account",
+                Content = panel,
+                PrimaryButtonText = null,
+                CloseButtonText = "Close",
+                DefaultButton = ContentDialogButton.Primary,
+                XamlRoot = this.Content.XamlRoot
+            };
+
+            string regex = "!@#$%^&*()_-+=/?.,<>;:][}{\\|\'\"";
+
+            usernameButton.Click += async (s, args) => {
+                string usernameString = newUsername.Text;
+
+                if (usernameString.Length < 4)
+                {
+                    newUsername.Description = "Username must be at least 4 characters";
+                }
+                else if (usernameString.Any(c => regex.Contains(c)))
+                {
+                    newUsername.Description = "Special characters are not allowed";
+                }
+                else
+                {
+                    _ = client.SendAsync($"CHANGE_USERNAME={usernameString}");
+                }
+            };
+
+            passwordButton.Click += (s, args) => {
+                string oldPasswordString = oldPassword.Text;
+                string newPasswordString = newPassword.Text;
+
+                if (newPasswordString.Length < 4 || oldPasswordString.Length == 0)
+                {
+                    newPassword.Description = "Passowrd must be at least 4 characters";
+                }
+                else if (newPasswordString.Any(c => regex.Contains(c)))
+                {
+                    newPassword.Description = "Special characters are not allowed";
+                }
+                else
+                {
+                    _ = client.SendAsync($"CHANGE_PASSWORD={oldPasswordString}@{newPasswordString}");
+                }
+            };
+
+            ContentDialogResult result = await dialog.ShowAsync();
         }
 
         private async void CreateRoomButton_Click(object sender, RoutedEventArgs e)
