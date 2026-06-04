@@ -24,6 +24,60 @@ namespace ChatServer
          * =============================
          */
 
+        public async Task ChangeUsernameAsync(string username, TcpClient client)
+        {
+            string uid = ConnectionManager.GetUserId(client);
+
+            if (!ObjectId.TryParse(uid, out ObjectId objectId))
+            {
+                await ConnectionManager.SendAsync("UPDATE_USERNAME_FAIL", client);
+                return;
+            }
+
+            var obj = await _db.Users
+                .Where(u => u.Id == objectId)
+                .FirstOrDefaultAsync();
+
+            if (obj == null)
+            {
+                await ConnectionManager.SendAsync("UPDATE_USERNAME_FAIL", client);
+                return;
+            }
+
+            obj.Username = username;
+
+            await _db.SaveChangesAsync();
+
+            await ConnectionManager.SendAsync("UPDATE_USERNAME_SUCCESS", client);
+        }
+
+        public async Task ChangePasswordAsync(string newPassword, TcpClient client)
+        {
+            string uid = ConnectionManager.GetUserId(client);
+
+            if (!ObjectId.TryParse(uid, out ObjectId objectId))
+            {
+                await ConnectionManager.SendAsync("UPDATE_PASSWORD_FAIL", client);
+                return;
+            }
+
+            var obj = await _db.Users
+                .Where(u => u.Id == objectId)
+                .FirstOrDefaultAsync();
+
+            if (obj == null)
+            {
+                await ConnectionManager.SendAsync("UPDATE_PASSWORD_FAIL", client);
+                return;
+            }
+
+            obj.Password = BCrypt.Net.BCrypt.HashPassword(newPassword);
+
+            await _db.SaveChangesAsync();
+
+            await ConnectionManager.SendAsync("UPDATE_PASSWORD_SUCCESS", client);
+        }
+
         public async Task SendMessageHistoryAsync(string roomId, TcpClient client)
         {
             var oid = new ObjectId(roomId);

@@ -124,6 +124,20 @@ namespace ChatServer
 
                         await ConnectionManager.SendAsync(response, client);
                     }
+                    else if (msg.StartsWith("CHANGE_USERNAME:"))
+                    {
+                        Console.WriteLine("CHANGE_USERNAME");
+                        msg = msg.Substring(16);
+
+                        await database.ChangeUsernameAsync(msg, client);
+                    }
+                    else if (msg.StartsWith("CHANGE_PASSWORD:"))
+                    {
+                        Console.WriteLine("CHANGE_PASSWORD");
+                        msg = msg.Substring(16);
+
+                        await database.ChangePasswordAsync(msg, client);
+                    }
                     else if (msg.StartsWith("DISCONNECT"))
                     {
                         break; // Logouts user

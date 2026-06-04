@@ -7,16 +7,20 @@
       "RelativeMoniker": "D:0:0:{B5A061BC-ADA6-341D-6A6B-9AE987D02BFD}|ChatServer\\ChatServer.csproj|solutionrelative:chatserver\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B5A061BC-ADA6-341D-6A6B-9AE987D02BFD}|ChatServer\\ChatServer.csproj|c:\\users\\vboxuser\\documents\\github\\chat-app\\chatserver\\chatserver\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5A061BC-ADA6-341D-6A6B-9AE987D02BFD}|ChatServer\\ChatServer.csproj|solutionrelative:chatserver\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B5A061BC-ADA6-341D-6A6B-9AE987D02BFD}|ChatServer\\ChatServer.csproj|c:\\users\\vboxuser\\documents\\github\\chat-app\\chatserver\\chatserver\\connectionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B5A061BC-ADA6-341D-6A6B-9AE987D02BFD}|ChatServer\\ChatServer.csproj|solutionrelative:chatserver\\connectionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B5A061BC-ADA6-341D-6A6B-9AE987D02BFD}|ChatServer\\ChatServer.csproj|c:\\users\\vboxuser\\documents\\github\\chat-app\\chatserver\\chatserver\\tcpserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B5A061BC-ADA6-341D-6A6B-9AE987D02BFD}|ChatServer\\ChatServer.csproj|solutionrelative:chatserver\\tcpserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5A061BC-ADA6-341D-6A6B-9AE987D02BFD}|ChatServer\\ChatServer.csproj|c:\\users\\vboxuser\\documents\\github\\chat-app\\chatserver\\chatserver\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5A061BC-ADA6-341D-6A6B-9AE987D02BFD}|ChatServer\\ChatServer.csproj|solutionrelative:chatserver\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5A061BC-ADA6-341D-6A6B-9AE987D02BFD}|ChatServer\\ChatServer.csproj|c:\\users\\vboxuser\\documents\\github\\chat-app\\chatserver\\chatserver\\chatdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5A061BC-ADA6-341D-6A6B-9AE987D02BFD}|ChatServer\\ChatServer.csproj|solutionrelative:chatserver\\chatdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,31 +30,46 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
+              "Title": "ChatDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\vboxuser\\Documents\\GitHub\\Chat-app\\ChatServer\\ChatServer\\ChatDbContext.cs",
+              "RelativeDocumentMoniker": "ChatServer\\ChatDbContext.cs",
+              "ToolTip": "C:\\Users\\vboxuser\\Documents\\GitHub\\Chat-app\\ChatServer\\ChatServer\\ChatDbContext.cs",
+              "RelativeToolTip": "ChatServer\\ChatDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-04T18:55:42.194Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "TcpServer.cs",
               "DocumentMoniker": "C:\\Users\\vboxuser\\Documents\\GitHub\\Chat-app\\ChatServer\\ChatServer\\TcpServer.cs",
               "RelativeDocumentMoniker": "ChatServer\\TcpServer.cs",
               "ToolTip": "C:\\Users\\vboxuser\\Documents\\GitHub\\Chat-app\\ChatServer\\ChatServer\\TcpServer.cs",
               "RelativeToolTip": "ChatServer\\TcpServer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAHcAAAAAAAAAAAAEwIoAAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-26T21:05:49.108Z"
+              "WhenOpened": "2026-02-26T21:05:49.108Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "ConnectionManager.cs",
               "DocumentMoniker": "C:\\Users\\vboxuser\\Documents\\GitHub\\Chat-app\\ChatServer\\ChatServer\\ConnectionManager.cs",
               "RelativeDocumentMoniker": "ChatServer\\ConnectionManager.cs",
               "ToolTip": "C:\\Users\\vboxuser\\Documents\\GitHub\\Chat-app\\ChatServer\\ChatServer\\ConnectionManager.cs",
               "RelativeToolTip": "ChatServer\\ConnectionManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAwB0AAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-26T20:28:17.157Z"
+              "WhenOpened": "2026-02-26T20:28:17.157Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -60,14 +79,14 @@
               "RelativeDocumentMoniker": "ChatServer\\Database.cs",
               "ToolTip": "C:\\Users\\vboxuser\\Documents\\GitHub\\Chat-app\\ChatServer\\ChatServer\\Database.cs",
               "RelativeToolTip": "ChatServer\\Database.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABkAAAAAAAAAAAAswCAAAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-26T16:09:43.943Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\vboxuser\\Documents\\GitHub\\Chat-app\\ChatServer\\ChatServer\\Program.cs",
               "RelativeDocumentMoniker": "ChatServer\\Program.cs",
@@ -75,7 +94,8 @@
               "RelativeToolTip": "ChatServer\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-25T19:11:47.088Z"
+              "WhenOpened": "2026-02-25T19:11:47.088Z",
+              "EditorCaption": ""
             }
           ]
         }

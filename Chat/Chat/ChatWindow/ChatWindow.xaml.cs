@@ -344,12 +344,6 @@ namespace Chat
             usernameGrid.Children.Add(newUsername);
             usernameGrid.Children.Add(usernameButton);
 
-            TextBox oldPassword = new TextBox
-            {
-                Header = "old password",
-                Margin = new Thickness(0, 0, 0, 10)
-            };
-
             TextBox newPassword = new TextBox
             {
                 Header = "new password",
@@ -376,7 +370,6 @@ namespace Chat
 
             StackPanel panel = new StackPanel();
             panel.Children.Add(usernameGrid);
-            panel.Children.Add(oldPassword);
             panel.Children.Add(passwordGrid);
 
             ContentDialog dialog = new ContentDialog
@@ -404,15 +397,17 @@ namespace Chat
                 }
                 else
                 {
-                    _ = client.SendAsync($"CHANGE_USERNAME={usernameString}");
+                    _ = client.SendAsync($"CHANGE_USERNAME:{usernameString}");
+
+                    newUsername.Description = "Username changed";
+                    newUsername.Text = "";
                 }
             };
 
             passwordButton.Click += (s, args) => {
-                string oldPasswordString = oldPassword.Text;
                 string newPasswordString = newPassword.Text;
 
-                if (newPasswordString.Length < 4 || oldPasswordString.Length == 0)
+                if (newPasswordString.Length < 4)
                 {
                     newPassword.Description = "Passowrd must be at least 4 characters";
                 }
@@ -422,7 +417,10 @@ namespace Chat
                 }
                 else
                 {
-                    _ = client.SendAsync($"CHANGE_PASSWORD={oldPasswordString}@{newPasswordString}");
+                    _ = client.SendAsync($"CHANGE_PASSWORD:{newPasswordString}");
+                    
+                    newPassword.Description = "Password changed";
+                    newPassword.Text = "";
                 }
             };
 
